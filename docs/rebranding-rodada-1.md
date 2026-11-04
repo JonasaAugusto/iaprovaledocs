@@ -17,15 +17,15 @@ Objetivo: renovar o visual e a conversão da home pública e do app web. O app d
 - Cursos patrocinados só antes de uma pesquisa, sempre identificados como anúncio, sem rastreadores e com imagens hospedadas no próprio site.
 - Cada cartão de resultado tem uma ação principal.
 
-## Home pública (a construir)
+## Home pública (pronta, aguardando liberação)
 
 - Demonstração roteirizada do produto, sem busca real.
 - Como funciona (3 passos), o que a pessoa recebe, planos, faixa para anunciantes, faixa para quem quer uma plataforma própria e perguntas frequentes.
 - Chamada principal: pedir acesso.
 
-## Pedido de acesso (a construir)
+## Pedido de acesso
 
-Chat simulado com fluxo fixo: consentimento, nome completo, usuário, telefone com máscara e envio. O acesso continua sendo liberado manualmente.
+Chat com fluxo roteirizado, descrito em [Pedido de acesso](pedido-de-acesso.md). O acesso continua sendo liberado manualmente.
 
 ## Fora desta rodada
 
