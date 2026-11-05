@@ -2,7 +2,7 @@
 
 O acesso ao IAprovale é por convite. Quem quer entrar pede pelo chat da página inicial; o login só é criado depois que o responsável aprova o pedido.
 
-Estado: **no ar**. O pedido é aprovado na aba Solicitações da Administração, que cria o login e o envia ao WhatsApp da pessoa (veja [Solicitações de acesso](solicitacoes-de-acesso.md)).
+Estado: **no ar**. O pedido é aprovado na aba Solicitações da Administração, que cria o login; o responsável repassa o login à pessoa por conta própria (veja [Solicitações de acesso](solicitacoes-de-acesso.md)).
 
 ## Como a conversa funciona
 
@@ -10,7 +10,7 @@ Estado: **no ar**. O pedido é aprovado na aba Solicitações da Administração
 2. O campo só destrava quando há uma pergunta para responder. Ordem: nome completo, telefone (com máscara e DDD) e nome de usuário.
 3. Enquanto o agente fala, o campo fica bloqueado e a cor do botão e do campo escurece de forma gradual (no tema escuro, o dourado). Ao destravar, clareia de forma gradual. Com "reduzir movimento" ligado, a troca é instantânea.
 4. O nome de usuário é verificado em tempo real, a cada caractere digitado (a partir do terceiro). O botão de enviar fica apagado e só acende quando o servidor confirma que o nome está livre; nesse caso aparece um "V" discreto dentro do campo. Se o nome já existir, aparece um aviso flutuante em vidro translúcido ("Tente outro usuário."), sem empurrar a conversa, e a pessoa apaga e escreve outro. O servidor responde apenas livre ou em uso, sem dizer o motivo e sem devolver listas, e limita a quantidade de consultas por conexão. Se mesmo assim o servidor recusar no envio, o campo reabre com o mesmo usuário marcado como em uso, sem repetir a pergunta.
-5. Depois do envio, o agente confirma que a pessoa receberá o login e a senha no WhatsApp, e convida: "Enquanto você não recebe o seu acesso, pode tirar algumas dúvidas comigo!"
+5. Depois do envio, o agente confirma que a pessoa receberá o login e a senha em breve, e convida: "Enquanto você não recebe o seu acesso, pode tirar algumas dúvidas comigo!"
 6. Começa uma janela de dúvidas de **8 perguntas ou 5 minutos**, o que vier primeiro, com um cronômetro no topo do chat, ao lado do botão de fechar. Ao acabar, o chat é bloqueado.
 
 ## Janela de dúvidas
@@ -30,4 +30,4 @@ Nome, telefone, nome de usuário desejado e, nos pedidos comerciais, a mensagem.
 
 ## Para a equipe (administradores)
 
-O pedido chega à aba **Solicitações** da Administração e o responsável recebe um aviso no WhatsApp. A decisão, a criação do login e o envio ao WhatsApp da pessoa acontecem ali. Veja [Solicitações de acesso](solicitacoes-de-acesso.md).
+O pedido chega à aba **Solicitações** da Administração e o responsável recebe um aviso no Telegram. A decisão e a criação do login acontecem ali; o envio do login à pessoa é feito pelo responsável. Veja [Solicitações de acesso](solicitacoes-de-acesso.md).

@@ -46,10 +46,10 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 | Ícone do IAprovale (ramo com o nome embaixo) ao adicionar o site à tela de início do celular | **No ar** |
 | Pedido de acesso por chat, com verificação do nome de usuário em tempo real (veja [Pedido de acesso](pedido-de-acesso.md)) | **No ar** |
 | Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **No ar** |
-| Aviso ao responsável, no WhatsApp, quando chega um pedido novo | **No ar** |
+| Aviso ao responsável, no Telegram, quando chega um pedido novo | **No ar** |
 | Limite de 8 perguntas ou 5 minutos de dúvidas depois do pedido, o que vier primeiro | **No ar** |
 | Aba Solicitações na Administração: aprovar ou recusar pedidos (veja [Solicitações de acesso](solicitacoes-de-acesso.md)) | **No ar** |
-| Login enviado ao WhatsApp de quem teve o acesso aprovado, em mensagens separadas | **No ar** |
+| Login mostrado uma única vez ao aprovar, com botão de copiar, para o responsável enviar à pessoa | **No ar** |
 | Páginas de privacidade e termos de uso | **No ar** |
 | Testes automatizados de interface e de acessibilidade (WCAG AA): home, chat de pedido de acesso, app, administração, solicitações, configurações e login | **No ar** (todos passando) |
 
@@ -66,7 +66,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Preferência "usar o meu currículo" por padrão na busca (vale neste aparelho) | **No ar** |
 | Histórico das últimas 10 buscas, com os resultados de cada uma e botão de apagar | **No ar** |
 | Baixar os próprios dados, apagar o currículo e "Sair de todos os aparelhos" | **No ar** |
-| Excluir a própria conta em duas etapas: senha na tela e resposta "SIM" no WhatsApp | **No ar** |
+| Excluir a própria conta em duas etapas: senha na tela e resposta "SIM" no WhatsApp | Temporariamente indisponível: o WhatsApp da empresa está fora do ar |
 | Aviso ao responsável quando o usuário troca o telefone | **No ar** |
 | Contato com a equipe pelo WhatsApp, em Ajuda | **No ar** |
 | Bloco de saldo e uso de buscas ("em breve") | **No ar** (aviso de que chega em breve) |

@@ -12,14 +12,10 @@ O acesso ao IAprovale é por convite. Quem pede acesso pelo chat da página inic
 
 ## Aprovar
 
-1. O administrador toca em **Aprovar**. A confirmação abre na própria linha e mostra o usuário que será criado e o telefone para onde o login será enviado.
+1. O administrador toca em **Aprovar**. A confirmação abre na própria linha e mostra o usuário que será criado e o telefone informado no pedido.
 2. Ao confirmar com **Aprovar e enviar**, o sistema cria o usuário com uma senha provisória gerada ao acaso e marca o pedido como aprovado.
-3. O login é enviado ao WhatsApp da pessoa, pelo telefone que ela informou, em mensagens separadas para facilitar a cópia:
-   - boas-vindas com o endereço do site;
-   - o usuário, sozinho;
-   - a senha provisória, sozinha;
-   - um agradecimento curto e fixo.
-4. Se o WhatsApp não entregar, a tela avisa e mostra a senha **uma única vez**, para o administrador repassar por outro meio. A aprovação não é desfeita.
+3. A tela mostra o usuário e a senha provisória **uma única vez**, com botão de copiar, para o administrador enviar à pessoa pelo próprio WhatsApp. O sistema não envia o login por conta própria.
+4. A senha não pode ser consultada depois; se a tela for fechada antes de copiar, é preciso recusar e aprovar de novo com outro pedido.
 
 Ao aprovar, o número da pessoa também entra na lista de quem nunca recebe prospecção da empresa. Um pedido já decidido não pode ser aprovado de novo. Se o usuário pedido já existir, a aprovação é recusada e o pedido continua pendente, para o administrador recusar ou pedir outro nome.
 
