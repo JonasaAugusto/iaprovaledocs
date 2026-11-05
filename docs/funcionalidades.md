@@ -18,7 +18,7 @@ Estado: **No ar**.
 | Perfil | Formação, cidade, estado e currículo |
 | Administração | Criar usuário, gerar nova senha, renomear, desativar, reativar, excluir e ver informações de uso |
 | Administração | O administrador não exclui nem desativa a própria conta |
-| Ajuda | Guia "Como pesquisar" com exemplo ilustrado do cartão de resultado |
+| Ajuda | Guia "Como pesquisar" em abas (Começar, Onde buscar, Dicas e Entender o resultado), com exemplo ilustrado do cartão de resultado; cada aba, e cada abertura do guia, começa do alto |
 | Aparência | Tema claro e escuro |
 | Plataformas | App web e app desktop, ambos com o painel Informações |
 
