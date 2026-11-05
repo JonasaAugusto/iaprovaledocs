@@ -21,7 +21,7 @@ O acesso ao IAprovale é por convite. Quem pede acesso pelo chat da página inic
    - um agradecimento curto e fixo.
 4. Se o WhatsApp não entregar, a tela avisa e mostra a senha **uma única vez**, para o administrador repassar por outro meio. A aprovação não é desfeita.
 
-Um pedido já decidido não pode ser aprovado de novo. Se o usuário pedido já existir, a aprovação é recusada e o pedido continua pendente, para o administrador recusar ou pedir outro nome.
+Ao aprovar, o número da pessoa também entra na lista de quem nunca recebe prospecção da empresa. Um pedido já decidido não pode ser aprovado de novo. Se o usuário pedido já existir, a aprovação é recusada e o pedido continua pendente, para o administrador recusar ou pedir outro nome.
 
 ## Recusar
 
@@ -36,3 +36,7 @@ Quando chega um pedido, o responsável recebe um aviso informativo no WhatsApp, 
 - Só administradores veem a lista e decidem.
 - A senha provisória não fica guardada em lugar nenhum depois do envio; o sistema guarda apenas o resultado protegido dela.
 - O telefone usado para enviar o login é o informado pela própria pessoa no pedido.
+
+## Quanto tempo o pedido fica guardado
+
+Pedidos pendentes ou recusados são apagados automaticamente depois de 90 dias. Pedidos aprovados ficam enquanto a conta existir e saem junto com ela.

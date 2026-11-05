@@ -41,11 +41,13 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 | Administração com abas (Usuários e Solicitações), blocos, rótulos visíveis e ações sensíveis separadas | **No ar** |
 | Tela de login no novo visual, com suporte ao gerenciador de senhas do aparelho (veja [Decisões](decisoes.md)) | **No ar** |
 | Home pública nova com demonstração do produto e movimento ao rolar a página | **No ar** |
-| Três botões na chamada principal da home: Pedir acesso, Login e Ver como funciona | **No ar** |
+| Chamada principal da home com Pedir acesso e Ver como funciona, e Login no cabeçalho | **No ar** |
+| Marca "IAprovale by Augustus" em duas linhas, igual em todas as telas | **No ar** |
 | Ícone do IAprovale (ramo com o nome embaixo) ao adicionar o site à tela de início do celular | **No ar** |
 | Pedido de acesso por chat, com verificação do nome de usuário em tempo real (veja [Pedido de acesso](pedido-de-acesso.md)) | **No ar** |
 | Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **No ar** |
 | Aviso ao responsável, no WhatsApp, quando chega um pedido novo | **No ar** |
+| Limite de 8 perguntas ou 5 minutos de dúvidas depois do pedido, o que vier primeiro | **No ar** |
 | Aba Solicitações na Administração: aprovar ou recusar pedidos (veja [Solicitações de acesso](solicitacoes-de-acesso.md)) | **No ar** |
 | Login enviado ao WhatsApp de quem teve o acesso aprovado, em mensagens separadas | **No ar** |
 | Páginas de privacidade e termos de uso | **No ar** |
@@ -53,22 +55,36 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 
 ## Configurações do usuário
 
-Detalhes em [Configurações do usuário](configuracoes-do-usuario.md).
+Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-usuario.md).
 
 | Funcionalidade | Estado |
 |---|---|
 | Tela de Configurações, separada do Perfil, igual para administrador e usuário | **No ar** |
-| Troca de senha direta, pedindo a senha atual | **No ar** |
-| Nome de usuário editável, sem perder o perfil | **No ar** |
-| Telefone editável, com formatação automática enquanto se digita | **No ar** |
-| Tema claro, escuro ou automático | **No ar** |
-| Tamanho do texto em 3 níveis | **No ar** |
-| Histórico das últimas 10 buscas, com botão de apagar | **No ar** |
-| Exportar os próprios dados | **No ar** |
-| Apagar o currículo salvo | **No ar** |
-| "Sair de todos os aparelhos" | **No ar** |
+| Troca de senha, de usuário e de telefone, sempre pedindo a senha atual | **No ar** |
+| Telefone com formatação automática enquanto se digita | **No ar** |
+| Tema claro, escuro ou automático e tamanho do texto em 3 níveis | **No ar** |
+| Preferência "usar o meu currículo" por padrão na busca (vale neste aparelho) | **No ar** |
+| Histórico das últimas 10 buscas, com os resultados de cada uma e botão de apagar | **No ar** |
+| Baixar os próprios dados, apagar o currículo e "Sair de todos os aparelhos" | **No ar** |
+| Excluir a própria conta em duas etapas: senha na tela e resposta "SIM" no WhatsApp | **No ar** |
+| Aviso ao responsável quando o usuário troca o telefone | **No ar** |
+| Contato com a equipe pelo WhatsApp, em Ajuda | **No ar** |
 | Bloco de saldo e uso de buscas ("em breve") | **No ar** (aviso de que chega em breve) |
-| Ajuda e contato dentro das configurações | **Em andamento** (texto no ar; o link de contato ainda não) |
-| Aviso ao responsável quando o usuário troca o telefone | **Em andamento** (a troca é registrada; o envio do aviso ainda não está ligado) |
-| Preferência de busca "usar meu currículo" salva | **Decidido** |
-| Excluir a própria conta com confirmação dupla (na tela e por mensagem de WhatsApp, respondendo "Sim") | **Decidido** |
+
+## Privacidade e retenção (novembro de 2026)
+
+| Funcionalidade | Estado |
+|---|---|
+| Páginas de Privacidade e Termos revisadas contra o que o serviço faz hoje (LGPD), com controlador, encarregado, direitos, retenção e transferência internacional | **No ar** (a validação por advogado segue pendente) |
+| Limpeza automática diária: pedidos de acesso pendentes ou recusados, avisos ao responsável, exclusões já decididas e buscas do histórico com mais de 90 dias | **No ar** |
+| Quem é usuário do IAprovale nunca recebe prospecção da empresa | **No ar** |
+| Redefinir a senha de alguém, na Administração, encerra as sessões dela | **No ar** |
+| Proteção contra tentativas repetidas de senha também com tentativas simultâneas | **No ar** |
+| Proteções contra uso abusivo do pedido de acesso e do pedido de exclusão de conta | **No ar** |
+
+## Ainda por construir
+
+| Funcionalidade | Estado |
+|---|---|
+| Verificação do telefone por código, para provar que o número é da própria pessoa | **Sugerido** |
+| Cobrança, planos e regras de reembolso | **Decidido** (adiado) |

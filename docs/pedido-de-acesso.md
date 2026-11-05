@@ -11,12 +11,12 @@ Estado: **no ar**. O pedido é aprovado na aba Solicitações da Administração
 3. Enquanto o agente fala, o campo fica bloqueado e a cor do botão e do campo escurece de forma gradual (no tema escuro, o dourado). Ao destravar, clareia de forma gradual. Com "reduzir movimento" ligado, a troca é instantânea.
 4. O nome de usuário é verificado em tempo real, a cada caractere digitado (a partir do terceiro). O botão de enviar fica apagado e só acende quando o servidor confirma que o nome está livre; nesse caso aparece um "V" discreto dentro do campo. Se o nome já existir, aparece um aviso flutuante em vidro translúcido ("Tente outro usuário."), sem empurrar a conversa, e a pessoa apaga e escreve outro. O servidor responde apenas livre ou em uso, sem dizer o motivo e sem devolver listas, e limita a quantidade de consultas por conexão. Se mesmo assim o servidor recusar no envio, o campo reabre com o mesmo usuário marcado como em uso, sem repetir a pergunta.
 5. Depois do envio, o agente confirma que a pessoa receberá o login e a senha no WhatsApp, e convida: "Enquanto você não recebe o seu acesso, pode tirar algumas dúvidas comigo!"
-6. Começa uma janela de **5 minutos** de dúvidas, com um cronômetro no topo do chat, ao lado do botão de fechar. Ao zerar, o chat é bloqueado.
+6. Começa uma janela de dúvidas de **8 perguntas ou 5 minutos**, o que vier primeiro, com um cronômetro no topo do chat, ao lado do botão de fechar. Ao acabar, o chat é bloqueado.
 
 ## Janela de dúvidas
 
 - O tempo é contado no servidor. O navegador só exibe o relógio, então fechar e reabrir o chat não renova a janela.
-- Cada janela tem um número máximo de perguntas.
+- Cada janela tem um número máximo de perguntas (8).
 - Quem já usou uma janela recentemente pode ainda enviar o pedido, mas não ganha nova janela de dúvidas.
 - As respostas são geradas por IA com instruções fixas: só falam do IAprovale como descrito nesta documentação, não inventam preços, prazos nem funcionalidades, e não pedem dados pessoais. Quando não sabem, indicam que a equipe responde pelo WhatsApp.
 

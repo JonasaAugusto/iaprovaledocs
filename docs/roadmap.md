@@ -2,15 +2,16 @@
 
 ## Rodada 1 (no ar)
 
-Rebranding do app web e da home, tela de login, páginas de privacidade e termos, pedido de acesso por chat, aba Solicitações na Administração e login enviado por WhatsApp. Veja [Rebranding](rebranding-rodada-1.md) e [Solicitações de acesso](solicitacoes-de-acesso.md).
+Rebranding do app web e da home, tela de login, páginas de privacidade e termos, pedido de acesso por chat, aba Solicitações na Administração, login enviado por WhatsApp e Configurações completas. Veja [Rebranding](rebranding-rodada-1.md), [Solicitações de acesso](solicitacoes-de-acesso.md) e [Configurações](configuracoes-do-usuario.md).
 
-## Configurações do usuário (no ar, com itens pendentes)
+## Em seguida
 
-No ar: conta, aparência, histórico de buscas, exportação de dados, apagar currículo e sair de todos os aparelhos. Pendentes: preferência "usar meu currículo", exclusão de conta com confirmação por WhatsApp, aviso ao responsável quando o telefone muda e o link de contato na Ajuda. Veja [Configurações](configuracoes-do-usuario.md).
+- Validação das páginas de Privacidade e Termos por um advogado.
+- Verificação do telefone por código, para provar que o número é da pessoa que o informou.
 
 ## Rodada 2 (decidido, adiado)
 
-- Saldo de buscas e planos com cobrança.
+- Saldo de buscas e planos com cobrança (com as regras de cobrança, cancelamento e reembolso publicadas antes).
 - Itens salvos.
 - Alertas.
 

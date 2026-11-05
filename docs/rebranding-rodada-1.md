@@ -34,11 +34,12 @@ Duas páginas de leitura, no mesmo visual da home, com índice lateral no comput
 
 - Demonstração roteirizada do produto, sem busca real.
 - Como funciona (3 passos), o que a pessoa recebe, planos, faixa para anunciantes, faixa para quem quer uma plataforma própria e perguntas frequentes.
-- Chamada principal: três botões, Pedir acesso, Login e Ver como funciona (no celular, empilhados).
+- Chamada principal: Pedir acesso e Ver como funciona (no celular, empilhados). O cabeçalho tem só o tema e o Login.
+- Marca "IAprovale by Augustus" em duas linhas, com "by Augustus" alinhado à esquerda do nome, igual em todas as telas.
 
 ## Tela de login
 
-No novo visual. O formulário é marcado como login para que o gerenciador de senhas do aparelho ofereça salvar e preencher a senha; o site não guarda a senha. Há três atalhos para ela: o botão Login no cabeçalho (em telas largas), no topo da home e no fim da página.
+No novo visual. O formulário é marcado como login para que o gerenciador de senhas do aparelho ofereça salvar e preencher a senha; o site não guarda a senha. O botão Login fica no cabeçalho da home, em todas as larguras de tela, e também no fim da página.
 
 ## Pedido de acesso
 
