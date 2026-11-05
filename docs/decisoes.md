@@ -18,3 +18,4 @@
 16. **Retenção de 90 dias** para pedidos não aprovados, avisos internos, exclusões decididas, verificações de telefone decididas e histórico de buscas.
 17. **Tamanho da janela de dúvidas:** 8 perguntas ou 5 minutos, o que vier primeiro.
 18. **Telefone só vale depois de confirmado por código no WhatsApp.** Quem cadastra ou troca o número precisa digitar o código de 6 dígitos que chega nesse número; até lá vale o anterior. Evita usar o número de outra pessoa para receber mensagens, e a exclusão da conta só funciona com o número verificado.
+19. **Sessões expiram após 30 dias sem uso; o telefone só troca uma vez a cada 15 dias.** O login cai se a pessoa ficar 30 dias sem usar o serviço, e o WhatsApp da conta só pode ser trocado de novo 15 dias depois da última troca confirmada. Reduz o estrago de um aparelho esquecido e de um acesso indevido.
