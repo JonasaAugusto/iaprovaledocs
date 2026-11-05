@@ -2,7 +2,7 @@
 
 O acesso ao IAprovale é por convite. Quem quer entrar pede pelo chat da página inicial; o login só é criado depois da análise do pedido.
 
-Estado: front **pronto, aguardando liberação**; backend **pronto e testado fora de produção, aguardando liberação**.
+Estado: front e backend **no ar**. A aprovação do pedido, a criação do login e a confirmação por WhatsApp continuam manuais.
 
 ## Como a conversa funciona
 

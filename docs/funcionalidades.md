@@ -39,11 +39,11 @@ Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca te
 | Administração com blocos, rótulos visíveis e ações sensíveis separadas | **Pronto, aguardando liberação** |
 | Testes automatizados de interface e de acessibilidade (WCAG AA) | **Em andamento** |
 | Tela de login no novo visual | **Decidido** |
-| Home pública nova com demonstração do produto | **Pronto, aguardando liberação** |
-| Pedido de acesso por chat, com campo bloqueado durante as falas do agente e transição gradual de cor (veja [Pedido de acesso](pedido-de-acesso.md)) | **Pronto, aguardando liberação** |
-| Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **Pronto, aguardando liberação** |
-| Lista de pedidos de acesso para administradores (backend) | **Pronto, aguardando liberação** |
-| Páginas de privacidade e termos | **Decidido** |
+| Home pública nova com demonstração do produto em laço e movimento ao rolar a página | **No ar** |
+| Pedido de acesso por chat, com campo bloqueado durante as falas do agente e transição gradual de cor (veja [Pedido de acesso](pedido-de-acesso.md)) | **No ar** |
+| Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **No ar** |
+| Lista de pedidos de acesso para administradores (backend) | **No ar** |
+| Páginas de privacidade e termos de uso | **No ar** |
 
 ## Acrescentado nas decisões de configurações (a construir)
 
