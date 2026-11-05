@@ -8,6 +8,9 @@ Objetivo: renovar o visual e a conversão da home pública e do app web. O app d
 - Tipografia: uma fonte serifada para títulos grandes e uma sem serifa para todo o resto, ambas hospedadas no próprio site.
 - Contraste de texto medido pelas regras de acessibilidade (WCAG AA).
 - Sem sombras iguais em tudo: bordas finas separam o conteúdo e o raio dos cantos varia com a hierarquia.
+- Aviso do chat em "vidro líquido": fundo transparente com desfoque forte, brilho na borda e sombra suave, com a borda na paleta do site (dourado no escuro, verde no claro).
+- A demonstração do hero entra inteira em fade, sem digitação, e alterna três exemplos fictícios também em fade.
+- Quem usa "Reduzir movimento" no aparelho vê apenas fades suaves, sem deslocamento, inclinação nem desfoque de movimento.
 - Movimento fluido na home, só com transformação e opacidade e uma curva de suavização única: a demonstração do hero roda em laço (digita a busca, mostra o progresso, o cartão entra, apaga e passa ao exemplo seguinte); cada bloco entra ao rolar de um jeito próprio; o fio dos passos é desenhado; a sanfona de perguntas abre com altura animada. Quem ativa "reduzir movimento" no sistema vê tudo parado.
 - Texto da interface em português direto, com verbos de ação ("Pedir acesso", "Ir para a inscrição") e sem inventar depoimentos, números, cursos ou preços.
 
