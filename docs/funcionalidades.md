@@ -86,7 +86,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 
 | Funcionalidade | Estado |
 |---|---|
-| Verificação do telefone por código enviado por WhatsApp, para provar que o número é da própria pessoa | Pronto, aguardando liberação |
-| Login expira após 30 dias sem uso | Pronto, aguardando liberação |
-| WhatsApp só pode ser trocado uma vez a cada 15 dias | Pronto, aguardando liberação |
+| Verificação do telefone por código enviado por WhatsApp, para provar que o número é da própria pessoa | Pronto, desligado por enquanto: depende do WhatsApp da empresa. Até lá, o número troca direto com a senha atual |
+| Login expira após 30 dias sem uso | **No ar** |
+| WhatsApp só pode ser trocado uma vez a cada 15 dias | **No ar** |
 | Cobrança, planos e regras de reembolso | **Decidido** (adiado) |
