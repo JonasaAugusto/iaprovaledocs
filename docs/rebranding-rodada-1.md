@@ -1,6 +1,6 @@
 # Rebranding, Rodada 1
 
-Objetivo: renovar o visual e a conversão da home pública e do app web. O app desktop não faz parte desta rodada.
+Objetivo: renovar o visual e a conversão da home pública e do app web. O app desktop não faz parte desta rodada. Estado: **no ar** em https://augustusai.com.br/iaprovale/.
 
 ## Identidade
 
@@ -12,7 +12,12 @@ Objetivo: renovar o visual e a conversão da home pública e do app web. O app d
 - A demonstração do hero entra inteira em fade, sem digitação, e alterna três exemplos fictícios também em fade.
 - Quem usa "Reduzir movimento" no aparelho vê apenas fades suaves, sem deslocamento, inclinação nem desfoque de movimento.
 - Movimento fluido na home, só com transformação e opacidade e uma curva de suavização única: a demonstração do hero roda em laço (digita a busca, mostra o progresso, o cartão entra, apaga e passa ao exemplo seguinte); cada bloco entra ao rolar de um jeito próprio; o fio dos passos é desenhado; a sanfona de perguntas abre com altura animada. Quem ativa "reduzir movimento" no sistema vê tudo parado.
+- Sem barra de progresso de leitura no topo da página: ela foi retirada por atrapalhar a leitura.
 - Texto da interface em português direto, com verbos de ação ("Pedir acesso", "Ir para a inscrição") e sem inventar depoimentos, números, cursos ou preços.
+
+## Ícone do atalho
+
+Ao adicionar o site à tela de início do celular, o ícone é o ramo do IAprovale com o nome "IAprovale" embaixo, em fundo azul-escuro. O ícone da Augustus AI continua só com o ramo. O site também publica um manifesto de aplicativo com o nome e os ícones.
 
 ## App web
 
@@ -29,12 +34,16 @@ Duas páginas de leitura, no mesmo visual da home, com índice lateral no comput
 
 - Demonstração roteirizada do produto, sem busca real.
 - Como funciona (3 passos), o que a pessoa recebe, planos, faixa para anunciantes, faixa para quem quer uma plataforma própria e perguntas frequentes.
-- Chamada principal: pedir acesso.
+- Chamada principal: três botões, Pedir acesso, Login e Ver como funciona (no celular, empilhados).
+
+## Tela de login
+
+No novo visual. O formulário é marcado como login para que o gerenciador de senhas do aparelho ofereça salvar e preencher a senha; o site não guarda a senha. Há três atalhos para ela: o botão Login no cabeçalho (em telas largas), no topo da home e no fim da página.
 
 ## Pedido de acesso
 
-Chat com fluxo roteirizado, descrito em [Pedido de acesso](pedido-de-acesso.md). O acesso continua sendo liberado manualmente.
+Chat com fluxo roteirizado, descrito em [Pedido de acesso](pedido-de-acesso.md). O acesso é liberado pelo responsável na aba Solicitações da Administração ([Solicitações de acesso](solicitacoes-de-acesso.md)).
 
 ## Fora desta rodada
 
-Confirmação do pedido pelo WhatsApp, saldo de buscas, planos com cobrança, alertas e o app desktop.
+Saldo de buscas, planos com cobrança, alertas e o app desktop.

@@ -9,6 +9,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item.
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
+- [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login chega ao WhatsApp.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
 - [Roadmap](docs/roadmap.md): o que vem depois.
 - [Decisões de produto](docs/decisoes.md): regras de produto que valem para todo o projeto.
@@ -22,5 +23,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 | **Em andamento** | Parte pronta, parte pendente. |
 | **Decidido** | Definido, ainda não construído. |
 | **Sugerido** | Ideia sem decisão final. |
+
+Endereço do produto: https://augustusai.com.br/iaprovale/
 
 Acesso ao IAprovale é por convite.
