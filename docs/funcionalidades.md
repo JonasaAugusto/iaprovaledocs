@@ -49,7 +49,7 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 | Aba Solicitações na Administração: aprovar ou recusar pedidos (veja [Solicitações de acesso](solicitacoes-de-acesso.md)) | **No ar** |
 | Login enviado ao WhatsApp de quem teve o acesso aprovado, em mensagens separadas | **No ar** |
 | Páginas de privacidade e termos de uso | **No ar** |
-| Testes automatizados de interface e de acessibilidade (WCAG AA) | **Em andamento** (a verificação do chat da home tem 3 itens a revisar) |
+| Testes automatizados de interface e de acessibilidade (WCAG AA): home, chat de pedido de acesso, app, administração, solicitações, configurações e login | **No ar** (todos passando) |
 
 ## Configurações do usuário
 
