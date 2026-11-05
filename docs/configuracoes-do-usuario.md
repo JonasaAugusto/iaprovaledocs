@@ -32,10 +32,10 @@ Lista das últimas 10 buscas, com a data e a quantidade de concursos encontrados
 
 ## Dados e privacidade
 
-- **Baixar meus dados:** um arquivo com o que o IAprovale guarda sobre a pessoa.
+- **Baixar meus dados:** um arquivo com o que o IAprovale guarda sobre a pessoa: perfil, currículo, histórico de buscas, o registro de uso de buscas por dia, a data de criação da conta, o telefone cadastrado (e se foi verificado) e a data do último acesso. Não inclui senha nem dados de outras pessoas.
 - **Currículo salvo:** apaga o texto do currículo enviado, com confirmação na própria linha.
 - **Sair de todos os aparelhos:** com confirmação na própria linha.
-- **Excluir minha conta:** ação separada, em tom neutro, no fim da seção. Só está disponível com o WhatsApp verificado; se o número ainda não foi confirmado, a seção explica que é preciso verificá-lo antes e oferece o atalho. Funciona em duas etapas: (1) a pessoa informa a senha atual na tela e o sistema manda uma mensagem ao WhatsApp cadastrado, repetindo o nome do usuário; (2) a conta só é excluída se a pessoa responder "SIM". Qualquer outra resposta cancela, e o pedido vale por 24 horas. Trocar o telefone cancela o pedido pendente, e a tela mostra o pedido em andamento com a opção de cancelar. Excluir apaga a conta, o perfil, o histórico e o pedido de acesso que a originou. Contas de administrador não são excluídas por aqui.
+- **Excluir minha conta:** ação separada, em tom neutro, no fim da seção. Só está disponível com o WhatsApp verificado; se o número ainda não foi confirmado, a seção explica que é preciso verificá-lo antes e oferece o atalho. Funciona em duas etapas: (1) a pessoa informa a senha atual na tela e o sistema manda uma mensagem ao WhatsApp cadastrado, repetindo o nome do usuário; (2) a conta só é excluída se a pessoa responder "SIM". Qualquer outra resposta cancela, e o pedido vale por 24 horas. Trocar o telefone cancela o pedido pendente, e a tela mostra o pedido em andamento com a opção de cancelar. Excluir apaga a conta, o perfil, o histórico e o pedido de acesso que a originou, mesmo que o usuário ou o telefone tenham sido trocados depois da aprovação. Contas de administrador não são excluídas por aqui.
 
 ## Uso e plano
 
