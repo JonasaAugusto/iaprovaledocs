@@ -1,6 +1,6 @@
 # Configurações do usuário
 
-Vale para administrador e usuário comum. Estado: **No ar**. Pronto, aguardando liberação: o pedido de exclusão pelo Telegram e a tela de nova senha no primeiro acesso.
+Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido de exclusão pelo Telegram e a tela de nova senha no primeiro acesso.
 
 ## Estrutura
 

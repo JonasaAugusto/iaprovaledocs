@@ -3,7 +3,7 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
-## [1.4.0] - Pronto, aguardando liberação
+## [1.4.0] - 2026-11-05
 - Aprovação sem envio automático: caixa de login com "Copiar mensagem" e "Abrir no WhatsApp".
 - Troca obrigatória da senha provisória no primeiro acesso, com tela de nova senha.
 - Exclusão da conta pedida ao responsável pelo Telegram, em dois passos, enquanto o WhatsApp está desligado.

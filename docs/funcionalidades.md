@@ -48,8 +48,8 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 | Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **No ar** |
 | Aviso ao responsável, no Telegram, quando chega um pedido novo | **No ar** |
 | Aprovar ou recusar o pedido pelos botões do Telegram, com botão que abre o WhatsApp com o login pronto | **No ar** |
-| Aprovar sem enviar: o sistema devolve usuário, senha provisória e mensagem prontos; caixa com "Copiar mensagem" e "Abrir no WhatsApp" | Pronto, aguardando liberação |
-| Troca obrigatória da senha provisória no primeiro acesso, com tela própria | Pronto, aguardando liberação |
+| Aprovar sem enviar: o sistema devolve usuário, senha provisória e mensagem prontos; caixa com "Copiar mensagem" e "Abrir no WhatsApp" | No ar |
+| Troca obrigatória da senha provisória no primeiro acesso, com tela própria | No ar |
 | Limite de 8 perguntas ou 5 minutos de dúvidas depois do pedido, o que vier primeiro | **No ar** |
 | Aba Solicitações na Administração: aprovar ou recusar pedidos (veja [Solicitações de acesso](solicitacoes-de-acesso.md)) | **No ar** |
 | Login mostrado uma única vez ao aprovar, com botão de copiar, para o responsável enviar à pessoa | **No ar** |
@@ -72,7 +72,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Histórico das últimas 10 buscas, com os resultados de cada uma e botão de apagar | **No ar** |
 | Baixar os próprios dados, apagar o currículo e "Sair de todos os aparelhos" | **No ar** |
 | Excluir a própria conta em duas etapas: senha na tela e resposta "SIM" no WhatsApp | Temporariamente indisponível: o WhatsApp da empresa está fora do ar |
-| Excluir a própria conta com o WhatsApp desligado: pedido enviado ao responsável pelo Telegram, que confirma em dois passos | Pronto, aguardando liberação |
+| Excluir a própria conta com o WhatsApp desligado: pedido enviado ao responsável pelo Telegram, que confirma em dois passos | No ar |
 | Aviso ao responsável quando o usuário troca o telefone | **No ar** |
 | Contato com a equipe pelo WhatsApp, em Ajuda | **No ar** |
 | Bloco de saldo e uso de buscas ("em breve") | **No ar** (aviso de que chega em breve) |
@@ -86,7 +86,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Quem é usuário do IAprovale nunca recebe prospecção da empresa | **No ar** |
 | Redefinir a senha de alguém, na Administração, encerra as sessões dela | **No ar** |
 | Proteção contra tentativas repetidas de senha também com tentativas simultâneas | **No ar** |
-| Bloqueio de login por origem e por usuário: quem erra muito é barrado sem tirar o dono da conta do ar | Pronto, aguardando liberação |
+| Bloqueio de login por origem e por usuário: quem erra muito é barrado sem tirar o dono da conta do ar | No ar |
 | Proteções contra uso abusivo do pedido de acesso e do pedido de exclusão de conta | **No ar** |
 
 ## Ainda por construir

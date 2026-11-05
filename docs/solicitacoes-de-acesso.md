@@ -1,6 +1,6 @@
 # Solicitações de acesso (Administração)
 
-Estado: **Pronto, aguardando liberação** (as partes novas desta página: caixa de login com copiar e abrir no WhatsApp, troca obrigatória da senha e aprovação sem envio automático). O restante já está no ar.
+Estado: **No ar**, incluindo a caixa de login com copiar e abrir no WhatsApp, a troca obrigatória da senha e a aprovação sem envio automático.
 
 O acesso ao IAprovale é por convite. Quem pede acesso pelo chat da página inicial (veja [Pedido de acesso](pedido-de-acesso.md)) aparece para o administrador na aba **Solicitações**, dentro de **Administração**. É lá que o pedido é aprovado ou recusado.
 
