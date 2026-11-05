@@ -15,5 +15,6 @@
 13. **Mudança sensível pede a senha atual.** Trocar usuário, telefone ou senha, e pedir a exclusão da conta, exigem a senha atual.
 14. **Excluir a conta é em duas etapas.** Senha na tela e um "SIM" claro no WhatsApp cadastrado. Qualquer outra resposta cancela; o pedido vale 24 horas.
 15. **Quem é usuário nunca recebe prospecção.** O número de cada usuário do IAprovale fica fora da lista de prospecção da empresa.
-16. **Retenção de 90 dias** para pedidos não aprovados, avisos internos, exclusões decididas e histórico de buscas.
+16. **Retenção de 90 dias** para pedidos não aprovados, avisos internos, exclusões decididas, verificações de telefone decididas e histórico de buscas.
 17. **Tamanho da janela de dúvidas:** 8 perguntas ou 5 minutos, o que vier primeiro.
+18. **Telefone só vale depois de confirmado por código no WhatsApp.** Quem cadastra ou troca o número precisa digitar o código de 6 dígitos que chega nesse número; até lá vale o anterior. Evita usar o número de outra pessoa para receber mensagens, e a exclusão da conta só funciona com o número verificado.

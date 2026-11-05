@@ -86,5 +86,5 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 
 | Funcionalidade | Estado |
 |---|---|
-| Verificação do telefone por código, para provar que o número é da própria pessoa | **Sugerido** |
+| Verificação do telefone por código enviado por WhatsApp, para provar que o número é da própria pessoa | Pronto, aguardando liberação |
 | Cobrança, planos e regras de reembolso | **Decidido** (adiado) |

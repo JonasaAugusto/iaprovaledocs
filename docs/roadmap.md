@@ -7,7 +7,6 @@ Rebranding do app web e da home, tela de login, páginas de privacidade e termos
 ## Em seguida
 
 - Validação das páginas de Privacidade e Termos por um advogado.
-- Verificação do telefone por código, para provar que o número é da pessoa que o informou.
 
 ## Rodada 2 (decidido, adiado)
 
