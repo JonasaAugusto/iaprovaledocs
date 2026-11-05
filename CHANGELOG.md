@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.4.1] - 2026-11-05
+- Teste de segurança externo autorizado: sem falha crítica ou alta. Mensagens de erro de validação não devolvem mais o que foi enviado, e salvar o perfil preserva campos não enviados. Limite de tentativas de login confirmado em funcionamento.
+
 ## [1.4.0] - 2026-11-05
 - Aprovação sem envio automático: caixa de login com "Copiar mensagem" e "Abrir no WhatsApp".
 - Troca obrigatória da senha provisória no primeiro acesso, com tela de nova senha.
