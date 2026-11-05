@@ -3,6 +3,13 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.4.0] - Pronto, aguardando liberação
+- Aprovação sem envio automático: caixa de login com "Copiar mensagem" e "Abrir no WhatsApp".
+- Troca obrigatória da senha provisória no primeiro acesso, com tela de nova senha.
+- Exclusão da conta pedida ao responsável pelo Telegram, em dois passos, enquanto o WhatsApp está desligado.
+- Login com bloqueio por origem e por usuário, sem números internos.
+- Decisões 22 a 24.
+
 ## [1.3.0] - 2026-11-05
 - Acessibilidade verificada por script e por testes, sem auditoria com leitor de tela real: melhorias no ar e o que ainda não foi confirmado.
 - Decisões novas: tempo do chat de dúvidas é limite de custo, sem prorrogação; texto da home esmaece de propósito na rolagem lenta.
