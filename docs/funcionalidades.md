@@ -47,6 +47,7 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
 | Pedido de acesso por chat, com verificação do nome de usuário em tempo real (veja [Pedido de acesso](pedido-de-acesso.md)) | **No ar** |
 | Janela de 5 minutos de dúvidas com IA depois do pedido, contada no servidor | **No ar** |
 | Aviso ao responsável, no Telegram, quando chega um pedido novo | **No ar** |
+| Aprovar ou recusar o pedido pelos botões do Telegram, com botão que abre o WhatsApp com o login pronto | **No ar** |
 | Limite de 8 perguntas ou 5 minutos de dúvidas depois do pedido, o que vier primeiro | **No ar** |
 | Aba Solicitações na Administração: aprovar ou recusar pedidos (veja [Solicitações de acesso](solicitacoes-de-acesso.md)) | **No ar** |
 | Login mostrado uma única vez ao aprovar, com botão de copiar, para o responsável enviar à pessoa | **No ar** |

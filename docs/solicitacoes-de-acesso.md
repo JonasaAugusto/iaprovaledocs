@@ -4,6 +4,14 @@ Estado: **No ar**.
 
 O acesso ao IAprovale é por convite. Quem pede acesso pelo chat da página inicial (veja [Pedido de acesso](pedido-de-acesso.md)) aparece para o administrador na aba **Solicitações**, dentro de **Administração**. É lá que o pedido é aprovado ou recusado.
 
+## Aprovar pelo Telegram
+
+O aviso de pedido novo chega ao Telegram do responsável com os botões **Aprovar** e **Recusar**, sem precisar abrir o portal.
+
+- **Aprovar** cria o usuário, do mesmo jeito que na aba Solicitações, e responde com uma mensagem e o botão **Enviar login**. O botão abre o WhatsApp do responsável na conversa com a pessoa, com o texto pronto (boas-vindas, endereço, usuário, senha provisória e agradecimento). O responsável só confere e envia.
+- **Recusar** marca o pedido como recusado.
+- Só a conversa do responsável com o bot vale; toques de outras pessoas são ignorados. Tocar duas vezes não cria outro login.
+
 ## O que o administrador vê
 
 - Uma lista de pedidos esperando decisão, com o nome, o usuário pedido, o telefone no formato brasileiro e a hora do pedido. O número de pedidos pendentes aparece ao lado do nome da aba.
