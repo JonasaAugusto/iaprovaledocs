@@ -10,6 +10,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login é entregue à pessoa.
+- [Versão grátis](docs/versao-gratis.md): cadastro pelo chat, plano grátis e avaliação a cada 5 buscas.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
 - [Roadmap](docs/roadmap.md): o que vem depois.
 - [Decisões de produto](docs/decisoes.md): regras de produto que valem para todo o projeto.
