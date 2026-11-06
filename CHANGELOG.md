@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.9.0] - 2026-11-06
+- Anunciantes: proposta comercial (mensalidade R$ 1.000, comissão de 5% sobre a matrícula, quinzenal, 6 meses, multa de 2 mensalidades, sem estorno), prova por cupom ou código do clique, módulo de anúncios do backend (v2.7.0: `/r/{id}`, `/anuncios`, importação de matrículas, relatório quinzenal, CLI `scripts.anunciantes`) e leitura opcional da vitrine pela API no site (v3.7.0, com `cursos.json` como fallback). Ver `docs/anunciantes.md`. Em branches, ainda não publicado.
+
 ## [1.8.0] - 2026-11-06
 - Preparo para uso comercial: descrição e título da home para o plano grátis, prévia de link (og/twitter e imagem 1200x630), canonical, robots, sitemap, JSON-LD, página 404, aviso de fase de teste na home e no app, aviso de dados sensíveis no currículo; exportação de feedbacks em markdown e custo no resumo do Telegram. Ver `docs/preparo-comercial.md`.
 
