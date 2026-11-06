@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.6.2] - 2026-11-06
+- Resumo diário de cadastros no Telegram do responsável, às 19h de São Paulo (cadastros do dia, grátis e por convite, e total de contas). No ar.
+
 ## [1.6.1] - 2026-11-06
 - Versão grátis agora é a publicada, servida na raiz https://augustusai.com.br/iaprovale/; /iaprovale/gratis/ só redireciona. A versão por convite passa a ser modo de build alternativo. Decisões 1, 25, 26 e 27 atualizadas. Chat de cadastro revisado e limites novos (1.6.0) já no ar.
 - Resumo diário de cadastros no Telegram do responsável, às 19h de São Paulo (cadastros do dia, grátis e por convite, e total de contas).
