@@ -5,7 +5,7 @@ menor = funcionalidade documentada, correção = ajuste de texto.
 
 ## [1.6.0] - proposta, não publicada
 - Chat do plano grátis revisado: confirmação do usuário, alertas em pop-up, termos com botões (Aceito/Recuso, Sim/Sair), botão "Entrar" ao concluir, dúvidas respondidas pela IA só com uma ficha fixa, limite de 10 dúvidas por conversa.
-- Plano grátis com 17 buscas por dia e etiqueta no cabeçalho; uma conta por dia por conexão; teto total de 1000 cadastros no lugar dos limites diários; sem limite de avaliações por dia. Decisões 26 e 27.
+- Plano grátis com 17 buscas por dia e etiqueta no cabeçalho; uma conta por dia por conexão; teto total de 1000 cadastros no lugar dos limites diários; sem limite de avaliações por dia. Termos de Uso e Política de Privacidade do plano grátis. Decisões 26 e 27.
 
 ## [1.5.1] - 2026-11-05
 - Cadastro grátis feito dentro do chat da página inicial, não em página separada.
