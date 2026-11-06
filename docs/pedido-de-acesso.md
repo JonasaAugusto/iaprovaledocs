@@ -1,8 +1,10 @@
 # Pedido de acesso pelo chat
 
-O acesso ao IAprovale é por convite. Quem quer entrar pede pelo chat da página inicial; o login só é criado depois que o responsável aprova o pedido.
+**Modo por convite (alternativa de build).** Em produção, desde 6 de novembro de 2026, vale a [versão grátis](versao-gratis.md), em que a pessoa cria a própria conta. Esta página descreve o modo por convite, que continua existindo como alternativa e não é o publicado.
 
-Estado: **no ar**. O pedido é aprovado na aba Solicitações da Administração, que cria o login; o responsável repassa o login à pessoa por conta própria (veja [Solicitações de acesso](solicitacoes-de-acesso.md)).
+No modo por convite, o acesso é por convite. Quem quer entrar pede pelo chat da página inicial; o login só é criado depois que o responsável aprova o pedido.
+
+Estado: disponível como modo de build alternativo (não é o publicado em produção). O pedido é aprovado na aba Solicitações da Administração, que cria o login; o responsável repassa o login à pessoa por conta própria (veja [Solicitações de acesso](solicitacoes-de-acesso.md)).
 
 ## Como a conversa funciona
 

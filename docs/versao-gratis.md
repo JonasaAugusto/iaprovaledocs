@@ -1,9 +1,9 @@
 # Versão grátis
 
-Estado: **No ar** em `/iaprovale/gratis/`, ao lado do site por convite, que continua igual.
+Estado: **No ar**, servida na raiz do produto, https://augustusai.com.br/iaprovale/. É a versão publicada em produção. O endereço antigo `/iaprovale/gratis/` agora só redireciona para a raiz. A versão por convite deixou de ser a publicada e segue como modo de build alternativo.
 
 ## O que é
-Uma variante do site em que a pessoa cria a própria conta, sem esperar aprovação. É uma fase de teste: a plataforma ainda está sendo avaliada por grupos de concurseiros.
+O site publicado, em que a pessoa cria a própria conta, sem esperar aprovação. É uma fase de teste: a plataforma ainda está sendo avaliada por grupos de concurseiros.
 
 ## Como a conta é criada
 - O cadastro acontece no mesmo chat da página inicial: o botão "Criar conta grátis" abre a janela de conversa. A pessoa conversa com um assistente que guia quatro passos: nome de usuário, celular com DDD, aceite dos Termos e da Política de Privacidade e senha.
@@ -27,7 +27,7 @@ Uma variante do site em que a pessoa cria a própria conta, sem esperar aprovaç
 - Limites de proteção: uma conta por dia por conexão; um teto total de **1000 cadastros grátis**, depois do qual o cadastro fecha com o aviso de que as vagas acabaram, e quem já tem conta continua entrando normalmente. Não existe limite diário de cadastros.
 
 ## Termos de Uso e Política de Privacidade
-O plano grátis tem Termos de Uso e Política de Privacidade próprios (versão 1.0, em vigor desde 6 de novembro de 2026), com seções numeradas: quem somos e contato, dados coletados, finalidades e bases legais (LGPD, art. 7º), uso das avaliações, inteligência artificial e compartilhamento (o usuário e o telefone não vão à IA no fluxo normal; só a pergunta feita fora do fluxo), transferência internacional, retenção, direitos (art. 18), segurança e incidentes, crianças, armazenamento no navegador, limites do plano grátis (17 buscas por dia, avaliação a cada 5, teto de 1.000 cadastros, fase de teste), uso aceitável e foro. O texto do site por convite não muda.
+O plano grátis tem Termos de Uso e Política de Privacidade próprios (versão 1.0, em vigor desde 6 de novembro de 2026), com seções numeradas: quem somos e contato, dados coletados, finalidades e bases legais (LGPD, art. 7º), uso das avaliações, inteligência artificial e compartilhamento (o usuário e o telefone não vão à IA no fluxo normal; só a pergunta feita fora do fluxo), transferência internacional, retenção, direitos (art. 18), segurança e incidentes, crianças, armazenamento no navegador, limites do plano grátis (17 buscas por dia, avaliação a cada 5, teto de 1.000 cadastros, fase de teste), uso aceitável e foro. O texto do modo por convite não muda.
 
 ## Organização técnica
-A criação de usuário passou a ser um núcleo único, usado pelo fluxo por convite e pelo cadastro grátis. Os textos do assistente ficam num único arquivo, para ajuste fácil. A versão grátis é ligada por configuração e pode ser desligada sem alterar o site por convite.
+A criação de usuário passou a ser um núcleo único, usado pelo fluxo por convite e pelo cadastro grátis. Os textos do assistente ficam num único arquivo, para ajuste fácil. O site publicado é o build grátis (publicado com base `/iaprovale/`, na raiz). O build em modo convite continua disponível como alternativa e pode ser usado se o responsável decidir voltar ao acesso só por convite. O processo de publicação gera o build a partir da versão principal do código do site e copia o resultado para a raiz.

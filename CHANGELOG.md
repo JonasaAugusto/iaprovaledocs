@@ -3,10 +3,11 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
-## [1.6.1] - proposta, não publicada
+## [1.6.1] - 2026-11-06
+- Versão grátis agora é a publicada, servida na raiz https://augustusai.com.br/iaprovale/; /iaprovale/gratis/ só redireciona. A versão por convite passa a ser modo de build alternativo. Decisões 1, 25, 26 e 27 atualizadas. Chat de cadastro revisado e limites novos (1.6.0) já no ar.
 - Resumo diário de cadastros no Telegram do responsável, às 19h de São Paulo (cadastros do dia, grátis e por convite, e total de contas).
 
-## [1.6.0] - proposta, não publicada
+## [1.6.0] - 2026-11-06
 - Chat do plano grátis revisado: confirmação do usuário, alertas em pop-up, termos com botões (Aceito/Recuso, Sim/Sair), botão "Entrar" ao concluir, dúvidas respondidas pela IA só com uma ficha fixa, limite de 10 dúvidas por conversa.
 - Plano grátis com 17 buscas por dia e etiqueta no cabeçalho; uma conta por dia por conexão; teto total de 1000 cadastros no lugar dos limites diários; sem limite de avaliações por dia. Termos de Uso e Política de Privacidade do plano grátis. Decisões 26 e 27.
 

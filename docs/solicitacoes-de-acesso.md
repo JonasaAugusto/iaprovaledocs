@@ -2,7 +2,7 @@
 
 Estado: **No ar**, incluindo a caixa de login com copiar e abrir no WhatsApp, a troca obrigatória da senha e a aprovação sem envio automático.
 
-O acesso ao IAprovale é por convite. Quem pede acesso pelo chat da página inicial (veja [Pedido de acesso](pedido-de-acesso.md)) aparece para o administrador na aba **Solicitações**, dentro de **Administração**. É lá que o pedido é aprovado ou recusado.
+Em produção vale a [versão grátis](versao-gratis.md); a aba Solicitações e o fluxo por convite descritos aqui valem para o modo por convite, mantido como alternativa de build. Neste modo o acesso é por convite. Quem pede acesso pelo chat da página inicial (veja [Pedido de acesso](pedido-de-acesso.md)) aparece para o administrador na aba **Solicitações**, dentro de **Administração**. É lá que o pedido é aprovado ou recusado.
 
 ## Aprovar pelo Telegram
 

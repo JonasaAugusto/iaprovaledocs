@@ -26,7 +26,7 @@ Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca te
 
 ## Acrescentado na Rodada 1 (novembro de 2026)
 
-Estado: **No ar**, em https://augustusai.com.br/iaprovale/.
+Estado: **No ar**, em https://augustusai.com.br/iaprovale/ (versão grátis na raiz; o modo por convite é build alternativo).
 
 | Funcionalidade | Estado |
 |---|---|
