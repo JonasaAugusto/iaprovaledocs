@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.8.0] - 2026-11-06
+- Preparo para uso comercial: descrição e título da home para o plano grátis, prévia de link (og/twitter e imagem 1200x630), canonical, robots, sitemap, JSON-LD, página 404, aviso de fase de teste na home e no app, aviso de dados sensíveis no currículo; exportação de feedbacks em markdown e custo no resumo do Telegram. Ver `docs/preparo-comercial.md`.
+
 ## [1.7.1] - 2026-11-06
 - Espaços "Anuncie aqui!" (faixa na home e cartão na vitrine vazia do app) e o fluxo de contato de anunciantes. Decisão 28. No ar.
 
