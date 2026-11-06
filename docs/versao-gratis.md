@@ -27,7 +27,21 @@ O site publicado, em que a pessoa cria a própria conta, sem esperar aprovação
 - Limites de proteção: uma conta por dia por conexão; um teto total de **1000 cadastros grátis**, depois do qual o cadastro fecha com o aviso de que as vagas acabaram, e quem já tem conta continua entrando normalmente. Não existe limite diário de cadastros.
 
 ## Termos de Uso e Política de Privacidade
-O plano grátis tem Termos de Uso e Política de Privacidade próprios (versão 1.0, em vigor desde 6 de novembro de 2026), com seções numeradas: quem somos e contato, dados coletados, finalidades e bases legais (LGPD, art. 7º), uso das avaliações, inteligência artificial e compartilhamento (o usuário e o telefone não vão à IA no fluxo normal; só a pergunta feita fora do fluxo), transferência internacional, retenção, direitos (art. 18), segurança e incidentes, crianças, armazenamento no navegador, limites do plano grátis (17 buscas por dia, avaliação a cada 5, teto de 1.000 cadastros, fase de teste), uso aceitável e foro. O texto do modo por convite não muda.
+O plano grátis tem Termos de Uso e Política de Privacidade próprios (versão 1.1, em vigor desde 6 de novembro de 2026), com seções numeradas: quem somos e contato, dados coletados, finalidades e bases legais (LGPD, art. 7º), uso das avaliações, inteligência artificial e compartilhamento (o usuário e o telefone não vão à IA no fluxo normal; só a pergunta feita fora do fluxo), transferência internacional, retenção, direitos (art. 18), segurança e incidentes, crianças, armazenamento no navegador, limites do plano grátis (17 buscas por dia, avaliação a cada 5, teto de 1.000 cadastros, fase de teste), uso aceitável e foro. O texto do modo por convite não muda.
+
+## Registro do aceite (prova de consentimento)
+Quando a conta grátis é criada, o sistema guarda na própria linha do usuário, como prova do consentimento (LGPD, art. 8º, §2º) e por segurança do cadastro:
+
+| Campo | O que guarda |
+|---|---|
+| `aceite_termos_em` | data e hora do "aceito" no chat (se a conversa não tiver o instante, o da criação da conta) |
+| `aceite_termos_ip` | endereço IP do cliente em texto (não só o código irreversível), lido como o resto do cadastro: primeiro IP do `X-Forwarded-For` atrás do proxy |
+| `aceite_termos_versao` | versão dos Termos e da Política aceita, no formato `gratis-1.1` |
+
+- **Retenção:** enquanto a conta existir. Excluir a conta apaga a linha do usuário e, com ela, esses três campos; a exportação de dados da própria pessoa os inclui.
+- **Quem não tem:** contas antigas e contas por convite ficam com os campos vazios (não passaram pelo chat de cadastro grátis).
+- **Texto legal:** os Termos e a Política do plano grátis (versão 1.1) avisam o registro, a finalidade e a retenção. A versão dos textos (`VERSAO` no site) e `ACEITE_TERMOS_VERSAO` no backend mudam juntas.
+- Decisão do responsável (6 de novembro de 2026): guardar o IP em claro, necessário como prova.
 
 ## Organização técnica
 A criação de usuário passou a ser um núcleo único, usado pelo fluxo por convite e pelo cadastro grátis. Os textos do assistente ficam num único arquivo, para ajuste fácil. O site publicado é o build grátis (publicado com base `/iaprovale/`, na raiz). O build em modo convite continua disponível como alternativa e pode ser usado se o responsável decidir voltar ao acesso só por convite. O processo de publicação gera o build a partir da versão principal do código do site e copia o resultado para a raiz.

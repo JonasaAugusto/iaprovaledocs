@@ -82,6 +82,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Funcionalidade | Estado |
 |---|---|
 | Páginas de Privacidade e Termos revisadas contra o que o serviço faz hoje (LGPD), com controlador, encarregado, direitos, retenção e transferência internacional | **No ar** (a validação por advogado segue pendente) |
+| Registro do aceite dos Termos e da Política no cadastro grátis: data e hora, IP e versão aceita, guardados enquanto a conta existir e apagados com ela | Pronto, aguardando publicação |
 | Limpeza automática diária: pedidos de acesso pendentes ou recusados, avisos ao responsável, exclusões já decididas e buscas do histórico com mais de 90 dias | **No ar** |
 | Resumo diário no Telegram do responsável, às 19h (horário de São Paulo): cadastros do dia (grátis e por convite) e total de contas, enviado uma vez por dia | No ar desde 6 de novembro de 2026 |
 | Quem é usuário do IAprovale nunca recebe prospecção da empresa | **No ar** |
