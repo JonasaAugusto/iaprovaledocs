@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.9.0] - 2026-11-06
+- Aba Stats do administrador (backend 2.8.0, site 3.8.0): períodos Hoje, Este mês, 7, 30 e 90 dias, números-resumo e gráficos de uso. Ver `docs/stats-do-administrador.md`. No ar: backend v2.8.0 e site v3.8.0.
+
 ## [1.8.2] - 2026-11-06
 - Aviso de fase de teste encurtado para "Plataforma em fase de teste" (site v3.6.2); `preparo-comercial.md` atualizado.
 
