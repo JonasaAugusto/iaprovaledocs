@@ -15,7 +15,7 @@ Branches `comercial-site` (site e docs) e `comercial-backend`. Nada foi publicad
 - `404.html` amigável (usa caminhos absolutos `/iaprovale/...`). O Caddy não a usa sozinho; para ativar, no bloco `handle @iaprovale` do site, dentro do mesmo bloco: `handle_errors { @e404 expression {err.status_code} == 404 ... }` com `rewrite * /404.html` e `file_server`, mantendo o `root * /srv/iaprovale-web` (o `strip_prefix` é recriado no handle_errors; teste com `caddy validate`). Não aplicado.
 
 ## Aviso de fase de teste
-Nota discreta, com filete dourado (mesmo padrão do checklist do app, sem vermelho nem azul): "Plataforma em fase de teste: confirme sempre no edital e no site oficial." Aparece na home, abaixo do botão de criar conta, e no app, abaixo do título da Busca. Classe `.nota-aviso` em `shared/css/base.css`.
+Nota discreta, com filete dourado (mesmo padrão do checklist do app, sem vermelho nem azul): "Plataforma em fase de teste" (só isso, desde a v3.6.2; antes seguia "confirme sempre no edital e no site oficial") Aparece na home, abaixo do botão de criar conta, e no app, abaixo do título da Busca. Classe `.nota-aviso` em `shared/css/base.css`.
 
 ## Aviso no currículo
 No Perfil, na seção Currículo, antes do botão de anexar: "Não inclua dados sensíveis (saúde, religião, origem, opinião política, filiação). Envie só o que ajuda a encontrar concursos." O currículo só é enviado pelo Perfil (anexo PDF/TXT, depois Salvar), então o aviso fica no ponto único de envio. Testado a 390 e 1280, claro e escuro.
