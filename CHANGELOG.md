@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.8.2] - 2026-11-06
+- Aviso de fase de teste encurtado para "Plataforma em fase de teste" (site v3.6.2); `preparo-comercial.md` atualizado.
+
 ## [1.8.1] - 2026-11-06
 - O botão Mostrar da senha usa um campo espelho em vez de trocar o tipo do campo (compatibilidade com Safari/iOS). Site 3.6.1. No ar.
 
