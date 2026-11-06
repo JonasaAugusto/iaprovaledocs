@@ -6,9 +6,9 @@ Estado: **No ar** em `/iaprovale/gratis/`, ao lado do site por convite, que cont
 Uma variante do site em que a pessoa cria a própria conta, sem esperar aprovação. É uma fase de teste: a plataforma ainda está sendo avaliada por grupos de concurseiros.
 
 ## Como a conta é criada
-- A pessoa conversa com um assistente que guia quatro passos: nome de usuário, celular com DDD, aceite dos Termos e da Política de Privacidade e senha.
+- O cadastro acontece no mesmo chat da página inicial: o botão "Criar conta grátis" abre a janela de conversa, com o mesmo visual e o mesmo limite de tempo do chat de dúvidas. A pessoa conversa com um assistente que guia quatro passos: nome de usuário, celular com DDD, aceite dos Termos e da Política de Privacidade e senha.
 - Quem decide se os dados são válidos é o sistema, não a inteligência artificial. O assistente só conduz a conversa e tira dúvidas curtas sobre o produto.
-- A senha é digitada num campo próprio, nunca no chat, e não passa pela inteligência artificial.
+- A senha é digitada num campo próprio dentro da mesma janela, nunca como mensagem do chat, e não passa pela inteligência artificial.
 - O celular informado no chat é processado pelo provedor de IA durante a conversa. Ele não é verificado por código nesta versão.
 - Ao concluir, a pessoa já entra logada.
 

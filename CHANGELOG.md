@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.5.1] - 2026-11-05
+- Cadastro grátis feito dentro do chat da página inicial, não em página separada.
+
 ## [1.5.0] - 2026-11-05
 - Versão grátis no ar: cadastro pelo chat, plano grátis com limite diário, avaliação a cada 5 buscas e decisão 25.
 
