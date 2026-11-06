@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.7.1] - 2026-11-06
+- Espaços "Anuncie aqui!" (faixa na home e cartão na vitrine vazia do app) e o fluxo de contato de anunciantes. Decisão 28. No ar.
+
 ## [1.7.0] - 2026-11-06
 - Registro do aceite dos Termos e da Política no cadastro do plano grátis (data e hora, IP e versão aceita), com finalidade, retenção e exclusão com a conta. Termos e Política do plano grátis na versão 1.1. No ar (backend 2.5.0, site 3.5.1). Botão "Mostrar" da senha ajustado para Safari/iOS.
 

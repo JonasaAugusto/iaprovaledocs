@@ -36,6 +36,7 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/ (versão grátis na r
 | Busca com rótulo visível, validação e estados claros (inicial, carregando, resultados, vazio, erro) | **No ar** |
 | Estado da busca na URL e recarregar sem nova busca | **No ar** |
 | Área de cursos patrocinados, visível só antes de uma pesquisa e sempre marcada como "Patrocinado" | **No ar** |
+| Espaços "Anuncie aqui!" para cursinhos e instituições: faixa na home (entre "Como funciona" e "O que você recebe") e cartão na vitrine do app quando não há curso configurado. Só espaço reservado, marcado como "Publicidade", sem anúncio de terceiro | Pronto, aguardando publicação |
 | Cartão de resultado com prazo em evidência e um botão principal ("Ir para a inscrição" ou "Ver o concurso") | **No ar** |
 | Checklist para completar o perfil | **No ar** |
 | Administração com abas (Usuários e Solicitações), blocos, rótulos visíveis e ações sensíveis separadas | **No ar** |
