@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.9.0] - não publicada
+- Aba Stats do administrador (backend 2.8.0, site 3.8.0): períodos Hoje, Este mês, 7, 30 e 90 dias, números-resumo e gráficos de uso. Ver `docs/stats-do-administrador.md`.
+
 ## [1.8.1] - 2026-11-06
 - O botão Mostrar da senha usa um campo espelho em vez de trocar o tipo do campo (compatibilidade com Safari/iOS). Site 3.6.1. No ar.
 

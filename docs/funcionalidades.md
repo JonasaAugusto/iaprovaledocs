@@ -92,6 +92,14 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Bloqueio de login por origem e por usuário: quem erra muito é barrado sem tirar o dono da conta do ar | No ar |
 | Proteções contra uso abusivo do pedido de acesso e do pedido de exclusão de conta | **No ar** |
 
+## Stats do administrador
+
+Estado: **pronto, aguardando publicação**. Detalhes em [Stats](stats-do-administrador.md).
+
+| Funcionalidade | Estado |
+|---|---|
+| Aba **Stats**, só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | Pronto, aguardando publicação |
+
 ## Ainda por construir
 
 | Funcionalidade | Estado |
