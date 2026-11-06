@@ -3,7 +3,7 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
-## [1.10.0] - proposta
+## [1.10.0] - 2026-11-06
 - Tabela de eventos de busca (backend 2.9.0, site 3.9.0, migração v3_15): Stats em Hoje com buscas, custo e pessoas ativas por hora. Retenção de 90 dias, exclusão com a conta, inclusão na exportação de dados e trecho proposto para a Política de Privacidade do plano grátis (versão 1.2). Ver `docs/eventos-de-busca.md`. Aguardando publicação.
 
 ## [1.9.0] - 2026-11-06
