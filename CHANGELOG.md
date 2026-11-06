@@ -3,8 +3,8 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
-## [1.7.0] - não publicada
-- Registro do aceite dos Termos e da Política no cadastro do plano grátis (data e hora, IP e versão aceita), com finalidade, retenção e exclusão com a conta. Termos e Política do plano grátis na versão 1.1.
+## [1.7.0] - 2026-11-06
+- Registro do aceite dos Termos e da Política no cadastro do plano grátis (data e hora, IP e versão aceita), com finalidade, retenção e exclusão com a conta. Termos e Política do plano grátis na versão 1.1. No ar (backend 2.5.0, site 3.5.1). Botão "Mostrar" da senha ajustado para Safari/iOS.
 
 ## [1.6.2] - 2026-11-06
 - Resumo diário de cadastros no Telegram do responsável, às 19h de São Paulo (cadastros do dia, grátis e por convite, e total de contas). No ar.
