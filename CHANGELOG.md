@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.11.1] - 2026-11-07
+- Resumo diário do Telegram (19h) só é enviado se houve novidade no dia: cadastro novo, busca ou avaliação nova (backend 2.10.1). Sem novidade, o dia é registrado e nada é enviado.
+
 ## [1.11.0] - 2026-11-06
 - Busca pelo perfil sem IA, filtro por nível de escolaridade, escolaridade nunca vira termo, regra de cota para buscas sem resultado, mensagem nova de zero resultados e exclusão de conta apagando avaliações (backend 2.10.0). Ver `docs/busca-por-perfil.md`. Aguardando publicação.
 
