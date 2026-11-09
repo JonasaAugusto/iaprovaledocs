@@ -10,8 +10,8 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
 
 - Frases reconhecidas (sem diferenciar maiúsculas, acentos nem pontuação): "Buscar com meu perfil", "buscar pelo meu perfil", "usar meu perfil", "meu perfil", "concursos para mim" e variações próximas.
 - A consulta é **determinística e não chama a IA**: custo zero e o mesmo resultado a cada vez. Usa a UF e a cidade do perfil:
-  - mobilidade **local** com cidade: só os concursos da cidade;
-  - mobilidade **estado** (ou local sem cidade): cidade mais a lista da região, mantendo só a UF do perfil;
+  - mobilidade **local** com cidade: só os concursos da cidade (mais os nacionais, desde a 2.11.0);
+  - mobilidade **estado** (ou local sem cidade): cidade mais a lista da região, mantendo só a UF do perfil (mais os nacionais, desde a 2.11.0);
   - **qualquer** ou sem mobilidade: cidade mais a região, ordenados por proximidade (mesma UF, mesma região, resto);
   - sem UF no perfil: lista geral.
 - Em seguida entra o filtro por nível.
@@ -44,7 +44,7 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
 ## Riscos e ideias
 
 - Quem tem graduação passa a receber também concursos de nível superior de qualquer área pela busca por perfil (depois dos que casam por cargo). Mais resultados, menos precisão.
-- Mobilidade vazia ou "qualquer" não restringe a UF: concursos de outros estados aparecem depois dos locais. Filtro rígido de UF fica como ideia, não foi feito.
+- Mobilidade vazia ou "qualquer" não restringe a UF: concursos de outros estados aparecem depois dos locais. O filtro rígido de UF foi feito à parte, na 2.11.0 (ver `docs/filtro-de-uf.md`).
 - Concurso sem nível informado pela fonte só entra se casar por cargo.
 
 ## Testes

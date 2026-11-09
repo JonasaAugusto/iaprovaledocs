@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.12.0] - 2026-11-09
+- Filtro rígido de UF (backend 2.11.0): com UFs escolhidas só voltam concursos delas e os nacionais, mensagem própria de zero resultados e como o nacional é identificado. Seletor de estados na busca (site 3.10.0), com várias UFs e vazio = Brasil todo; busca pelo perfil com mobilidade local ou estado inclui os nacionais. Ver `docs/filtro-de-uf.md`. Aguardando revisão e publicação.
+
 ## [1.11.2] - 2026-11-09
 - Estado de Stats e dos eventos de busca atualizado para no ar (backend 2.10.1, site 3.9.0, migração v3_15 já aplicada). Confirmada a publicação da exclusão de avaliações com a conta pelo administrador (migração v3_16).
 
