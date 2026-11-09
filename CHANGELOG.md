@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.12.1] - 2026-11-09
+- Documentado o que o backend 2.12.0 traz, aguardando publicação do backend 2.12.0: a UF extraída do texto da busca vira filtro rígido quando o usuário não envia `ufs`, e `POST /v1/search` aceita `ufs` com a mesma validação e prioridade. Ver `docs/filtro-de-uf.md`.
+
 ## [1.12.0] - 2026-11-09
 - Filtro rígido de UF (backend 2.11.0): com UFs escolhidas só voltam concursos delas e os nacionais, mensagem própria de zero resultados e como o nacional é identificado. Seletor de estados na busca (site 3.10.0), com várias UFs e vazio = Brasil todo; busca pelo perfil com mobilidade local ou estado inclui os nacionais. Ver `docs/filtro-de-uf.md`. Aguardando revisão e publicação.
 
