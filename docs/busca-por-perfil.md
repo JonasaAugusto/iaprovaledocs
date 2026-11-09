@@ -44,7 +44,7 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
 ## Riscos e ideias
 
 - Quem tem graduação passa a receber também concursos de nível superior de qualquer área pela busca por perfil (depois dos que casam por cargo). Mais resultados, menos precisão.
-- Mobilidade vazia ou "qualquer" não restringe a UF: concursos de outros estados aparecem depois dos locais. Filtro rígido de UF fica como ideia, não foi feito.
+- Mobilidade vazia ou "qualquer" não restringe a UF: concursos de outros estados aparecem depois dos locais. O filtro rígido de UF foi feito à parte, na 2.11.0 (ver `docs/filtro-de-uf.md`).
 - Concurso sem nível informado pela fonte só entra se casar por cargo.
 
 ## Testes
