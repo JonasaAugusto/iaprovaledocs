@@ -1,6 +1,6 @@
 # Filtro rígido de UF
 
-Estado: **publicado em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0).
+Estado: seleção de UFs **publicada em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0). A UF citada no texto como filtro rígido e o campo `ufs` em `POST /v1/search` estão **prontos, aguardando publicação do backend 2.12.0** (seção "UF citada no texto e API de parceiros").
 
 ## Como era
 
@@ -14,7 +14,7 @@ Estado: **publicado em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0).
 
 ## Como fica
 
-- `POST /search` aceita `ufs`, lista opcional de siglas (`["SP", "RJ"]`). Maiúsculas ou minúsculas, sem repetição; sigla que não existe dá erro 422. Sem `ufs` (ausente ou vazia) **nada muda**.
+- `POST /search` aceita `ufs`, lista opcional de siglas (`["SP", "RJ"]`). Maiúsculas ou minúsculas, sem repetição; sigla que não existe dá erro 422. Sem `ufs` (ausente ou vazia), a seleção não se aplica; na 2.11.0 nada mudava, e na 2.12.0 vale a UF citada no texto (ver abaixo).
 - Com `ufs`, voltam só:
   - concursos de alguma das UFs escolhidas;
   - concursos **nacionais** (vagas no país todo).
@@ -25,6 +25,15 @@ Estado: **publicado em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0).
 - Ordem: concursos das UFs na ordem pedida, nacionais depois.
 - Federais com sede em DF aparecem só para quem escolhe DF (decisão do dono); nacionais genuínos entram sempre.
 - O resumo da busca mostra, por exemplo, "UF: SP, RJ (e nacionais)".
+
+## UF citada no texto e API de parceiros (backend 2.12.0, aguardando publicação)
+
+- **Texto da busca.** Quando o usuário não envia `ufs` (ausente ou lista vazia), a UF que a IA extrai do texto ("enfermeiro em SP", "nível médio em SP ou no RJ") passa a ser filtro rígido, com a mesma regra da seleção: só as UFs citadas e os nacionais, mesmo que a fonte devolva outro estado. Vale também para a busca só por nível e por cidade. A IA pode devolver várias UFs; siglas que não existem ou em formato errado são descartadas, sem derrubar a busca.
+- **Prioridade.** `ufs` enviado vence a UF do texto e o perfil. Não são combinados.
+- **O que não vira filtro.** A UF que a mobilidade do perfil injeta na pesquisa continua só restringindo a consulta à fonte, como antes. Uma região sem estados citados ("no Sul") também não vira lista de UFs.
+- **Resumo e zero resultados.** O resumo da busca mostra "UF: SP (e nacionais)" e a mensagem de zero resultados é a do filtro de UF, como na seleção explícita. Se a pergunta for sobre terceiros, o pedido de reformulação continua igual.
+- **Limitação.** Quem escreve uma cidade ou estado no texto passa a receber só aquele estado e os nacionais; a UF depende da leitura da IA. Quem quiser outro recorte pode enviar `ufs` ou remover o estado do texto.
+- **`POST /v1/search`.** Aceita o campo opcional `ufs` com a mesma validação e prioridade de `POST /search`: até 27 siglas, maiúsculas ou minúsculas, sem repetição; sigla inválida, valor que não seja lista ou mais de 27 itens dão erro 422. Sem `ufs`, a resposta segue a regra do texto acima. Não há mudança de banco nem de outras rotas.
 
 ## Como o concurso nacional é identificado
 
@@ -82,9 +91,8 @@ Com o filtro ligado e nenhum concurso, a resposta diz isso: "Não encontrei conc
 
 ## Pendências
 
-- A UF citada no texto da busca ("enfermeiro em SP") segue como antes: a fonte já devolve a UF e os nacionais, mas sem filtro final no servidor. Só a UF enviada em `ufs` é rígida.
-- A API de parceiros (`/v1/search`) não ganhou o campo.
+- Até a publicação do backend 2.12.0, a UF citada no texto da busca ("enfermeiro em SP") segue como antes: a fonte já devolve a UF e os nacionais, mas sem filtro final no servidor, e `POST /v1/search` ainda não aceita `ufs`.
 
 ## Testes
 
-Site: verificação em navegador (desktop e celular, claro e escuro, API simulada). Backend: `tests/test_search_filtro_uf.py` (UF única, várias UFs, nacionais, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação e endpoint) e `tests/test_search_filtro_uf_nacionais.py` com registros reais da PCI como fixtures (MGS, Marinha, INB, Câmara, TRF3), detecção por texto, paralelismo com limite, ordem determinística, falha parcial, timeout e busca pelo perfil via `pesquisar_concursos`. Teste ao vivo contra a fonte: nenhum concurso de estado não escolhido apareceu, e MGS e distritos navais só aparecem para a UF certa.
+Site: verificação em navegador (desktop e celular, claro e escuro, API simulada). Backend: `tests/test_search_filtro_uf.py` (UF única, várias UFs, nacionais, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação e endpoint) e `tests/test_search_filtro_uf_nacionais.py` com registros reais da PCI como fixtures (MGS, Marinha, INB, Câmara, TRF3), detecção por texto, paralelismo com limite, ordem determinística, falha parcial, timeout e busca pelo perfil via `pesquisar_concursos`. Backend 2.12.0 (pronto, não publicado): os mesmos arquivos de teste e `tests/test_partner_search.py` cobrem UF extraída em cargo, pesquisa e cidade, várias UFs, prioridade de `ufs`, siglas inválidas vindas da IA, busca por nível, zero resultados e repasse e validação de `ufs` no `/v1/search`. Teste ao vivo contra a fonte (2.11.0): nenhum concurso de estado não escolhido apareceu, e MGS e distritos navais só aparecem para a UF certa.
