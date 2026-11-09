@@ -1,6 +1,6 @@
 # Filtro rígido de UF
 
-Estado: **pronto para revisão** (backend 2.11.0, branch `feat/filtro-uf`, sem tag, sem merge e sem publicação). O site ainda não tem onde escolher a UF na busca.
+Estado: **pronto para revisão** (backend 2.11.0 e site 3.10.0, branches `feat/filtro-uf`, sem tag, sem merge e sem publicação).
 
 ## Como era
 
@@ -21,6 +21,7 @@ Estado: **pronto para revisão** (backend 2.11.0, branch `feat/filtro-uf`, sem t
   Nunca de outro estado, mesmo que a fonte devolva.
 - A UF escolhida vale mais que a UF que a IA tirou do texto e mais que a mobilidade do perfil.
 - Vale na busca com IA e em "Buscar com meu perfil" (nesta, as UFs escolhidas substituem o local do perfil).
+- Na busca pelo perfil com mobilidade **local** ou **estado**, os nacionais também entram (uma consulta extra à lista geral da fonte).
 - Ordem: concursos das UFs na ordem pedida, nacionais depois.
 - O resumo da busca mostra, por exemplo, "UF: SP, RJ (e nacionais)".
 
@@ -32,13 +33,25 @@ A fonte (PCI Concursos) marca nacionais com `uf` vazio e `regiao` = NACIONAL (ho
 
 Com o filtro ligado e nenhum concurso, a resposta diz isso: "Não encontrei concursos abertos em AM (nem concursos nacionais) para essa busca. O filtro de UF está ligado, então não mostrei concursos de outros estados. Remova ou troque a UF para ampliar a busca." Com várias UFs: "nas UFs AM, RR e AC". Continua sem contar na cota, no histórico nem na avaliação.
 
-## Pendências de decisão
+## Seletor na tela de busca (site 3.10.0)
 
-- O app ainda não tem seletor de UF na busca (a UF aparece só no perfil). Para o filtro aparecer para quem usa, é preciso desenhar o seletor (uma ou várias UFs) na tela de busca.
-- Federais com sede em DF (UF = DF) contam como DF, não como nacionais: quem escolher SP não os recebe.
-- Mobilidade do perfil (local, estado) e UF citada no texto continuam como na 2.10.0 (a fonte já inclui os nacionais na pesquisa por UF; na busca pelo perfil com mobilidade local ou estado os nacionais não entram). Só a UF escolhida no campo `ufs` é rígida.
+- Abaixo do campo de busca há o botão **Onde**, que mostra o resumo ("Brasil todo", "BA, MG, SP" ou "5 estados") e abre os 27 estados em chips agrupados por região (Norte, Nordeste, Centro-Oeste, Sudeste, Sul). Pode marcar vários; vazio = Brasil todo.
+- A escolha vai no pedido de busca como `ufs` e na URL como `&uf=SP,RJ`: recarregar e voltar/avançar mantêm o filtro. Sem estados, o pedido é igual ao de antes.
+- O seletor recolhe ao buscar. "Nova busca" limpa os estados junto com o texto.
+- Resultados mostram "Só BA, MG, SP e concursos nacionais." Se a busca com estados não acha nada, a tela diz que os estados continuam valendo e oferece **Buscar no Brasil todo**.
+- Acessível: cada chip é um botão com estado marcado/desmarcado, nome completo do estado para leitores de tela, alvo de 44 px, marcado = preenchido (não depende só de cor). Claro e escuro, sem vermelho nem azul.
+
+## Decisões do dono (09/11/2026)
+
+1. Seletor de UF na tela de busca, com várias UFs e vazio = Brasil todo (feito, site 3.10.0).
+2. Federais com sede em DF (`uf` = DF) continuam contando como DF, não como nacionais: quem escolhe SP não os recebe.
+3. Busca pelo perfil com mobilidade local ou estado inclui os nacionais (feito, backend 2.11.0).
+
+## Pendências
+
+- A UF citada no texto da busca ("enfermeiro em SP") segue como antes: a fonte já devolve a UF e os nacionais, mas sem filtro final no servidor. Só a UF enviada em `ufs` é rígida.
 - A API de parceiros (`/v1/search`) não ganhou o campo.
 
 ## Testes
 
-`tests/test_search_filtro_uf.py` (backend): UF única, várias UFs, nacionais incluídos, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação do campo e repasse pelo endpoint.
+Site: verificação em navegador (desktop e celular, claro e escuro, 68 verificações com a API simulada). Backend, `tests/test_search_filtro_uf.py`: UF única, várias UFs, nacionais incluídos, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação do campo e repasse pelo endpoint.
