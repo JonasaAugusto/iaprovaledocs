@@ -1,6 +1,6 @@
 # Stats (aba só do administrador)
 
-Estado: a versão 1.9.0 (site 3.8.0, backend 2.8.0) está no ar. As buscas, o custo e as pessoas ativas por hora de **Hoje** estão **prontos, aguardando publicação** (site 3.9.0, backend 2.9.0, com migração; ver [Eventos de busca](eventos-de-busca.md)).
+Estado: **no ar**, incluindo buscas, custo e pessoas ativas por hora de **Hoje** (backend 2.10.1, site 3.9.0, migração v3_15 já aplicada; ver [Eventos de busca](eventos-de-busca.md)).
 
 A aba **Stats** é o último item da barra de navegação (embaixo no celular, na lateral no computador) e só aparece para administradores. Quem não é administrador não vê a aba, não abre a tela e recebe 403 no endpoint. Serve para acompanhar a evolução do uso.
 

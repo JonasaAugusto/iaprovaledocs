@@ -3,14 +3,17 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.11.2] - 2026-11-09
+- Estado de Stats e dos eventos de busca atualizado para no ar (backend 2.10.1, site 3.9.0, migração v3_15 já aplicada). Confirmada a publicação da exclusão de avaliações com a conta pelo administrador (migração v3_16).
+
 ## [1.11.1] - 2026-11-07
 - Resumo diário do Telegram (19h) só é enviado se houve novidade no dia: cadastro novo, busca ou avaliação nova (backend 2.10.1). Sem novidade, o dia é registrado e nada é enviado.
 
 ## [1.11.0] - 2026-11-06
-- Busca pelo perfil sem IA, filtro por nível de escolaridade, escolaridade nunca vira termo, regra de cota para buscas sem resultado, mensagem nova de zero resultados e exclusão de conta apagando avaliações (backend 2.10.0). Ver `docs/busca-por-perfil.md`. Aguardando publicação.
+- Busca pelo perfil sem IA, filtro por nível de escolaridade, escolaridade nunca vira termo, regra de cota para buscas sem resultado, mensagem nova de zero resultados e exclusão de conta apagando avaliações (backend 2.10.0). Ver `docs/busca-por-perfil.md`. No ar; migração v3_16 já aplicada.
 
 ## [1.10.0] - 2026-11-06
-- Tabela de eventos de busca (backend 2.9.0, site 3.9.0, migração v3_15): Stats em Hoje com buscas, custo e pessoas ativas por hora. Retenção de 90 dias, exclusão com a conta, inclusão na exportação de dados e trecho proposto para a Política de Privacidade do plano grátis (versão 1.2). Ver `docs/eventos-de-busca.md`. Aguardando publicação.
+- Tabela de eventos de busca (backend 2.9.0, site 3.9.0, migração v3_15): Stats em Hoje com buscas, custo e pessoas ativas por hora. Retenção de 90 dias, exclusão com a conta, inclusão na exportação de dados e trecho proposto para a Política de Privacidade do plano grátis (versão 1.2). Ver `docs/eventos-de-busca.md`. No ar; migração v3_15 já aplicada.
 
 ## [1.9.0] - 2026-11-06
 - Aba Stats do administrador (backend 2.8.0, site 3.8.0): períodos Hoje, Este mês, 7, 30 e 90 dias, números-resumo e gráficos de uso. Ver `docs/stats-do-administrador.md`. No ar: backend v2.8.0 e site v3.8.0.

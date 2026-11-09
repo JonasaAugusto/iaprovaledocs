@@ -1,6 +1,6 @@
 # Eventos de busca (tabela `search_events`)
 
-Estado: **pronto, aguardando publicação** (backend 2.9.0, site 3.9.0). **Exige migração** (`scripts/migrate_v3_15_eventos_busca.py`), aditiva e idempotente.
+Estado: **no ar** (backend 2.10.1, site 3.9.0). A migração v3_15 (`scripts/migrate_v3_15_eventos_busca.py`), aditiva e idempotente, **já foi aplicada**.
 
 ## Para que serve
 
@@ -35,9 +35,9 @@ No mesmo ponto em que `search_usage` é atualizado: depois de uma busca que resp
 - O campo `buscas_por_hora_disponivel` da resposta de `GET /admin/stats` diz ao site se mostra os gráficos por hora (tabela existe) ou o aviso de "só total do dia" (tabela ausente ou backend antigo). No dia da migração, buscas anteriores à tabela ficam só no total do dia; o campo `buscas_por_hora_parcial` faz a tela avisar que a soma por hora fica abaixo do total.
 - Os totais do período (cartões) seguem sempre de `search_usage`.
 
-## Ordem de publicação
+## Publicação concluída
 
-1. Backup do banco. 2. Migração. 3. Backend 2.9.0. 4. Site 3.9.0. O backend funciona antes da migração (formato antigo de `/admin/stats`, sem erro nas buscas), e o site funciona com o backend antigo (mantém o aviso).
+A publicação foi concluída, com a migração v3_15 aplicada. A versão atual em produção é backend 2.10.1 e site 3.9.0. O backend funciona antes da migração (formato antigo de `/admin/stats`, sem erro nas buscas), e o site funciona com o backend antigo (mantém o aviso).
 
 ## Texto para a Política de Privacidade do plano grátis (versão 1.2)
 
