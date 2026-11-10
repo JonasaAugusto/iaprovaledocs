@@ -32,3 +32,11 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 Endereço do produto: https://augustusai.com.br/iaprovale/
 
 O que está no ar em https://augustusai.com.br/iaprovale/ é a versão grátis: a pessoa cria a própria conta pelo chat da página inicial. O modo por convite (cada login nasce de uma solicitação aprovada pelo responsável) continua existindo como alternativa de build do site, mas não é o publicado. O endereço antigo /iaprovale/gratis/ apenas redireciona para a raiz.
+
+## Contato
+
+Responsável pelo IAprovale: Jonas, da Augustus AI.
+
+- E-mail: [jonasaugustosantosoliveira@gmail.com](mailto:jonasaugustosantosoliveira@gmail.com).
+- Instagram da [Augustus AI](https://www.instagram.com/augustusaisolutions/).
+- Instagram de [Jonas](https://www.instagram.com/jonasaaugusto/).
