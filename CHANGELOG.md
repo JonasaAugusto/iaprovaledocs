@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.12.2] - Não publicado
+- Adicionada seção de contato no [README](README.md), com o e-mail do responsável e os perfis de Instagram da Augustus AI e de Jonas.
+
 ## [1.12.1] - 2026-11-09
 - Documentado o que o backend 2.12.0 traz (no ar desde 2026-11-09): a UF extraída do texto da busca vira filtro rígido quando o usuário não envia `ufs`, e `POST /v1/search` aceita `ufs` com a mesma validação e prioridade. Ver `docs/filtro-de-uf.md`.
 
