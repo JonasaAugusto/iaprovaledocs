@@ -14,6 +14,12 @@ A aba **Stats** é o último item da barra de navegação (embaixo no celular, n
 
 Nenhum dado pessoal aparece: só contagens, somas e médias.
 
+## Estimativa de custo (ainda não publicado)
+
+Estado da atualização: **Ainda não publicado**, junto do pacote de avisos e prazos. A estimativa para novas buscas usa os preços da [tabela oficial da DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/), conferida em 11/11/2026, separando entrada com cache, entrada sem cache e saída. Usa a **tarifa de pico** como estimativa conservadora; fora de pico, o provedor cobra menos. O valor exibido não equivale à fatura do provedor nem representa cobrança à pessoa.
+
+A contagem preserva o valor zero de entrada sem cache; se essa informação não vier do provedor, desconta a entrada com cache do total, sem dupla contagem, inclusive nas retentativas. Histórico já registrado não é recalculado: os totais podem combinar estimativas anteriores e novas. A busca determinística pelo perfil continua sem chamada à IA e com custo zero.
+
 ## Como funciona
 
 - Endpoint `GET /admin/stats?periodo=hoje|mes|7|30|90` (só administrador; 401 sem login, 403 para os demais). Também aceita `dias` (1 a 180) no lugar de `periodo`.
