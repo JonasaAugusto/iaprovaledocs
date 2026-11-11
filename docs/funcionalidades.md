@@ -101,6 +101,46 @@ Estado: **no ar**. Detalhes em [Stats](stats-do-administrador.md).
 | Stats em **Hoje** com buscas, custo e pessoas ativas por hora, a partir de um registro de eventos de busca (horário, custo e tipo, sem conteúdo; apagado em 90 dias e com a conta; migração v3_15 já aplicada) | **No ar** |
 | Aba **Stats**, só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | **No ar** |
 
+## Avisos, prazos e e-mail com código (ainda não publicado)
+
+Estado: **Ainda não publicado**. O backend das etapas 1 e 2 está implementado; a revisão do site e a publicação seguem pendentes. Nenhuma adição deste pacote está em produção. Os recursos são gratuitos para todas as contas, com os limites abaixo, sem depender de plano pago. Tudo que envolve e-mail só é habilitado quando o serviço de envio estiver configurado; **hoje o envio está desligado**. Sem envio, o cadastro mantém o fluxo atual, sem pedir e-mail, e as Novidades podem continuar sendo geradas no site após a publicação do pacote.
+
+### Cadastro e e-mail na conta
+
+- Com o envio disponível, o cadastro exige e-mail e confirmação por **código de 6 dígitos**. Se a cota global do dia acabar, a conta é criada com e-mail pendente, para confirmar depois em Configurações. Um endereço não confirmado não reserva o e-mail. Endereço e código não são enviados à IA. Veja [Cadastro com e-mail](versao-gratis.md#cadastro-com-e-mail-ainda-não-publicado).
+- E-mail na conta com preferência para receber avisos. A troca só vale após confirmar o endereço novo; é possível remover o endereço e desligar os avisos. Detalhes em [Configurações](configuracoes-do-usuario.md).
+
+### Cotas de e-mail
+
+- Cotas **globais por dia**, compartilhadas por todas as contas: **200 envios de códigos** e **100 envios de avisos**, renovadas à meia-noite de Brasília. Códigos podem usar a sobra da cota de avisos; avisos nunca usam a cota de códigos. Assim, os códigos podem ocupar até os 300 envios do dia, reduzindo o que resta para avisos.
+- O e-mail de boas-vindas usa a categoria de códigos e compartilha essa cota. Sem cota, a confirmação fica para depois e o serviço informa quando é possível pedir outro código. O cadastro pode terminar com e-mail pendente, como descrito acima.
+
+### Caixa de Novidades
+
+- Caixa de Novidades dentro do site, com avisos de concursos novos, prazos e mensagens do sistema. Cada item tem título, texto, data e estado de leitura; pode trazer o concurso e seu link.
+- A pessoa pode filtrar as não lidas e marcar os itens como lidos individualmente ou todos de uma vez. O contador de não lidas considera o total da conta, independentemente do filtro e do limite da lista. Desligar o e-mail mantém as Novidades no site.
+- Novidades lidas são apagadas após **6 meses (mais de 183 dias desde a criação)**, na limpeza diária. As não lidas são mantidas até serem lidas e atingirem esse prazo, ou até a exclusão da conta.
+
+### Alertas e concursos acompanhados
+
+- Até **10 alertas por conta**, com nome, uso do perfil e/ou termo de busca e uma lista de UFs. É necessário informar um termo ou usar o perfil. A lista de UFs segue as mesmas regras do [filtro de UF](filtro-de-uf.md); vazia significa Brasil todo. É possível criar, editar, pausar, reativar e excluir alertas.
+- Ao criar ou reativar um alerta, a primeira busca bem-sucedida registra os concursos encontrados como **linha de base**, sem avisá-los. Os alertas avisam só concursos que aparecerem daí para a frente, com até **10 avisos por alerta por dia** na rotina prevista de uma execução diária; excedentes ficam pendentes para os próximos dias. Um concurso não gera avisos repetidos para a mesma conta, mesmo se combinar com mais de um alerta.
+- Acompanhar até **50 concursos por conta**, guardando título e link da matéria do concurso. A lista é ordenada pela próxima data. Acompanhar de novo o mesmo concurso não duplica o item; é possível deixar de acompanhar.
+- As datas vêm da leitura automática das informações do concurso: fim das inscrições, fim do pedido de isenção e data da prova. Se a leitura falhar, o acompanhamento continua salvo; datas podem ficar indisponíveis até uma atualização posterior.
+- Lembretes em **D-3 e D-1** (três dias e um dia antes) de cada uma dessas datas aparecem em Novidades e no resumo por e-mail, quando habilitado. Dependem de uma data disponível. Os dados podem estar incompletos ou desatualizados: confirme sempre no edital e no site oficial do concurso.
+
+### Rotina diária e modelos de e-mail
+
+- Execução prevista todos os dias às **07:00, horário de Brasília**. Consulta alertas ativos, sem consumir a cota de buscas da pessoa e sem gravar buscas no histórico, respeitando a linha de base e os limites acima.
+- Atualiza as datas dos concursos acompanhados no máximo uma vez por dia e cria os lembretes de prazo. Repetir a rotina não duplica os avisos no mesmo dia.
+- Modelos de código de confirmação, boas-vindas e resumo diário em **HTML e texto**, enviados por **provedor externo**. O resumo reúne concursos novos e lembretes de prazo, traz um link para o aplicativo e orienta como desligar os avisos nas Configurações.
+- Boas-vindas só depois de confirmar o e-mail e de a conta existir, inclusive quando a confirmação ocorrer depois em Configurações. Sem cota, fica para a manhã seguinte, com prioridade **antes dos resumos**; se a cota continuar esgotada, permanece pendente. Com envio desligado, não há envio nem fila retroativa de boas-vindas.
+- No máximo **um e-mail-resumo por pessoa por dia**, somente com conta ativa, e-mail verificado, preferência de avisos ativada e envio disponível; sem novidades, não há resumo. A fila prioriza quem recebeu há mais tempo e inclui os avisos adiados por falta de cota. O primeiro resumo considera somente as Novidades do dia, sem carregar todo o histórico.
+- Se houver falha ou interrupção com entrega incerta, o e-mail não é reenviado automaticamente: a mensagem pode não chegar, mas os avisos continuam em Novidades no site.
+- E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. Veja [Dados e privacidade](configuracoes-do-usuario.md) e a atualização prevista dos [textos legais para 1.2](versao-gratis.md).
+
+A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**. A comparação detalhada entre o perfil e cada cargo permanece como etapa futura, conforme o [roadmap](roadmap.md).
+
 ## Ainda por construir
 
 | Funcionalidade | Estado |

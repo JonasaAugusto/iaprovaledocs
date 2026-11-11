@@ -6,6 +6,9 @@ Estado: **No ar**, servida na raiz do produto, https://augustusai.com.br/iaprova
 O site publicado, em que a pessoa cria a própria conta, sem esperar aprovação. É uma fase de teste: a plataforma ainda está sendo avaliada por grupos de concurseiros.
 
 ## Como a conta é criada
+
+Este é o fluxo atual em produção, sem e-mail. A adição abaixo ainda não foi publicada.
+
 - O cadastro acontece no mesmo chat da página inicial: o botão "Criar conta grátis" abre a janela de conversa. A pessoa conversa com um assistente que guia quatro passos: nome de usuário, celular com DDD, aceite dos Termos e da Política de Privacidade e senha.
 - **Usuário.** Ao tocar em enviar, antes de ir ao servidor, abre um pop-up de vidro com "Quer confirmar esse usuário?" e os botões Sim e Não. Se o texto não segue as regras (de 3 a 30 letras, números, ponto, hífen ou sublinhado, sem espaços), não há confirmação: aparece um pop-up com as regras. Maiúsculas são aceitas e viram minúsculas. Usuário já usado também vira pop-up.
 - **Celular.** Depois do usuário, o chat pede o celular e explica numa observação menor que ele serve para confirmar a conta e para o contato do suporte. Número inválido ou já usado aparece como pop-up, não como mensagem. Os alertas não têm botão: somem sozinhos depois de alguns segundos, ao tocar neles ou quando a pessoa volta a digitar.
@@ -13,6 +16,13 @@ O site publicado, em que a pessoa cria a própria conta, sem esperar aprovação
 - **Senha.** É digitada num campo próprio dentro da mesma janela, nunca como mensagem do chat, e não passa pela inteligência artificial. Se alguém escrever a senha na conversa, aparece um aviso em pop-up.
 - **Conclusão.** O chat avisa que a conta foi criada e mostra um botão largo "Entrar", que leva ao login. A pessoa não entra logada sozinha.
 - Quem decide se os dados são válidos é o sistema, não a inteligência artificial.
+
+## Cadastro com e-mail (ainda não publicado)
+
+- O e-mail é **obrigatório** no cadastro quando o serviço de envio estiver configurado. A pessoa confirma a posse com um código de 6 dígitos, válido por 10 minutos; há opção de reenviar ou trocar o endereço. Endereço e código não passam pela inteligência artificial.
+- Se a cota global de envios do dia estiver esgotada, a conta é criada com e-mail pendente, sem impedir o acesso. A pessoa confirma depois em **Configurações**, quando puder pedir um novo código. Um e-mail não confirmado não reserva o endereço: quem comprovar a titularidade pode confirmá-lo, removendo pendências anteriores em outras contas.
+- A confirmação habilita o envio de boas-vindas depois de a conta existir; sem cota, fica para a manhã seguinte, com prioridade antes dos resumos. Resumos exigem também a preferência de avisos ligada. Veja as [cotas e condições de envio](funcionalidades.md#cotas-de-e-mail).
+- Hoje o envio está desligado. Enquanto estiver indisponível, continua o fluxo atual, sem pedir e-mail. A publicação do pacote, por si só, não habilita o envio.
 
 ## Dúvidas no chat
 - A inteligência artificial responde dúvidas em linguagem simples e cordial, mas só com base numa ficha fixa de fatos (o que é o IAprovale, plano grátis e limite diário, dados de concursos podem estar desatualizados, para que serve o celular, que dados guardamos, senha protegida, apagar a conta, como entrar, suporte). O que não está na ficha ela não responde ("isso eu não sei te dizer por aqui"), e não promete prazos, preços ou canais.
@@ -29,6 +39,10 @@ O site publicado, em que a pessoa cria a própria conta, sem esperar aprovação
 ## Termos de Uso e Política de Privacidade
 O plano grátis tem Termos de Uso e Política de Privacidade próprios (versão 1.1, em vigor desde 6 de novembro de 2026), com seções numeradas: quem somos e contato, dados coletados, finalidades e bases legais (LGPD, art. 7º), uso das avaliações, inteligência artificial e compartilhamento (o usuário e o telefone não vão à IA no fluxo normal; só a pergunta feita fora do fluxo), transferência internacional, retenção, direitos (art. 18), segurança e incidentes, crianças, armazenamento no navegador, limites do plano grátis (17 buscas por dia, avaliação a cada 5, teto de 1.000 cadastros, fase de teste), uso aceitável e foro. O texto do modo por convite não muda.
 
+**Próxima atualização: versão 1.2 (ainda não publicado).** Os Termos de Uso e a Política de Privacidade passam a descrever o e-mail na conta e sua verificação por código, a preferência de avisos, a caixa de Novidades, os alertas e os concursos acompanhados com lembretes de prazo. Devem informar a finalidade desses dados (confirmar o endereço e entregar os avisos escolhidos), o envio de códigos e de resumos por provedor externo e a possibilidade de desligar os avisos por e-mail mantendo as Novidades no site. A exportação inclui e-mail e verificação, preferência, Novidades, alertas e concursos acompanhados; a exclusão da conta apaga também esses dados e os registros de verificação e de controle de avisos repetidos. A versão 1.2 inclui ainda o [registro de eventos de busca e sua retenção](eventos-de-busca.md), já previsto. Esta descrição não declara os novos textos em vigor nem os recursos publicados; a validação por advogado continua pendente.
+
+O pacote ainda não publicado acrescenta o cadastro com e-mail obrigatório apenas com envio disponível, a confirmação posterior quando faltar cota e as boas-vindas após confirmar o endereço. Inclui os controles de resumos e boas-vindas na exportação e exclusão. Novidades lidas são apagadas após 6 meses (mais de 183 dias desde a criação); não lidas ficam até serem lidas e atingirem esse prazo, ou até a exclusão da conta. Os limites e condições de entrega estão em [Funcionalidades](funcionalidades.md). A versão 1.2 dos textos legais acompanha o pacote sem envio; habilitar e-mail segue dependendo de configuração e revisão dos textos correspondentes.
+
 ## Registro do aceite (prova de consentimento)
 Quando a conta grátis é criada, o sistema guarda na própria linha do usuário, como prova do consentimento (LGPD, art. 8º, §2º) e por segurança do cadastro:
 
@@ -41,6 +55,7 @@ Quando a conta grátis é criada, o sistema guarda na própria linha do usuário
 - **Retenção:** enquanto a conta existir. Excluir a conta apaga a linha do usuário e, com ela, esses três campos; a exportação de dados da própria pessoa os inclui.
 - **Quem não tem:** contas antigas e contas por convite ficam com os campos vazios (não passaram pelo chat de cadastro grátis).
 - **Texto legal:** os Termos e a Política do plano grátis (versão 1.1) avisam o registro, a finalidade e a retenção. A versão dos textos (`VERSAO` no site) e `ACEITE_TERMOS_VERSAO` no backend mudam juntas.
+- **Próxima versão (ainda não publicada):** ao publicar os textos 1.2, os novos aceites passam a registrar `gratis-1.2`, alinhados entre site e backend. Os aceites anteriores preservam a versão que a pessoa aceitou.
 - Decisão do responsável (6 de novembro de 2026): guardar o IP em claro, necessário como prova.
 
 ## Organização técnica

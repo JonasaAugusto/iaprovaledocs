@@ -3,6 +3,12 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [1.13.0] - Não publicado
+- Documentado o pacote de avisos e prazos, ainda não publicado: cadastro com e-mail obrigatório quando o envio estiver configurado, confirmação por código de 6 dígitos e conta com e-mail pendente quando não houver cota. Endereço pendente não reserva o e-mail. Cotas globais diárias de 200 códigos e 100 avisos, com aproveitamento da sobra de avisos apenas pelos códigos. Hoje o envio permanece desligado. Ver [Versão grátis](docs/versao-gratis.md) e [Configurações](docs/configuracoes-do-usuario.md).
+- Caixa de Novidades, até 10 alertas por perfil/termo/UFs e até 50 concursos acompanhados com lembretes D-3/D-1 de inscrição, isenção e prova. Alertas criam linha de base ao criar/reativar e avisam só concursos futuros, até 10 avisos por alerta por dia. Rotina às 07:00 de Brasília, modelos de e-mail em HTML e texto e boas-vindas após confirmar o endereço; sem cota, adiado para a manhã seguinte com prioridade. Novidades lidas são apagadas após 6 meses (183 dias desde a criação); não lidas ficam. Tudo ainda não publicado. Ver [Funcionalidades](docs/funcionalidades.md).
+- Atualização ainda não publicada da estimativa de custo de IA com preços atuais da DeepSeek e correção da contagem de cache; histórico preservado e estimativa conservadora, sem equivalência à fatura. Ver [Stats](docs/stats-do-administrador.md). Adicionada verificação local em Python para o contrato documentado e os links relativos.
+- Exportação e exclusão da conta passam a incluir esses dados. Termos de Uso e Política de Privacidade previstos na versão 1.2, ainda não publicada; preservado o registro da versão 1.1 em vigor. Ver [Versão grátis](docs/versao-gratis.md). Índice, decisões e roadmap alinhados ao escopo gratuito.
+
 ## [1.12.2] - Não publicado
 - Adicionada seção de contato no [README](README.md), com o e-mail do responsável e os perfis de Instagram da Augustus AI e de Jonas.
 
