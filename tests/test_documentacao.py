@@ -25,11 +25,12 @@ def secao(texto, titulo):
 
 class DocumentacaoTest(unittest.TestCase):
     def test_estado_changelog_e_links_locais(self):
-        pacote = secao(ler("docs/funcionalidades.md"), "## Avisos, prazos e e-mail")
-        self.assertIn("Estado: **Ainda não publicado**", pacote)
+        pacote = secao(ler("docs/funcionalidades.md"), "## Avisos e prazos publicados")
+        self.assertIn("Estado: **No ar**", pacote)
+        self.assertIn("hoje o envio está desligado", pacote)
         changelog = ler("CHANGELOG.md")
         versoes = re.findall(r"^## \[(\d+\.\d+\.\d+)\] - (.+)$", changelog, re.MULTILINE)
-        self.assertEqual(versoes[0], ("1.14.0", "Não publicado"))
+        self.assertEqual(versoes[0], ("1.15.0", "Não publicado"))
         self.assertEqual(len(versoes), len({v for v, _ in versoes}))
         self.assertIn("[1.12.2] - Não publicado", changelog)
         self.assertIn("ainda não publicado", ler("README.md"))
@@ -110,7 +111,7 @@ class DocumentacaoTest(unittest.TestCase):
 
     def test_compatibilidade_contrato_e_limites_da_ia(self):
         texto = ler("docs/compatibilidade.md")
-        self.assertIn("Estado: **Ainda não publicado**", texto)
+        self.assertIn("Estado: **No ar**", texto)
         contrato = secao(texto, "## Consulta e resposta")
         self.assertIn("GET /concursos/{id}/compatibilidade", contrato)
         self.assertIn("autenticada", contrato)
@@ -165,7 +166,7 @@ class DocumentacaoTest(unittest.TestCase):
 
     def test_pre_deploy_migracoes_antes_do_reinicio(self):
         texto = ler("docs/pre-deploy.md")
-        self.assertIn("Estado: **Ainda não publicado**", texto)
+        self.assertIn("Estado: **Publicado sem envio de e-mail**", texto)
         migracoes = re.findall(r"^\| `([^`]+\.py)` \|", texto, re.MULTILINE)
         self.assertEqual(migracoes, [
             "scripts/migrate_v3_17_email_novidades.py",

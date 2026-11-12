@@ -1,6 +1,6 @@
 # Compatibilidade entre perfil e cargos (etapa 3)
 
-Estado: **Ainda não publicado**. Backend implementado na versão principal; a tela e a publicação ainda dependem de integração e revisão. Esta etapa complementa os [concursos acompanhados](funcionalidades.md#alertas-e-concursos-acompanhados). A preparação da publicação inclui a [migração v3_22](pre-deploy.md).
+Estado: **No ar**, conforme a publicação informada em **12/11/2026**. A tela fica em **Alertas > Acompanhando**, com resultado por cargo, motivo e lacunas. Esta etapa complementa os [concursos acompanhados](funcionalidades.md#alertas-e-concursos-acompanhados). Veja a [navegação publicada](navegacao.md#alertas) e o registro da dependência da [migração v3_22](pre-deploy.md).
 
 ## Consulta e resposta
 

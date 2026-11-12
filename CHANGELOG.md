@@ -3,8 +3,13 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
-## [Não publicado — Empresas E3/E4]
-- Documentados o currículo ATS em PDF/DOCX (R$ 1,49) e o pacote de entrevista (R$ 2,99): geração conservadora, cota e armazenamento. Cobrança real ainda desligada.
+## [1.15.0] - Não publicado
+- Estado do [Empresas E1–E5](docs/empresas.md) atualizado para **no ar desde 12/11/2026** (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior). Esta entrada registra a atualização das docs, ainda não publicada, sem atribuir uma nova versão ao produto em produção.
+- Documentada a [busca de vagas E5](docs/empresas-vagas.md): filtros, paginação, panorama, prévia gratuita sem IA, índice local diário às 06:00 de São Paulo, coleta parcial aceita, indisponibilidade 503 sem índice, validade de 72 horas, catálogo de 176 empresas e cobertura pública limitada por `robots.txt`.
+- Documentadas as [telas e a navegação](docs/navegacao.md): Carreira condicionada à resposta de `/empresas/cota`, Currículo e vaga, Buscar vagas, nota com régua e explicação, materiais por vaga em PDF/Word/copiar e roteiro de entrevista. Compatibilidade por cargo publicada em Alertas > Acompanhando; barra, topo, seção Empresas na home, menu no celular e fragmentos das abas descritos.
+- Correção de currículo longo documentada: teto de resposta de 3.500 tokens e contrato `perfil-2`, preservando os limites de entrada e os avisos de corte.
+- Incorporada a entrada antes sem SemVer de [E3/E4](docs/empresas-e3-e4.md), preservando geração conservadora, cota e armazenamento. Retirados da tabela vigente os valores antes previstos (R$ 1,49 e R$ 2,99): preços e meio de pagamento seguem pendentes, cobrança desligada e produtos gratuitos no teste, com cota compartilhada de 17 chamadas ou US$ 0,01 por conta/dia, o que vier primeiro.
+- Índice, funcionalidades, configurações, referências de cota/eventos, roadmap, decisões e preparação da publicação alinhados ao estado publicado. E-mail continua desligado e revisão jurídica pendente. Acrescentadas regressões locais para publicação, E5, navegação, currículo longo e pendências comerciais; as entradas anteriores preservam o estado histórico da documentação.
 
 ## [1.14.0] - Não publicado
 - Documentado o [IAprovale Empresas E1/E2](docs/empresas.md), implementado no backend 2.15.0 e ainda não publicado: endpoints autenticados, currículo e original opcional compactados, compatibilidade calculada em Python, explicação sob demanda e cache. Cota própria de 17 chamadas ou US$ 0,01 por dia (o que vier primeiro), exportação/exclusão, envio ao DeepSeek com remoção de contatos antes do perfil e limites dessa remoção, transferência internacional e revisão dos textos legais. Índice, funcionalidades, configurações, decisões, roadmap e dependências v3_23/pypdf alinhados; regressões locais incluídas, sem anunciar nova versão ou publicação.

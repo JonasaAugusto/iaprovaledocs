@@ -1,12 +1,12 @@
 # Configurações do usuário
 
-Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido de exclusão pelo Telegram e a tela de nova senha no primeiro acesso. As adições de e-mail e dos dados de avisos abaixo estão **ainda não publicadas**.
+Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido de exclusão pelo Telegram, a tela de nova senha no primeiro acesso e os dados de avisos e compatibilidade. O envio de e-mail continua desligado.
 
 ## Estrutura
 
-- Perfil e Configurações são telas separadas, cada uma com seu item na barra.
+- Perfil fica na barra de navegação; Configurações é uma tela separada, acessível pelo **topo**, no lugar do antigo atalho de tema.
 - O administrador tem as mesmas configurações. A Administração continua na própria aba.
-- A tela é uma coluna só, em seções: Conta, Aparência, Busca, Histórico de buscas, Dados e privacidade, Uso e plano e Ajuda. Cada ajuste é uma linha com o valor atual e a ação; o formulário abre na própria linha, sem janela por cima.
+- A tela usa menus internos por seção, com endereço `#config/<secao>` (por exemplo, `#config/privacidade`). Os tópicos abaixo detalham os ajustes disponíveis; cada ajuste mostra o valor e a ação, com edição na própria linha. Veja a [navegação publicada](navegacao.md).
 
 ## Conta
 
@@ -36,18 +36,18 @@ Lista das últimas 10 buscas, com a data e a quantidade de concursos encontrados
 ## Dados e privacidade
 
 - **Baixar meus dados:** um arquivo com o que o IAprovale guarda sobre a pessoa: perfil, currículo, histórico de buscas, o registro de uso de buscas por dia, a data de criação da conta, o telefone cadastrado (e se foi verificado) e a data do último acesso. Não inclui senha nem dados de outras pessoas.
-  - **Ainda não publicado (etapas 1 e 2):** a exportação passa a incluir e-mail, estado e data de verificação, preferência de avisos e itens de Novidades; na etapa 2, inclui também os alertas e os concursos acompanhados com suas datas. Não inclui os códigos de confirmação.
-  - O pacote ainda não publicado inclui também os registros de controle de avisos repetidos, resumos e boas-vindas da própria conta. Novidades lidas com mais de 6 meses (183 dias desde a criação) são apagadas na limpeza diária; não lidas permanecem. Esses prazos são próprios de Novidades, sem alterar os 90 dias do histórico de buscas.
-  - **Ainda não publicado (etapa 3):** inclui o cache de [compatibilidade](compatibilidade.md) da própria conta em `compatibilidades`, com versão do perfil, estado, data e resposta quando disponível. O prazo de 90 dias do histórico não se aplica automaticamente a esse cache.
-  - **Ainda não publicado (Empresas E1/E2):** inclui o bloco `empresas` com texto e perfil descompactados, versão e metadados, original em base64 se guardado, explicações e uso diário de IA. O currículo do Empresas é armazenado somente compactado, com original opcional também compactado, até a pessoa apagar; não segue automaticamente os 90 dias do histórico. Detalhes em [Empresas](empresas.md#exportação-e-exclusão-ainda-não-publicado).
+  - **Avisos e acompanhamento:** inclui e-mail, estado e data de verificação, preferência de avisos e itens de Novidades, além dos alertas e concursos acompanhados com suas datas. Com envio desligado, a existência desses campos não implica coleta de e-mail. Não inclui os códigos de confirmação.
+  - Inclui também os registros de controle de avisos repetidos, resumos e boas-vindas da própria conta. Novidades lidas com mais de 6 meses (183 dias desde a criação) são apagadas na limpeza diária; não lidas permanecem. Esses prazos são próprios de Novidades, sem alterar os 90 dias do histórico de buscas.
+  - **Etapa 3 publicada:** inclui o cache de [compatibilidade](compatibilidade.md) da própria conta em `compatibilidades`, com versão do perfil, estado, data e resposta quando disponível. O prazo de 90 dias do histórico não se aplica automaticamente a esse cache.
+  - **Empresas, no ar desde 12/11/2026:** inclui o bloco `empresas` com texto e perfil descompactados, versão e metadados, original em base64 se guardado, explicações, materiais de E3/E4 e uso diário de IA. O currículo do Empresas é armazenado somente compactado, com original opcional também compactado, até a pessoa apagar; não segue automaticamente os 90 dias do histórico. Detalhes em [Empresas](empresas.md#exportação-e-exclusão).
 - **Currículo salvo:** apaga o texto do currículo enviado, com confirmação na própria linha.
-  - **Ainda não publicado (Empresas E1/E2):** a rota própria apaga currículo, perfil, original e explicações; o uso diário permanece e apagar o currículo não renova a cota. Esse contrato não declara uma nova ação de tela publicada.
+  - **Empresas publicado:** a rota própria apaga currículo, perfil, original, explicações e materiais gerados; o uso diário permanece e apagar o currículo não renova a cota. O currículo do Empresas tem armazenamento próprio, separado do Perfil de concursos.
 - **Sair de todos os aparelhos:** com confirmação na própria linha.
 - **Excluir minha conta:** ação separada, em tom neutro, no fim da seção. Só está disponível com o WhatsApp verificado; se o número ainda não foi confirmado, a seção explica que é preciso verificá-lo antes e oferece o atalho. Funciona em duas etapas: (1) a pessoa informa a senha atual na tela e o sistema manda uma mensagem ao WhatsApp cadastrado, repetindo o nome do usuário; (2) a conta só é excluída se a pessoa responder "SIM". Qualquer outra resposta cancela, e o pedido vale por 24 horas. Trocar o telefone cancela o pedido pendente, e a tela mostra o pedido em andamento com a opção de cancelar. Excluir apaga a conta, o perfil, o histórico e o pedido de acesso que a originou, mesmo que o usuário ou o telefone tenham sido trocados depois da aprovação. Contas de administrador não são excluídas por aqui.
   - **Sem confirmação por código (situação atual):** o botão volta a funcionar. A pessoa informa a senha atual e o pedido vai ao responsável pelo Telegram, que confirma em dois passos (primeiro pede para continuar, depois confirma a exclusão). **Cancelar** no segundo passo encerra o pedido. A tela mostra "pedido enviado ao responsável" e o pedido vale por 24 horas. Nada é excluído sem a confirmação do responsável.
-  - **Ainda não publicado (etapas 1 e 2):** a exclusão da conta, tanto pelo fluxo da pessoa quanto pelo administrador, apaga também o e-mail, os registros de verificação, a preferência de avisos e os itens de Novidades; na etapa 2, apaga também os alertas, os concursos acompanhados e os registros usados para evitar avisos repetidos, além dos controles de resumos e boas-vindas.
-  - **Ainda não publicado (etapa 3):** ambas as formas de excluir a conta apagam também o cache de compatibilidade por cascata.
-  - **Ainda não publicado (Empresas E1/E2):** ambos os fluxos apagam currículo, perfil, original, explicações e uso diário de IA da conta. O cache global de requisitos de vagas permanece, sem currículo da pessoa; a exclusão local não garante exclusão no provedor externo. Veja [Empresas](empresas.md#privacidade-e-textos-legais-ainda-não-publicado).
+  - **Avisos e acompanhamento:** a exclusão da conta, tanto pelo fluxo da pessoa quanto pelo administrador, apaga também o e-mail, os registros de verificação, a preferência de avisos, os itens de Novidades, os alertas, os concursos acompanhados e os registros usados para evitar avisos repetidos, além dos controles de resumos e boas-vindas.
+  - **Etapa 3 publicada:** ambas as formas de excluir a conta apagam também o cache de compatibilidade por cascata.
+  - **Empresas publicado:** ambos os fluxos apagam currículo, perfil, original, explicações, materiais gerados e uso diário de IA da conta. O cache global de requisitos de vagas permanece, sem currículo da pessoa; a exclusão local não garante exclusão no provedor externo. Veja [Empresas](empresas.md#privacidade-e-textos-legais).
 
 ## Uso e plano
 

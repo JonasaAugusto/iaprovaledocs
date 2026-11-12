@@ -101,9 +101,9 @@ Estado: **no ar**. Detalhes em [Stats](stats-do-administrador.md).
 | Stats em **Hoje** com buscas, custo e pessoas ativas por hora, a partir de um registro de eventos de busca (horário, custo e tipo, sem conteúdo; apagado em 90 dias e com a conta; migração v3_15 já aplicada) | **No ar** |
 | Aba **Stats**, só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | **No ar** |
 
-## Avisos, prazos e e-mail com código (ainda não publicado)
+## Avisos e prazos publicados; e-mail desligado
 
-Estado: **Ainda não publicado**. O backend das etapas 1 e 2 está implementado; a revisão do site e a publicação seguem pendentes. Nenhuma adição deste pacote está em produção. Os recursos são gratuitos para todas as contas, com os limites abaixo, sem depender de plano pago. Tudo que envolve e-mail só é habilitado quando o serviço de envio estiver configurado; **hoje o envio está desligado**. Sem envio, o cadastro mantém o fluxo atual, sem pedir e-mail, e as Novidades podem continuar sendo geradas no site após a publicação do pacote.
+Estado: **No ar**, com Novidades, alertas e acompanhamento dentro do site, conforme a publicação informada em 12/11/2026. Os recursos são gratuitos para todas as contas, com os limites abaixo, sem depender de plano pago. Tudo que envolve e-mail só é habilitado quando o serviço de envio estiver configurado; **hoje o envio está desligado**. Sem envio, o cadastro mantém o fluxo atual, sem pedir e-mail, e as Novidades continuam disponíveis dentro do site. O cadastro com e-mail ainda não publicado e os modelos abaixo descrevem o comportamento quando o envio for habilitado.
 
 ### Cadastro e e-mail na conta
 
@@ -141,19 +141,21 @@ Estado: **Ainda não publicado**. O backend das etapas 1 e 2 está implementado;
 
 A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**.
 
-## Compatibilidade entre perfil e cargos — etapa 3 (ainda não publicado)
+## Compatibilidade entre perfil e cargos — etapa 3
 
-Estado: **Ainda não publicado**. Backend implementado; tela e publicação dependem de integração e revisão. A consulta autenticada `GET /concursos/{id}/compatibilidade` usa o link da própria lista de acompanhados e o cache de Informações. Cada cargo recebe `combina`, `parcial` ou `nao_combina`, com motivo e lacunas; sem formação/escolaridade no perfil, o resultado geral é `sem_perfil`, sem chamadas externas ou cota.
+Estado: **No ar**, conforme a publicação informada em 12/11/2026, em **Alertas > Acompanhando**. A consulta autenticada `GET /concursos/{id}/compatibilidade` usa o link da própria lista de acompanhados e o cache de Informações. Cada cargo recebe `combina`, `parcial` ou `nao_combina`, com motivo e lacunas; sem formação/escolaridade no perfil, o resultado geral é `sem_perfil`, sem chamadas externas ou cota.
 
 As regras decidem a compatibilidade educacional; a IA só explica lacunas dos casos parciais, sem decidir o nível. Uma avaliação nova com cargos consome uma busca e conta para o feedback do plano grátis; acerto do cache de compatibilidade não cobra novamente. Há reserva durável antes de chamadas externas, e qualquer exceção encerra a tentativa como falha. O cache entra na exportação e é apagado com a conta. Veja [Compatibilidade](compatibilidade.md) para limites e recuperação de falhas; confirme sempre os requisitos no edital.
 
-O pacote sem e-mail inclui os termos `gratis-1.2` e mensagens com acentos corrigidos, ainda não publicados. Migrações v3_17 a v3_22 devem preceder o reinício; o envio permanece desligado até a chave SMTP e a revisão correspondente. Veja [Preparação da publicação](pre-deploy.md).
+O envio permanece desligado até a chave SMTP e a revisão correspondente. Os registros de dependências e a conferência dos termos `gratis-1.2` estão em [Preparação da publicação](pre-deploy.md).
 
-## IAprovale Empresas — E1/E2 (ainda não publicado)
+## IAprovale Empresas — E1–E5
 
-Estado: **Ainda não publicado**. Backend 2.15.0 implementado na versão principal, fora de produção. [Empresas](empresas.md) descreve o contrato ainda não publicado: upload PDF/DOCX/TXT e perfil, currículo e original opcional compactados, nota de compatibilidade calculada em Python e explicação sob demanda. A cota própria é de 17 chamadas de IA ou US$ 0,01 por conta/dia, o que vier primeiro; acertos de cache não consomem.
+Estado: **No ar** desde **12/11/2026** (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior). [Empresas](empresas.md) descreve upload PDF/DOCX/TXT até 5 MB e perfil, currículo e original opcional compactados, nota de compatibilidade calculada em Python e explicação sob demanda. O perfil de currículo longo usa contrato `perfil-2` e teto de resposta de 3.500 tokens. A cota própria é de 17 chamadas de IA ou US$ 0,01 por conta/dia, o que vier primeiro; acertos de cache não consomem.
 
-Texto, perfil, original guardado, explicações e uso entram na exportação; excluir a conta apaga os dados privados do Empresas. As chamadas de IA vão somente ao DeepSeek; contatos reconhecidos são removidos antes da geração do perfil, sem garantia de anonimização. A transferência internacional precisa constar dos textos legais antes da liberação. E3, E4 e E5 ficam fora desta entrega; dependências e revisão em [Preparação da publicação](pre-deploy.md#empresas-e1e2-ainda-não-publicado).
+Texto, perfil, original guardado, explicações, materiais gerados e uso entram na exportação; excluir a conta apaga os dados privados do Empresas. As chamadas de IA vão somente ao DeepSeek; contatos reconhecidos são removidos antes da geração do perfil, sem garantia de anonimização. Os textos legais devem refletir a transferência internacional; a validação jurídica continua pendente.
+
+[E3/E4](empresas-e3-e4.md) entregam currículo ATS em PDF/Word/copiar e roteiro de entrevista por vaga, gratuitos no teste, com cobrança desligada; preços e meio de pagamento pendentes. [E5](empresas-vagas.md) oferece busca, panorama e prévia gratuita sem IA no índice local. A [aba Carreira e a navegação](navegacao.md) estão publicadas; Carreira aparece somente quando `/empresas/cota` responde. Veja as dependências em [Preparação da publicação](pre-deploy.md#empresas-em-produção).
 
 ## Ainda por construir
 

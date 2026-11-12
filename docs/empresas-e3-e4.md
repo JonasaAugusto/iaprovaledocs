@@ -1,17 +1,17 @@
 # Empresas: currículo ATS e pacote de entrevista
 
-**Estado: ainda não publicado.** Backend implementado em branch, aguardando revisão e integração. Telas, textos legais e cobrança real continuam pendentes.
+Estado: **No ar** desde **12/11/2026**, integrado à aba [Carreira](navegacao.md#carreira). E3/E4 são **gratuitos no teste**, com **cobrança desligada**. Os preços e o meio de pagamento seguem pendentes; a validação jurídica continua pendente.
 
 ## Como usar
 
 O currículo precisa estar enviado, com perfil pronto. Primeiro calcule a compatibilidade da vaga; depois escolha a geração para essa vaga. Os produtos usam o currículo da própria conta e os requisitos já processados.
 
-| Produto | Preço previsto por geração |
+| Produto | Disponibilidade no teste |
 |---|---|
-| Currículo ATS em PDF ou DOCX | R$ 1,49 |
-| Pacote de entrevista | R$ 2,99 |
+| Currículo ATS em PDF, Word (DOCX) ou texto para copiar | Gratuito |
+| Pacote de entrevista (roteiro por vaga) | Gratuito |
 
-Nesta entrega nenhum valor é debitado. O bloqueio por saldo/plano está desligado por padrão. O gancho de elegibilidade pode ser integrado pelo responsável; se for ligado sem integração disponível, a geração fica indisponível. Consulta de saldo não substitui a futura reserva e cobrança do pagamento.
+Nenhum valor é debitado. Os valores antes previstos não são preços aprovados nem oferta de cobrança. O bloqueio por saldo/plano está desligado por padrão. O gancho de elegibilidade pode ser integrado pelo responsável; se for ligado sem integração disponível, a geração fica indisponível. Consulta de saldo não substitui a futura reserva e cobrança do pagamento.
 
 ## Currículo ATS
 
@@ -31,10 +31,10 @@ As perguntas por vaga são reaproveitáveis; as histórias e os arquivos de cada
 
 A geração padrão é determinística, sem chamada de IA. A opção de IA usa apenas o DeepSeek para JSON curto, escolhendo ou organizando evidências completas. Contatos são removidos antes dessa chamada. Resultado não comprovado é recusado e não é guardado como geração válida.
 
-A opção de IA compartilha a cota diária do Empresas. Não havendo evidências válidas para organizar, não faz chamada. Um resultado já guardado, para a mesma fonte, perfil, vaga e modo, é reaproveitado sem nova chamada. A geração determinística e o download de arquivos existentes continuam disponíveis quando a cota de IA acaba.
+A opção de IA compartilha a [cota diária do Empresas](empresas.md#cota-diária-de-ia): **17 chamadas ou US$ 0,01** por conta/dia, **o que vier primeiro**. Não havendo evidências válidas para organizar, não faz chamada. Um resultado já guardado, para a mesma fonte, perfil, vaga e modo, é reaproveitado sem nova chamada. A geração determinística e o download de arquivos existentes continuam disponíveis quando a cota de IA acaba.
 
 ## Armazenamento e publicação
 
 Os produtos ficam guardados de forma compactada na própria conta e entram na exportação de dados. A troca ou exclusão do currículo apaga as gerações anteriores; a exclusão da conta também as remove. Um resultado atrasado não restaura material apagado ou substituído.
 
-Antes de disponibilizar o recurso ao público, precisam ser integradas as telas, a documentação geral do Empresas e os textos de privacidade sobre currículo armazenado e envio opcional ao DeepSeek. Cobrança real depende da integração do meio de pagamento. Nenhum desses estados significa publicação em produção.
+As telas do Empresas estão em produção desde 12/11/2026. Os textos de privacidade devem refletir o currículo armazenado e o envio opcional ao DeepSeek; a validação por advogado permanece pendente. Cobrança real depende da decisão de preços, das regras comerciais e da integração do meio de pagamento, com liberação posterior do responsável.

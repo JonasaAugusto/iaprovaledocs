@@ -65,27 +65,27 @@ class EmpresasDocumentacaoTest(unittest.TestCase):
         for regra in ("somente ao DeepSeek", "e-mail, telefone, links e CPF",
                       "antes de gerar o perfil", "não garante anonimização",
                       "não são enviados aos ATS", "transferência internacional",
-                      "não inclua dados sensíveis", "textos legais", "ainda não publicado"):
+                      "não inclua dados sensíveis", "textos legais", "validação por advogado continua pendente"):
             self.assertIn(regra, privacidade)
 
     def test_estado_indices_e_dependencias(self):
         texto = ler("docs/empresas.md")
-        self.assertIn("Estado: **Ainda não publicado**", texto)
-        self.assertIn("backend 2.15.0", texto)
+        self.assertIn("Estado: **No ar**", texto)
+        self.assertIn("backend ef7dc58 ou posterior", texto)
         self.assertIn("E3", texto)
         self.assertIn("E4", texto)
         self.assertIn("E5", texto)
         for pagina in ("README.md", "docs/funcionalidades.md", "docs/roadmap.md", "docs/decisoes.md",
-                       "docs/configuracoes-do-usuario.md", "docs/versao-gratis.md", "CHANGELOG.md"):
+                       "docs/configuracoes-do-usuario.md", "docs/versao-gratis.md"):
             with self.subTest(pagina=pagina):
                 linhas = [linha for linha in ler(pagina).splitlines() if "empresas.md" in linha]
                 self.assertTrue(linhas, f"Falta referência ao Empresas: {pagina}")
-                self.assertTrue(any("ainda não publicado" in linha.lower() for linha in linhas),
+                self.assertTrue(any("12/11/2026" in linha for linha in linhas),
                                 f"Estado do Empresas ausente: {pagina}")
-        changelog = secao(ler("CHANGELOG.md"), "## [1.14.0] - Não publicado")
+        changelog = secao(ler("CHANGELOG.md"), "## [1.15.0] - Não publicado")
         self.assertIn("empresas.md", changelog)
-        preparacao = secao(ler("docs/pre-deploy.md"), "## Empresas E1/E2")
-        for regra in ("Ainda não publicado", "v3_23", "pypdf==6.21.4", "antes do reinício", "textos legais"):
+        preparacao = secao(ler("docs/pre-deploy.md"), "## Empresas em produção")
+        for regra in ("No ar", "12/11/2026", "v3_23", "pypdf==6.21.4", "antes do reinício", "textos legais"):
             self.assertIn(regra, preparacao)
 
 

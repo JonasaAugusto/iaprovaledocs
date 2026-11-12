@@ -22,7 +22,7 @@ Não são guardados: o texto da busca, os resultados, o IP nem qualquer dado pes
 
 No mesmo ponto em que `search_usage` é atualizado: depois de uma busca que respondeu com sucesso e conta como uso e custo (a administradora e o administrador também contam, como em `search_usage`). Busca com falha (502) não grava nada. Se a gravação do evento falhar (por exemplo, a tabela ainda não existe), a busca segue normalmente e o erro vai para o log em uma linha, sem conteúdo.
 
-**Etapa 3 (ainda não publicado):** uma avaliação nova de [compatibilidade](compatibilidade.md) com cargos também gera um evento `normal`, com o custo estimado da tentativa. Resultado, busca consumida e feedback são confirmados na mesma transação; uma falha nessa confirmação impede concluir a avaliação. Acerto do cache, `sem_perfil`, leitura sem cargos e tentativa com falha não geram evento de busca consumida. Custos de IA já informados continuam no total diário mesmo em falha, podendo diferir da soma dos eventos por hora.
+**Etapa 3 publicada, conforme informado em 12/11/2026:** uma avaliação nova de [compatibilidade](compatibilidade.md) com cargos também gera um evento `normal`, com o custo estimado da tentativa. Resultado, busca consumida e feedback são confirmados na mesma transação; uma falha nessa confirmação impede concluir a avaliação. Acerto do cache, `sem_perfil`, leitura sem cargos e tentativa com falha não geram evento de busca consumida. Custos de IA já informados continuam no total diário mesmo em falha, podendo diferir da soma dos eventos por hora.
 
 ## Retenção e privacidade
 
