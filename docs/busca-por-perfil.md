@@ -36,6 +36,8 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
 - Se a busca vazia gastou a IA, o custo real continua somado no dia (painel e Stats), sem somar busca nem resultados. Para não virar laço de chamadas pagas, essas buscas entram num teto técnico de 20 por hora por usuário (resposta 429). O anti-rajada de 10 buscas por minuto continua valendo para todas. A consulta por perfil não gasta IA e não entra nesse teto.
 - O limite diário do plano grátis segue valendo para qualquer busca com resultado.
 
+**Etapa 3 (ainda não publicado):** a [compatibilidade detalhada por cargo](compatibilidade.md) é uma consulta própria sobre concursos acompanhados. Uma avaliação nova com cargos compartilha a cota de buscas e o contador de avaliação, mesmo com comparação só por regras; acerto do cache de compatibilidade e `sem_perfil` não consomem de novo. Isso não altera a busca determinística pelo perfil descrita acima.
+
 ## Exclusão de conta e avaliações
 
 - A exclusão feita pelo administrador agora apaga também as avaliações, o histórico de buscas, as verificações de telefone, os avisos ao responsável e o pedido de acesso da conta, igualando a exclusão pela própria pessoa. Antes ficavam avaliações órfãs.

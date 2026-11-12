@@ -34,6 +34,7 @@ Este é o fluxo atual em produção, sem e-mail. A adição abaixo ainda não fo
 - Limite de **17 buscas por dia**. No cabeçalho do app aparece uma etiqueta discreta com as buscas restantes e o total ("12/17"), atualizada depois de cada busca.
 - A cada 5 buscas, aparece um pedido de avaliação (nota de 1 a 5 e comentário opcional). A busca fica pausada até a avaliação ser enviada. Não há limite de avaliações por dia.
 - O responsável lê as avaliações pelo painel de administração.
+- **Etapa 3 (ainda não publicado):** uma avaliação nova de [compatibilidade com cargos](compatibilidade.md) com cargos na resposta compartilha a cota de 17 buscas por dia e o contador de avaliação a cada 5 buscas, mesmo quando só usa regras. Acerto do cache de compatibilidade e resposta `sem_perfil` não consomem nova busca ou feedback.
 - Limites de proteção: uma conta por dia por conexão; um teto total de **1000 cadastros grátis**, depois do qual o cadastro fecha com o aviso de que as vagas acabaram, e quem já tem conta continua entrando normalmente. Não existe limite diário de cadastros.
 
 ## Termos de Uso e Política de Privacidade
@@ -55,8 +56,12 @@ Quando a conta grátis é criada, o sistema guarda na própria linha do usuário
 - **Retenção:** enquanto a conta existir. Excluir a conta apaga a linha do usuário e, com ela, esses três campos; a exportação de dados da própria pessoa os inclui.
 - **Quem não tem:** contas antigas e contas por convite ficam com os campos vazios (não passaram pelo chat de cadastro grátis).
 - **Texto legal:** os Termos e a Política do plano grátis (versão 1.1) avisam o registro, a finalidade e a retenção. A versão dos textos (`VERSAO` no site) e `ACEITE_TERMOS_VERSAO` no backend mudam juntas.
-- **Próxima versão (ainda não publicada):** ao publicar os textos 1.2, os novos aceites passam a registrar `gratis-1.2`, alinhados entre site e backend. Os aceites anteriores preservam a versão que a pessoa aceitou.
+- **Próxima versão (ainda não publicado):** já implementado no backend, `ACEITE_TERMOS_VERSAO = "gratis-1.2"` passa a registrar 1.2 nos novos cadastros, alinhado aos textos legais do site 3.13.0 na publicação conjunta. Os aceites anteriores preservam a versão que a pessoa aceitou, inclusive `gratis-1.1`; não são reescritos. A persistência e a exportação incluem a versão registrada. Veja a [ordem da publicação](pre-deploy.md).
 - Decisão do responsável (6 de novembro de 2026): guardar o IP em claro, necessário como prova.
+
+## Mensagens revisadas (ainda não publicado)
+
+As mensagens de e-mail do cadastro e de Configurações tiveram a acentuação corrigida, incluindo “dígitos”, “código”, “amanhã” e “Configurações”. A revisão abrange código inválido, envio indisponível (503) e cota diária esgotada (429), sem mudar nomes de campos, identificadores de botões ou os demais valores do contrato. O envio permanece desligado.
 
 ## Organização técnica
 A criação de usuário passou a ser um núcleo único, usado pelo fluxo por convite e pelo cadastro grátis. Os textos do assistente ficam num único arquivo, para ajuste fácil. O site publicado é o build grátis (publicado com base `/iaprovale/`, na raiz). O build em modo convite continua disponível como alternativa e pode ser usado se o responsável decidir voltar ao acesso só por convite. O processo de publicação gera o build a partir da versão principal do código do site e copia o resultado para a raiz.

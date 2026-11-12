@@ -139,7 +139,15 @@ Estado: **Ainda não publicado**. O backend das etapas 1 e 2 está implementado;
 - Se houver falha ou interrupção com entrega incerta, o e-mail não é reenviado automaticamente: a mensagem pode não chegar, mas os avisos continuam em Novidades no site.
 - E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. Veja [Dados e privacidade](configuracoes-do-usuario.md) e a atualização prevista dos [textos legais para 1.2](versao-gratis.md).
 
-A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**. A comparação detalhada entre o perfil e cada cargo permanece como etapa futura, conforme o [roadmap](roadmap.md).
+A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**.
+
+## Compatibilidade entre perfil e cargos — etapa 3 (ainda não publicado)
+
+Estado: **Ainda não publicado**. Backend implementado; tela e publicação dependem de integração e revisão. A consulta autenticada `GET /concursos/{id}/compatibilidade` usa o link da própria lista de acompanhados e o cache de Informações. Cada cargo recebe `combina`, `parcial` ou `nao_combina`, com motivo e lacunas; sem formação/escolaridade no perfil, o resultado geral é `sem_perfil`, sem chamadas externas ou cota.
+
+As regras decidem a compatibilidade educacional; a IA só explica lacunas dos casos parciais, sem decidir o nível. Uma avaliação nova com cargos consome uma busca e conta para o feedback do plano grátis; acerto do cache de compatibilidade não cobra novamente. Há reserva durável antes de chamadas externas, e qualquer exceção encerra a tentativa como falha. O cache entra na exportação e é apagado com a conta. Veja [Compatibilidade](compatibilidade.md) para limites e recuperação de falhas; confirme sempre os requisitos no edital.
+
+O pacote sem e-mail inclui os termos `gratis-1.2` e mensagens com acentos corrigidos, ainda não publicados. Migrações v3_17 a v3_22 devem preceder o reinício; o envio permanece desligado até a chave SMTP e a revisão correspondente. Veja [Preparação da publicação](pre-deploy.md).
 
 ## Ainda por construir
 
