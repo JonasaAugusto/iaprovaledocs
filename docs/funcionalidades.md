@@ -149,6 +149,12 @@ As regras decidem a compatibilidade educacional; a IA só explica lacunas dos ca
 
 O pacote sem e-mail inclui os termos `gratis-1.2` e mensagens com acentos corrigidos, ainda não publicados. Migrações v3_17 a v3_22 devem preceder o reinício; o envio permanece desligado até a chave SMTP e a revisão correspondente. Veja [Preparação da publicação](pre-deploy.md).
 
+## IAprovale Empresas — E1/E2 (ainda não publicado)
+
+Estado: **Ainda não publicado**. Backend 2.15.0 implementado na versão principal, fora de produção. [Empresas](empresas.md) descreve o contrato ainda não publicado: upload PDF/DOCX/TXT e perfil, currículo e original opcional compactados, nota de compatibilidade calculada em Python e explicação sob demanda. A cota própria é de 17 chamadas de IA ou US$ 0,01 por conta/dia, o que vier primeiro; acertos de cache não consomem.
+
+Texto, perfil, original guardado, explicações e uso entram na exportação; excluir a conta apaga os dados privados do Empresas. As chamadas de IA vão somente ao DeepSeek; contatos reconhecidos são removidos antes da geração do perfil, sem garantia de anonimização. A transferência internacional precisa constar dos textos legais antes da liberação. E3, E4 e E5 ficam fora desta entrega; dependências e revisão em [Preparação da publicação](pre-deploy.md#empresas-e1e2-ainda-não-publicado).
+
 ## Ainda por construir
 
 | Funcionalidade | Estado |

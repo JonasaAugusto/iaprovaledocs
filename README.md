@@ -11,6 +11,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
 - [Compatibilidade entre perfil e cargos — etapa 3](docs/compatibilidade.md): backend implementado, ainda não publicado; níveis por cargo, lacunas, cota, cache e recuperação de falhas. Tela depende de integração e revisão.
+- [IAprovale Empresas — E1/E2](docs/empresas.md): currículo compactado, compatibilidade com vagas, explicação sob demanda, cota própria e privacidade; backend implementado, ainda não publicado e fora de produção.
 - [Filtro de UF](docs/filtro-de-uf.md): com UFs escolhidas só voltam concursos delas e os nacionais; nacionais regionais marcados pela fonte tratados pela UF do texto; zero resultados avisa claramente. No ar (backend 2.11.0, site 3.10.0). UF do texto como filtro e `ufs` na API de parceiros: aguardando publicação do backend 2.12.0.
 - [Stats do administrador](docs/stats-do-administrador.md): a aba Stats, só para administradores, com a evolução do uso. Atualização da estimativa de custo de IA: ainda não publicado.
 - [Eventos de busca](docs/eventos-de-busca.md): o registro de cada busca (horário, custo e tipo, sem conteúdo) que alimenta o Stats por hora, com retenção de 90 dias e o texto para a Política de Privacidade.
@@ -18,7 +19,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. Cadastro com e-mail obrigatório quando o envio estiver configurado: ainda não publicado.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
 - [Roadmap](docs/roadmap.md): o que vem depois.
-- [Preparação da publicação](docs/pre-deploy.md): migrações v3_17 a v3_22 antes do reinício, aceite `gratis-1.2` e e-mail desligado até a chave SMTP. Tudo ainda não publicado.
+- [Preparação da publicação](docs/pre-deploy.md): migrações v3_17 a v3_22 e, para Empresas, v3_23 e pypdf antes do reinício, aceite `gratis-1.2` e e-mail desligado até a chave SMTP. Tudo ainda não publicado.
 - [Decisões de produto](docs/decisoes.md): regras de produto que valem para todo o projeto.
 
 ## Legenda de estado

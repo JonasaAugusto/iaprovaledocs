@@ -1,4 +1,4 @@
-# Preparação da publicação: avisos, termos 1.2 e etapa 3
+# Preparação da publicação: avisos, termos 1.2, etapa 3 e Empresas
 
 Estado: **Ainda não publicado**. Este documento registra as dependências do pacote implementado; não confirma execução de migrações nem publicação. Abrange [avisos e prazos](funcionalidades.md), [compatibilidade](compatibilidade.md), [termos do plano grátis](versao-gratis.md) e [custos de IA](stats-do-administrador.md).
 
@@ -17,10 +17,16 @@ Aplicar as versões v3_17 a v3_22 na ordem abaixo, antes do reinício. Os script
 
 É necessário reexecutar a v3_18 em bases que receberam uma versão anterior dela, para acrescentar o estado da linha de base e do processamento. As tabelas são necessárias mesmo com a rotina diária desligada: a exportação e a exclusão de contas também as consultam. Desligar o e-mail não elimina a necessidade dessas migrações.
 
+## Empresas E1/E2 (ainda não publicado)
+
+Estado: **Ainda não publicado**. O [Empresas](empresas.md) está implementado no backend 2.15.0, mas fora de produção. Se a entrega incluir E1/E2, acrescentar às dependências anteriores a migração aditiva e idempotente `scripts/migrate_v3_23_empresas.py` (v3_23), **antes do reinício**, e a dependência de leitura de PDF `pypdf==6.21.4` do backend. A migração cria o armazenamento compactado, requisitos de vagas, explicações e uso diário de IA; esta documentação não confirma sua aplicação.
+
+Revisar os textos legais do site para currículo compactado, original opcional, exportação/exclusão, envio ao DeepSeek, limites da remoção de contatos e transferência internacional. Conferir a integração das telas e validar E1/E2, cota e exportação/exclusão em recursos descartáveis antes de liberar. Não anunciar E3/E4/E5 nesta entrega. Execução e publicação continuam a cargo de Claude/serviço, pelo botão do dono.
+
 ## Ordem da publicação
 
 1. Revisar e validar as docs e a integração das telas; conferir o alinhamento entre os textos legais 1.2 do site e o aceite `gratis-1.2` do backend; preparar backup antes de alterar a base.
-2. Aplicar e conferir as migrações v3_17 a v3_22 antes de reiniciar o backend, incluindo a reexecução da v3_18 quando necessária.
+2. Aplicar e conferir as migrações v3_17 a v3_22 antes de reiniciar o backend, incluindo a reexecução da v3_18 quando necessária; para Empresas, incluir também a v3_23 e conferir a dependência pypdf e os textos legais acima.
 3. Reiniciar o backend e validar o funcionamento básico: cadastro sem e-mail, aceite 1.2 para conta nova, preservação dos aceites antigos, Novidades, alertas, acompanhados, compatibilidade, exportação e exclusão em recursos de teste.
 4. Habilitar e conferir a rotina diária de avisos prevista para 07:00 de Brasília, mantendo o transporte de e-mail desligado.
 5. Publicar o site alinhado aos termos 1.2 e às rotas disponíveis, após revisão das telas e validação das etapas anteriores; se houver falha, interromper a publicação e avaliar a recuperação.

@@ -21,6 +21,12 @@ Rebranding do app web e da home, tela de login, páginas de privacidade e termos
 - Backend de [compatibilidade entre perfil e cargos](compatibilidade.md) implementado na versão principal, com regras conservadoras, IA só para explicar lacunas, cache por versão do perfil, cota e recuperação de falhas. A tela ainda depende de integração e revisão; nada desta etapa está em produção.
 - A publicação inclui a migração v3_22 junto de v3_17 a v3_21, todas antes do reinício. Termos `gratis-1.2` e acentuação das mensagens já implementados, ainda não publicados. E-mail permanece desligado até a chave SMTP e a revisão correspondente. Veja [Preparação da publicação](pre-deploy.md).
 
+## IAprovale Empresas (ainda não publicado)
+
+- [E1/E2](empresas.md): backend 2.15.0 implementado na versão principal, ainda não publicado e fora de produção. Currículo compactado com original opcional, perfil, compatibilidade 0–10 calculada em Python, explicação opcional e cota própria de 17 chamadas ou US$ 0,01 por conta/dia, o que vier primeiro. Exportação e exclusão abrangem os dados privados.
+- Antes de liberar: conferir integração das telas, dependências pypdf e v3_23, e revisar os textos legais sobre armazenamento, remoção de contatos antes do perfil, DeepSeek e transferência internacional. Veja [Preparação da publicação](pre-deploy.md#empresas-e1e2-ainda-não-publicado).
+- E3 (currículo para ATS), E4 (entrevista) e E5 (busca de vagas e panorama): etapas futuras, sem disponibilidade anunciada nesta entrega.
+
 ## Rodada 2 (decidido, adiado)
 
 - Saldo de buscas e planos com cobrança (com as regras de cobrança, cancelamento e reembolso publicadas antes).
