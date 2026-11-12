@@ -16,9 +16,20 @@ Nenhum dado pessoal aparece: só contagens, somas e médias.
 
 ## Estimativa de custo (ainda não publicado)
 
-Estado da atualização: **Ainda não publicado**, junto do pacote de avisos e prazos. A estimativa para novas buscas usa os preços da [tabela oficial da DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/), conferida em 11/11/2026, separando entrada com cache, entrada sem cache e saída. Usa a **tarifa de pico** como estimativa conservadora; fora de pico, o provedor cobra menos. O valor exibido não equivale à fatura do provedor nem representa cobrança à pessoa.
+Estado da atualização: **Ainda não publicado**, junto do pacote de avisos e prazos e da etapa 3. A estimativa para novas buscas usa os preços da [tabela oficial da DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/), conferida em 11/11/2026, separando entrada com cache, entrada sem cache e saída. O alias `deepseek-v4-flash` é atendido como `deepseek-flash` (DeepSeek-V4.1-Flash-1017), com a tarifa Flash.
 
-A contagem preserva o valor zero de entrada sem cache; se essa informação não vier do provedor, desconta a entrada com cache do total, sem dupla contagem, inclusive nas retentativas. Histórico já registrado não é recalculado: os totais podem combinar estimativas anteriores e novas. A busca determinística pelo perfil continua sem chamada à IA e com custo zero.
+Valores em **US$ por 1 milhão de tokens**, como referência de 11/11/2026:
+
+| Faixa | Entrada com cache (hit) | Entrada sem cache (miss) | Saída |
+|---|---|---|---|
+| Fora de pico | 0,003 | 0,15 | 0,60 |
+| Pico | 0,006 | 0,30 | 1,20 |
+
+O backend usa sempre a **tarifa de pico** como estimativa conservadora: não distingue horários ou feriados chineses. Fora de pico, o provedor cobra metade. O valor exibido não equivale à fatura do provedor nem representa cobrança à pessoa. Os preços podem mudar; esta tabela documenta a referência usada na implementação.
+
+A contagem preserva o zero explícito de entrada sem cache (`cache_miss=0`). Se o campo vier ausente ou nulo, calcula apenas o restante do prompt após descontar a entrada com cache, limitado a zero, sem dupla contagem. Cada resposta de uma retentativa contribui uma única vez. Histórico já registrado não é recalculado: os totais podem combinar estimativas anteriores e novas. A busca determinística pelo perfil continua sem chamada à IA e com custo zero.
+
+Na [compatibilidade da etapa 3](compatibilidade.md), leitura e explicação usam as mesmas tarifas. O custo informado por resposta é persistido antes de prosseguir, inclusive quando a extração é inválida, sem reaplicar gastos já registrados nas retentativas. Acerto do cache de compatibilidade não gera nova busca nem custo. Cache de resultado do produto e cache de tokens do provedor são coisas diferentes: tokens de entrada com cache ainda têm a tarifa indicada acima.
 
 ## Como funciona
 

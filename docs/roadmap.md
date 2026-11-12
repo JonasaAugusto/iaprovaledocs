@@ -16,9 +16,10 @@ Rebranding do app web e da home, tela de login, páginas de privacidade e termos
 - Estimativa de custo de IA atualizada pelos preços atuais da DeepSeek, com correção da contagem de cache e sem recalcular o histórico. Ver [Stats](stats-do-administrador.md).
 - Recursos gratuitos para todas as contas. Exportação e exclusão incluem os novos dados; Termos e Política passam para 1.2, ainda não publicados. Detalhes em [Funcionalidades](funcionalidades.md) e [Versão grátis](versao-gratis.md).
 
-## Etapa 3 (a desenvolver)
+## Etapa 3 (ainda não publicado)
 
-- Comparação detalhada da compatibilidade entre o perfil e os cargos do edital. Não faz parte do pacote de avisos e prazos acima.
+- Backend de [compatibilidade entre perfil e cargos](compatibilidade.md) implementado na versão principal, com regras conservadoras, IA só para explicar lacunas, cache por versão do perfil, cota e recuperação de falhas. A tela ainda depende de integração e revisão; nada desta etapa está em produção.
+- A publicação inclui a migração v3_22 junto de v3_17 a v3_21, todas antes do reinício. Termos `gratis-1.2` e acentuação das mensagens já implementados, ainda não publicados. E-mail permanece desligado até a chave SMTP e a revisão correspondente. Veja [Preparação da publicação](pre-deploy.md).
 
 ## Rodada 2 (decidido, adiado)
 
