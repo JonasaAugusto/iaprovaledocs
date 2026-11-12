@@ -74,7 +74,7 @@ class EmpresasProducaoDocumentacaoTest(unittest.TestCase):
     def test_navegacao_alertas_home_e_enderecos(self):
         texto = ler("docs/navegacao.md")
         barra = secao(texto, "## Barra e topo")
-        self.assertIn("Concursos, Carreira, Perfil, Administração e Stats", barra)
+        self.assertIn("Concursos, Carreira, Perfil, Administração e Estatísticas", barra)
         for regra in ("administradores", "Alertas", "sino", "Configurações",
                       "tema", "menu no celular", "home", "Empresas"):
             self.assertIn(regra, barra)

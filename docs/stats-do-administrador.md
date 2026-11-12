@@ -2,7 +2,7 @@
 
 Estado: **no ar**, incluindo buscas, custo e pessoas ativas por hora de **Hoje** (backend 2.10.1, site 3.9.0, migração v3_15 já aplicada; ver [Eventos de busca](eventos-de-busca.md)).
 
-A aba **Stats** é o último item da barra de navegação (embaixo no celular, na lateral no computador) e só aparece para administradores. Quem não é administrador não vê a aba, não abre a tela e recebe 403 no endpoint. Serve para acompanhar a evolução do uso.
+A aba **Estatísticas** (chamada Stats nestas docs e no endereço `#stats`) é o último item da barra de navegação (embaixo no celular, na lateral no computador) e só aparece para administradores. Quem não é administrador não vê a aba, não abre a tela e recebe 403 no endpoint. Serve para acompanhar a evolução do uso.
 
 ## O que a tela mostra
 

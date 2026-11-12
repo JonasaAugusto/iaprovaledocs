@@ -99,7 +99,7 @@ Estado: **no ar**. Detalhes em [Stats](stats-do-administrador.md).
 | Funcionalidade | Estado |
 |---|---|
 | Stats em **Hoje** com buscas, custo e pessoas ativas por hora, a partir de um registro de eventos de busca (horário, custo e tipo, sem conteúdo; apagado em 90 dias e com a conta; migração v3_15 já aplicada) | **No ar** |
-| Aba **Stats**, só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | **No ar** |
+| Aba **Estatísticas** (antes Stats), só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | **No ar** |
 
 ## Avisos e prazos publicados; e-mail ligado
 

@@ -4,7 +4,7 @@ Estado: **no ar** (backend 2.10.1, site 3.9.0). A migração v3_15 (`scripts/mig
 
 ## Para que serve
 
-`search_usage` guarda o uso de buscas só por dia. Para a aba Stats mostrar, em **Hoje**, buscas, custo e pessoas ativas **por hora**, cada busca concluída com sucesso grava um evento com o horário. É a única finalidade dessa tabela.
+`search_usage` guarda o uso de buscas só por dia. Para a aba Estatísticas mostrar, em **Hoje**, buscas, custo e pessoas ativas **por hora**, cada busca concluída com sucesso grava um evento com o horário. É a única finalidade dessa tabela.
 
 ## O que é guardado
 
@@ -30,7 +30,7 @@ No mesmo ponto em que `search_usage` é atualizado: depois de uma busca que resp
 - **Exclusão da conta.** Os eventos saem junto com a conta (exclusão explícita no código e `ON DELETE CASCADE` no banco).
 - **Exportação de dados** (`/conta/exportar`): inclui `eventos_de_busca`, com o horário, o tipo e o custo de cada busca dos últimos 90 dias.
 
-## Como a aba Stats usa
+## Como a aba Estatísticas usa
 
 - **Hoje:** buscas, custo e pessoas ativas por hora (24 pontos, horas sem busca valem 0, hora de São Paulo) vêm de `search_events`. Cada pessoa conta uma vez por hora.
 - **Este mês, 7, 30 e 90 dias:** continuam em `search_usage`. Os dois nunca são misturados no mesmo gráfico.

@@ -15,7 +15,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Busca de vagas — E5](docs/empresas-vagas.md): busca, panorama, prévia gratuita e cobertura do índice local.
 - [Navegação e Carreira](docs/navegacao.md): telas publicadas, barra, topo, home e endereços das abas.
 - [Filtro de UF](docs/filtro-de-uf.md): com UFs escolhidas só voltam concursos delas e os nacionais; nacionais regionais marcados pela fonte tratados pela UF do texto; zero resultados avisa claramente. No ar (backend 2.11.0, site 3.10.0). UF do texto como filtro e `ufs` na API de parceiros: aguardando publicação do backend 2.12.0.
-- [Stats do administrador](docs/stats-do-administrador.md): a aba Stats, só para administradores, com a evolução do uso. Atualização da estimativa de custo de IA: ainda não publicado.
+- [Stats do administrador](docs/stats-do-administrador.md): a aba Estatísticas, só para administradores, com a evolução do uso. Atualização da estimativa de custo de IA: ainda não publicado.
 - [Eventos de busca](docs/eventos-de-busca.md): o registro de cada busca (horário, custo e tipo, sem conteúdo) que alimenta o Stats por hora, com retenção de 90 dias e o texto para a Política de Privacidade.
 - [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login é entregue à pessoa.
 - [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. E-mail opcional na conta; textos legais 1.3 do convite vigentes e variante grátis ainda não ativada.

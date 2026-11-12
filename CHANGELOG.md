@@ -4,6 +4,7 @@ Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentaç
 menor = funcionalidade documentada, correção = ajuste de texto.
 
 ## [1.16.0] - Não publicado
+- Corrigido o nome da aba para **Estatísticas** (barra, título e acessibilidade; o endereço continua `#stats`). Documentados o uso do currículo do Perfil na Carreira, o botão Preencher com currículo, os avisos `role="alert"` sempre presentes para leitor de tela e o app sem scripts de CDN (site de 12/11/2026).
 - Registrado o [envio de e-mail ligado em produção desde 12/11/2026](docs/funcionalidades.md#avisos-e-prazos-publicados-e-mail-ligado), via Brevo SMTP, remetente IAprovale <avisos@augustusai.com.br>. E-mail opcional nas Configurações, código de 6 dígitos válido por 10 minutos, boas-vindas e resumo diário das 07:00 de São Paulo somente com endereço verificado e preferência de avisos ativa para resumos.
 - Preservadas as cotas globais de 200 códigos e 100 avisos por dia, com uso da sobra dos avisos somente pelos códigos. Sem cota no cadastro com endereço informado, conta criada com e-mail pendente; boas-vindas adiada e Novidades disponível como alternativa sem entrega.
 - Documentada a Brevo (Sendinblue SAS, França) como operador e a transferência internacional. [Textos legais 1.3 do convite](docs/versao-gratis.md#termos-de-uso-e-política-de-privacidade) vigentes em 12/11/2026, com e-mail opcional, Brevo e Carreira; variante grátis em `scripts/legal-gratis/v1_3.py` ainda não ativada, sem presumir aceite novo. Validação jurídica pendente.
