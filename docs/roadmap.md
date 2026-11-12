@@ -8,18 +8,18 @@ Rebranding do app web e da home, tela de login, páginas de privacidade e termos
 
 - Validação das páginas de Privacidade e Termos por um advogado.
 
-## Avisos e prazos publicados; e-mail pendente
+## Avisos, prazos e e-mail publicados
 
-- Novidades, alertas e acompanhamento publicados, conforme informado em 12/11/2026. Cadastro com e-mail ainda não publicado: obrigatório quando o envio estiver configurado, confirmação por código de 6 dígitos e preferência de avisos; sem cota no dia, conta com e-mail pendente para confirmar depois em Configurações. Endereço pendente não reserva o e-mail. Hoje o envio segue desligado, e o cadastro não pede e-mail.
-- Até 10 alertas por perfil/termo/UFs, com linha de base ao criar/reativar e até 10 avisos por alerta por dia só para concursos futuros; até 50 concursos acompanhados, com lembretes D-3/D-1 de inscrição, isenção e prova. Rotina às 07:00 de Brasília, modelos de código, boas-vindas e resumo em HTML e texto. Boas-vindas após confirmar o e-mail; sem cota, prioridade na manhã seguinte. Resumo só com novidades, endereço verificado, preferência ligada e envio disponível.
+- Novidades, alertas e acompanhamento publicados; envio de e-mail ligado em produção desde 12/11/2026, via Brevo SMTP, remetente IAprovale <avisos@augustusai.com.br>. E-mail opcional nas Configurações, confirmação por código de 6 dígitos válido por 10 minutos e preferência de avisos; sem cota no cadastro com endereço informado, conta com e-mail pendente para confirmar depois em Configurações. Endereço pendente não reserva o e-mail. Novidades permanece disponível sem entrega por e-mail.
+- Até 10 alertas por perfil/termo/UFs, com linha de base ao criar/reativar e até 10 avisos por alerta por dia só para concursos futuros; até 50 concursos acompanhados, com lembretes D-3/D-1 de inscrição, isenção e prova. Rotina às 07:00 de São Paulo, modelos de código, boas-vindas e resumo em HTML e texto. Boas-vindas após confirmar o e-mail; sem cota, prioridade na manhã seguinte. Resumo só com novidades, endereço verificado, preferência ligada e envio disponível.
 - Cotas globais diárias: 200 códigos e 100 avisos; códigos usam a sobra dos avisos, nunca o contrário. Limpeza diária de Novidades lidas com mais de 6 meses (183 dias desde a criação); não lidas permanecem.
-- Estimativa de custo de IA atualizada pelos preços atuais da DeepSeek, com correção da contagem de cache e sem recalcular o histórico. Ver [Stats](stats-do-administrador.md).
-- Recursos gratuitos para todas as contas. Exportação e exclusão incluem os novos dados; Termos e Política passam para 1.2, ainda não publicados. Detalhes em [Funcionalidades](funcionalidades.md) e [Versão grátis](versao-gratis.md).
+- Estimativa de custo de IA atualizada pelos preços de referência da DeepSeek, com correção da contagem de cache e sem recalcular o histórico: ainda não publicado. Ver [Stats](stats-do-administrador.md).
+- Recursos gratuitos para todas as contas. Exportação e exclusão incluem os novos dados. Textos legais 1.3 do convite vigentes desde 12/11/2026: e-mail opcional, Brevo (Sendinblue SAS, França) como operador com transferência internacional e seção Carreira. A variante grátis em `scripts/legal-gratis/v1_3.py` segue **ainda não ativada**; ativação e alinhamento do aceite são pendências do responsável. Detalhes em [Funcionalidades](funcionalidades.md) e [Versão grátis](versao-gratis.md).
 
 ## Etapa 3 publicada
 
 - [Compatibilidade entre perfil e cargos](compatibilidade.md) publicada em Alertas > Acompanhando, conforme informado em 12/11/2026, com regras conservadoras, IA só para explicar lacunas, cache por versão do perfil, cota e recuperação de falhas.
-- O registro das dependências v3_17 a v3_22 e da conferência dos termos `gratis-1.2` permanece em [Preparação da publicação](pre-deploy.md). E-mail continua desligado até a chave SMTP e a revisão correspondente.
+- O registro das dependências v3_17 a v3_22 e da conferência da variante legal apresentada e do aceite permanece em [Preparação da publicação](pre-deploy.md). O e-mail já está ligado; a vigência 1.3 do convite não ativa a variante grátis.
 
 ## IAprovale Empresas em produção
 

@@ -101,13 +101,13 @@ Estado: **no ar**. Detalhes em [Stats](stats-do-administrador.md).
 | Stats em **Hoje** com buscas, custo e pessoas ativas por hora, a partir de um registro de eventos de busca (horário, custo e tipo, sem conteúdo; apagado em 90 dias e com a conta; migração v3_15 já aplicada) | **No ar** |
 | Aba **Stats**, só para administradores, no fim da barra de navegação: seletor Hoje, Este mês, 7, 30 e 90 dias, seis números-resumo e gráficos de cadastros, buscas, custo acumulado e notas, com tabela alternativa | **No ar** |
 
-## Avisos e prazos publicados; e-mail desligado
+## Avisos e prazos publicados; e-mail ligado
 
-Estado: **No ar**, com Novidades, alertas e acompanhamento dentro do site, conforme a publicação informada em 12/11/2026. Os recursos são gratuitos para todas as contas, com os limites abaixo, sem depender de plano pago. Tudo que envolve e-mail só é habilitado quando o serviço de envio estiver configurado; **hoje o envio está desligado**. Sem envio, o cadastro mantém o fluxo atual, sem pedir e-mail, e as Novidades continuam disponíveis dentro do site. O cadastro com e-mail ainda não publicado e os modelos abaixo descrevem o comportamento quando o envio for habilitado.
+Estado: **No ar**, com envio de e-mail ligado em produção desde **12/11/2026**, além de Novidades, alertas e acompanhamento dentro do site. Os recursos são gratuitos para todas as contas, com os limites abaixo, sem depender de plano pago. O e-mail é opcional na conta e pode ser adicionado em Configurações. Novidades continua disponível como alternativa quando não houver e-mail verificado, a preferência estiver desligada ou faltar cota ou entrega.
 
 ### Cadastro e e-mail na conta
 
-- Com o envio disponível, o cadastro exige e-mail e confirmação por **código de 6 dígitos**. Se a cota global do dia acabar, a conta é criada com e-mail pendente, para confirmar depois em Configurações. Um endereço não confirmado não reserva o e-mail. Endereço e código não são enviados à IA. Veja [Cadastro com e-mail](versao-gratis.md#cadastro-com-e-mail-ainda-não-publicado).
+- O e-mail é **opcional**, com confirmação por **código de 6 dígitos**, válido por **10 minutos**, em Configurações. No cadastro com endereço informado, se a cota global do dia acabar, a conta é criada com e-mail pendente, para confirmar depois em Configurações, sem impedir o acesso. Um endereço não confirmado não reserva o e-mail. Endereço e código não são enviados à IA. Veja [Cadastro e confirmação](versao-gratis.md#cadastro-com-e-mail).
 - E-mail na conta com preferência para receber avisos. A troca só vale após confirmar o endereço novo; é possível remover o endereço e desligar os avisos. Detalhes em [Configurações](configuracoes-do-usuario.md).
 
 ### Cotas de e-mail
@@ -131,13 +131,13 @@ Estado: **No ar**, com Novidades, alertas e acompanhamento dentro do site, confo
 
 ### Rotina diária e modelos de e-mail
 
-- Execução prevista todos os dias às **07:00, horário de Brasília**. Consulta alertas ativos, sem consumir a cota de buscas da pessoa e sem gravar buscas no histórico, respeitando a linha de base e os limites acima.
+- Execução diária às **07:00, horário de Brasília** (São Paulo, `America/Sao_Paulo`). Consulta alertas ativos, sem consumir a cota de buscas da pessoa e sem gravar buscas no histórico, respeitando a linha de base e os limites acima.
 - Atualiza as datas dos concursos acompanhados no máximo uma vez por dia e cria os lembretes de prazo. Repetir a rotina não duplica os avisos no mesmo dia.
-- Modelos de código de confirmação, boas-vindas e resumo diário em **HTML e texto**, enviados por **provedor externo**. O resumo reúne concursos novos e lembretes de prazo, traz um link para o aplicativo e orienta como desligar os avisos nas Configurações.
-- Boas-vindas só depois de confirmar o e-mail e de a conta existir, inclusive quando a confirmação ocorrer depois em Configurações. Sem cota, fica para a manhã seguinte, com prioridade **antes dos resumos**; se a cota continuar esgotada, permanece pendente. Com envio desligado, não há envio nem fila retroativa de boas-vindas.
+- Modelos de código de confirmação, boas-vindas e resumo diário em **HTML e texto**, enviados via **Brevo SMTP**, com remetente **IAprovale <avisos@augustusai.com.br>**. O resumo reúne concursos novos e lembretes de prazo, traz um link para o aplicativo e orienta como desligar os avisos nas Configurações.
+- Boas-vindas só depois de confirmar o e-mail e de a conta existir, inclusive quando a confirmação ocorrer depois em Configurações. Sem cota, fica para a manhã seguinte, com prioridade **antes dos resumos**; se a cota continuar esgotada, permanece pendente. Não há fila retroativa de boas-vindas para o período anterior à ativação do envio.
 - No máximo **um e-mail-resumo por pessoa por dia**, somente com conta ativa, e-mail verificado, preferência de avisos ativada e envio disponível; sem novidades, não há resumo. A fila prioriza quem recebeu há mais tempo e inclui os avisos adiados por falta de cota. O primeiro resumo considera somente as Novidades do dia, sem carregar todo o histórico.
 - Se houver falha ou interrupção com entrega incerta, o e-mail não é reenviado automaticamente: a mensagem pode não chegar, mas os avisos continuam em Novidades no site.
-- E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. Veja [Dados e privacidade](configuracoes-do-usuario.md) e a atualização prevista dos [textos legais para 1.2](versao-gratis.md).
+- E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. A Brevo (Sendinblue SAS, França) atua como operador no envio, com transferência internacional de dados. Veja [Dados e privacidade](configuracoes-do-usuario.md) e o estado dos [textos legais 1.3](versao-gratis.md#termos-de-uso-e-política-de-privacidade).
 
 A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**.
 
@@ -147,7 +147,7 @@ Estado: **No ar**, conforme a publicação informada em 12/11/2026, em **Alertas
 
 As regras decidem a compatibilidade educacional; a IA só explica lacunas dos casos parciais, sem decidir o nível. Uma avaliação nova com cargos consome uma busca e conta para o feedback do plano grátis; acerto do cache de compatibilidade não cobra novamente. Há reserva durável antes de chamadas externas, e qualquer exceção encerra a tentativa como falha. O cache entra na exportação e é apagado com a conta. Veja [Compatibilidade](compatibilidade.md) para limites e recuperação de falhas; confirme sempre os requisitos no edital.
 
-O envio permanece desligado até a chave SMTP e a revisão correspondente. Os registros de dependências e a conferência dos termos `gratis-1.2` estão em [Preparação da publicação](pre-deploy.md).
+O envio de e-mail já está ligado. Os registros de dependências e a distinção entre textos legais 1.3 do convite e variante grátis ainda não ativada estão em [Preparação da publicação](pre-deploy.md).
 
 ## IAprovale Empresas — E1–E5
 

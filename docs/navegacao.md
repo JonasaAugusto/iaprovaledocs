@@ -21,7 +21,7 @@ Os materiais são **por vaga**: currículo ATS em **PDF**, **Word** (DOCX) ou te
 
 Em **Alertas > Acompanhando**, cada concurso acompanhado permite consultar a compatibilidade **por cargo**, com motivo e lacunas. É a [compatibilidade educacional de concursos](compatibilidade.md), que usa o Perfil de concursos e a cota de buscas desse produto; é diferente da comparação com currículo e vagas de empresas na aba Carreira.
 
-O sino dá acesso às Novidades. O envio de e-mail continua desligado; isso não impede o uso dos avisos dentro do site. Veja [Avisos e acompanhamento](funcionalidades.md#alertas-e-concursos-acompanhados).
+O sino dá acesso às Novidades. O envio de e-mail está ligado via Brevo desde 12/11/2026; o endereço é opcional nas Configurações, e o resumo das 07:00 de São Paulo exige e-mail verificado e preferência ativa. Novidades permanece disponível no site, inclusive sem cota ou entrega por e-mail. Veja [Avisos e acompanhamento](funcionalidades.md#alertas-e-concursos-acompanhados).
 
 ## Endereços das abas
 

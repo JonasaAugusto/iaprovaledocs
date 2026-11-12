@@ -27,10 +27,11 @@ class DocumentacaoTest(unittest.TestCase):
     def test_estado_changelog_e_links_locais(self):
         pacote = secao(ler("docs/funcionalidades.md"), "## Avisos e prazos publicados")
         self.assertIn("Estado: **No ar**", pacote)
-        self.assertIn("hoje o envio está desligado", pacote)
+        self.assertIn("envio de e-mail ligado", pacote)
+        self.assertIn("12/11/2026", pacote)
         changelog = ler("CHANGELOG.md")
         versoes = re.findall(r"^## \[(\d+\.\d+\.\d+)\] - (.+)$", changelog, re.MULTILINE)
-        self.assertEqual(versoes[0], ("1.15.0", "Não publicado"))
+        self.assertEqual(versoes[0], ("1.16.0", "Não publicado"))
         self.assertEqual(len(versoes), len({v for v, _ in versoes}))
         self.assertIn("[1.12.2] - Não publicado", changelog)
         self.assertIn("ainda não publicado", ler("README.md"))
@@ -51,16 +52,20 @@ class DocumentacaoTest(unittest.TestCase):
 
     def test_cadastro_e_confirmacao_posterior(self):
         cadastro = secao(ler("docs/versao-gratis.md"), "## Cadastro com e-mail")
-        self.assertIn("ainda não publicado", cadastro)
-        self.assertRegex(cadastro, r"e-mail é \*\*obrigatório\*\*")
+        self.assertIn("e-mail é **opcional**", cadastro)
+        self.assertNotIn("obrigatório", cadastro)
         self.assertIn("código de 6 dígitos", cadastro)
+        self.assertIn("10 minutos", cadastro)
         self.assertIn("conta é criada com e-mail pendente", cadastro)
         self.assertIn("Configurações", cadastro)
         self.assertIn("não reserva o endereço", cadastro)
-        self.assertIn("envio está desligado", cadastro)
-        self.assertIn("fluxo atual, sem pedir e-mail", cadastro)
+        self.assertIn("12/11/2026", cadastro)
         configuracoes = ler("docs/configuracoes-do-usuario.md")
         self.assertIn("não reserva o endereço", configuracoes)
+        conta = secao(configuracoes, "## Conta")
+        for regra in ("opcional", "código de 6 dígitos", "10 minutos", "remover",
+                      "endereço anterior", "dia seguinte"):
+            self.assertIn(regra, conta)
         self.assertIn("gratis-1.2", ler("docs/versao-gratis.md"))
 
     def test_cotas_e_sentido_do_compartilhamento(self):
@@ -166,7 +171,7 @@ class DocumentacaoTest(unittest.TestCase):
 
     def test_pre_deploy_migracoes_antes_do_reinicio(self):
         texto = ler("docs/pre-deploy.md")
-        self.assertIn("Estado: **Publicado sem envio de e-mail**", texto)
+        self.assertIn("Estado: **Publicado com envio de e-mail**", texto)
         migracoes = re.findall(r"^\| `([^`]+\.py)` \|", texto, re.MULTILINE)
         self.assertEqual(migracoes, [
             "scripts/migrate_v3_17_email_novidades.py",
@@ -183,18 +188,21 @@ class DocumentacaoTest(unittest.TestCase):
         self.assertIn("Reiniciar", passos[2])
         self.assertIn("site", passos[4])
         for regra in ("reexecutar a v3_18", "mesmo com a rotina diária desligada",
-                      "e-mail desligado até a chave SMTP", "não executa migrações automaticamente",
+                      "Brevo", "não executa migrações automaticamente",
                       "botão **[Publicar]**"):
             self.assertIn(regra, texto)
+        self.assertIn("e-mail pendente", passos[2])
+        self.assertIn("e-mail ligado", passos[3])
+        self.assertIn("variante grátis 1.3 ainda não ativada", passos[4])
 
     def test_termos_implementados_e_estado_consistente(self):
         aceite = secao(ler("docs/versao-gratis.md"), "## Registro do aceite")
         self.assertIn('`ACEITE_TERMOS_VERSAO = "gratis-1.2"`', aceite)
         self.assertIn("já implementado", aceite)
-        self.assertIn("ainda não publicado", aceite)
+        self.assertIn("publicação ainda não confirmada", aceite)
         self.assertIn("aceites anteriores preservam", aceite)
         mensagens = secao(ler("docs/versao-gratis.md"), "## Mensagens revisadas")
-        self.assertIn("ainda não publicado", mensagens)
+        self.assertIn("No ar", mensagens)
         for termo in ("dígitos", "código", "amanhã", "Configurações", "campos", "botões"):
             self.assertIn(termo, mensagens)
         for pagina in ("README.md", "docs/funcionalidades.md", "docs/roadmap.md", "CHANGELOG.md"):
@@ -202,8 +210,50 @@ class DocumentacaoTest(unittest.TestCase):
                 texto = ler(pagina)
                 self.assertIn("compatibilidade.md", texto)
                 self.assertIn("pre-deploy.md", texto)
-                self.assertIn("ainda não publicado", texto)
                 self.assertNotIn("Etapa 3 (a desenvolver)", texto)
+
+    def test_email_publicado_sem_estados_antigos_nas_paginas_atuais(self):
+        paginas = ("README.md", "docs/funcionalidades.md", "docs/versao-gratis.md",
+                   "docs/configuracoes-do-usuario.md", "docs/navegacao.md",
+                   "docs/pre-deploy.md", "docs/roadmap.md", "docs/decisoes.md")
+        for pagina in paginas:
+            with self.subTest(pagina=pagina):
+                texto = ler(pagina)
+                self.assertIn("12/11/2026", texto)
+                self.assertRegex(texto, r"(?i)(?:envio de e-mail|e-mail|envio) (?:está )?ligado")
+                self.assertNotRegex(texto, r"(?i)(?:hoje (?:o )?envio|envio de e-mail|e-mail|envio) "
+                                          r"(?:continua |permanece |segue |está )?desligado")
+                self.assertNotIn("e-mail (ainda não publicado)", texto)
+        entrada = secao(ler("CHANGELOG.md"), "## [1.16.0] - Não publicado")
+        for regra in ("12/11/2026", "Brevo", "1.3", "não ativada", "funcionalidades.md",
+                      "pre-deploy.md"):
+            self.assertIn(regra, entrada)
+
+    def test_brevo_remetente_operador_e_transferencia(self):
+        rotina = secao(ler("docs/funcionalidades.md"), "### Rotina diária e modelos de e-mail")
+        self.assertIn("Brevo SMTP", rotina)
+        self.assertIn("IAprovale <avisos@augustusai.com.br>", rotina)
+        self.assertIn("America/Sao_Paulo", rotina)
+        legais = secao(ler("docs/versao-gratis.md"), "## Termos de Uso e Política de Privacidade")
+        for regra in ("Brevo", "Sendinblue SAS", "França", "operador",
+                      "transferência internacional", "códigos", "boas-vindas", "resumos",
+                      "Novidades", "validação por advogado continua pendente"):
+            self.assertIn(regra, legais)
+
+    def test_legais_13_convite_e_gratis_sem_ativacao(self):
+        legais = secao(ler("docs/versao-gratis.md"), "## Termos de Uso e Política de Privacidade")
+        for regra in ("1.3", "12/11/2026", "convite", "e-mail opcional", "Brevo", "Carreira",
+                      "scripts/legal-gratis/v1_3.py", "ainda não ativada"):
+            self.assertIn(regra, legais)
+        self.assertNotIn("Próxima atualização: versão 1.2", legais)
+        aceite = secao(ler("docs/versao-gratis.md"), "## Registro do aceite")
+        self.assertIn("não comprova", aceite)
+        self.assertIn("aceites anteriores preservam", aceite)
+        for pagina in ("docs/pre-deploy.md", "docs/roadmap.md", "docs/decisoes.md"):
+            with self.subTest(pagina=pagina):
+                texto = ler(pagina)
+                self.assertIn("scripts/legal-gratis/v1_3.py", texto)
+                self.assertIn("ainda não ativada", texto)
 
 
 if __name__ == "__main__":

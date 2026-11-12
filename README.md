@@ -6,7 +6,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 
 ## Índice
 
-- [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item. Novidades, alertas e acompanhamento publicados; envio de e-mail desligado.
+- [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item. Novidades, alertas e acompanhamento publicados; envio de e-mail ligado via Brevo desde 12/11/2026.
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
@@ -18,11 +18,11 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Stats do administrador](docs/stats-do-administrador.md): a aba Stats, só para administradores, com a evolução do uso. Atualização da estimativa de custo de IA: ainda não publicado.
 - [Eventos de busca](docs/eventos-de-busca.md): o registro de cada busca (horário, custo e tipo, sem conteúdo) que alimenta o Stats por hora, com retenção de 90 dias e o texto para a Política de Privacidade.
 - [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login é entregue à pessoa.
-- [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. Cadastro com e-mail obrigatório quando o envio estiver configurado: ainda não publicado.
+- [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. E-mail opcional na conta; textos legais 1.3 do convite vigentes e variante grátis ainda não ativada.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
 - [Empresas: currículo ATS e entrevista](docs/empresas-e3-e4.md): no ar desde 12/11/2026; geração conservadora, cota e armazenamento. Gratuitos no teste, cobrança desligada; preços e meio de pagamento pendentes.
 - [Roadmap](docs/roadmap.md): o que vem depois.
-- [Preparação da publicação](docs/pre-deploy.md): dependências de migrações e pypdf, registro da publicação do Empresas e pendências de e-mail e revisão legal. Esta documentação não executa nem atesta cada migração.
+- [Preparação da publicação](docs/pre-deploy.md): dependências de migrações e pypdf, registro da publicação do Empresas e do e-mail e pendências legais. Esta documentação não executa nem atesta cada migração.
 - [Decisões de produto](docs/decisoes.md): regras de produto que valem para todo o projeto.
 
 ## Legenda de estado
@@ -36,9 +36,9 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 | **Decidido** | Definido, ainda não construído. |
 | **Sugerido** | Ideia sem decisão final. |
 
-Novidades, alertas, acompanhamento e compatibilidade por cargo estão publicados no site. Tudo que envolve e-mail só é habilitado com o serviço de envio configurado; hoje permanece desligado e o cadastro não pede e-mail.
+Novidades, alertas, acompanhamento e compatibilidade por cargo estão publicados no site. O envio de e-mail está ligado em produção desde 12/11/2026, via Brevo. O e-mail é opcional nas Configurações e confirmado por código de 6 dígitos válido por 10 minutos. O resumo diário das 07:00 de São Paulo exige endereço verificado e preferência de avisos ativa; as cotas globais e falhas de entrega não impedem consultar Novidades no site.
 
-O Empresas E1–E5 está em produção desde 12/11/2026 (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior). A cobrança está desligada. A conferência dos textos legais/aceite `gratis-1.2` e a atualização da estimativa de custo/cache do DeepSeek mantêm os estados específicos das páginas correspondentes; não são comprovadas pela publicação do Empresas. As tarifas documentam a referência de 11/11/2026; não representam cobrança à pessoa nem a fatura do provedor.
+O Empresas E1–E5 está em produção desde 12/11/2026 (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior). A cobrança está desligada. Os textos legais 1.3 do modo por convite estão vigentes desde 12/11/2026, com e-mail opcional, Brevo e Carreira; a variante do plano grátis ainda não foi ativada. O aceite do plano grátis e a atualização da estimativa de custo/cache do DeepSeek mantêm os estados específicos das páginas correspondentes. As tarifas documentam a referência de 11/11/2026; não representam cobrança à pessoa nem a fatura do provedor.
 
 Endereço do produto: https://augustusai.com.br/iaprovale/
 

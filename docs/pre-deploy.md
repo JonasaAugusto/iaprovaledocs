@@ -1,6 +1,6 @@
-# Preparação da publicação: avisos, termos 1.2, etapa 3 e Empresas
+# Preparação da publicação: e-mail, textos legais 1.3, etapa 3 e Empresas
 
-Estado: **Publicado sem envio de e-mail**, conforme informado em 12/11/2026 para avisos no site, compatibilidade por cargo e Empresas. Este documento preserva as dependências e a ordem de validação para novas instalações; não é um atestado da execução de cada migração. A conferência dos [termos do plano grátis](versao-gratis.md) e o estado da [estimativa de custos de IA](stats-do-administrador.md) estão nas páginas correspondentes.
+Estado: **Publicado com envio de e-mail**, ligado em produção desde **12/11/2026**, via Brevo SMTP, além de avisos no site, compatibilidade por cargo e Empresas. Este documento preserva as dependências e a ordem de validação para novas instalações; não é um atestado da execução de cada migração. A distinção entre [textos legais 1.3 do convite e variante grátis](versao-gratis.md#termos-de-uso-e-política-de-privacidade) e o estado da [estimativa de custos de IA](stats-do-administrador.md) estão nas páginas correspondentes.
 
 ## Migrações necessárias
 
@@ -27,16 +27,16 @@ Conferir os textos legais do site para currículo compactado, original opcional,
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
 
-1. Revisar e validar as docs e a integração das telas; conferir o alinhamento entre os textos legais 1.2 do site e o aceite `gratis-1.2` do backend; preparar backup antes de alterar a base.
+1. Revisar e validar as docs e a integração das telas; conferir os textos legais 1.3 do convite, vigentes desde 12/11/2026, e o alinhamento entre textos apresentados e aceite do plano grátis, sem presumir ativação da sua variante 1.3; preparar backup antes de alterar a base.
 2. Aplicar e conferir as migrações v3_17 a v3_22 antes de reiniciar o backend, incluindo a reexecução da v3_18 quando necessária; para Empresas, incluir também a v3_23 e conferir a dependência pypdf e os textos legais acima.
-3. Reiniciar o backend e validar o funcionamento básico: cadastro sem e-mail, aceite 1.2 para conta nova, preservação dos aceites antigos, Novidades, alertas, acompanhados, compatibilidade, exportação e exclusão em recursos de teste.
-4. Habilitar e conferir a rotina diária de avisos prevista para 07:00 de Brasília, mantendo o transporte de e-mail desligado.
-5. Publicar o site alinhado aos termos 1.2 e às rotas disponíveis, após revisão das telas e validação das etapas anteriores; se houver falha, interromper a publicação e avaliar a recuperação.
+3. Reiniciar o backend e validar o funcionamento básico em recursos de teste: conta sem e-mail, confirmação por código, conta criada com e-mail pendente sem cota, aceite correspondente ao texto apresentado, preservação dos aceites antigos, Novidades, alertas, acompanhados, compatibilidade, exportação e exclusão.
+4. Conferir a rotina diária de avisos das 07:00 de São Paulo com e-mail ligado via Brevo: endereço verificado e preferência ativa para resumos, boas-vindas após confirmação, cotas e Novidades como alternativa sem entrega.
+5. Publicar o site alinhado à variante legal aprovada e às rotas disponíveis, mantendo a variante grátis 1.3 ainda não ativada até liberação específica, após revisão das telas e validação das etapas anteriores; se houver falha, interromper a publicação e avaliar a recuperação.
 
 Produção, backup, migrações, reinício e publicação cabem ao responsável pela operação (Claude/serviço), após autorização explícita do dono; a publicação depende do botão **[Publicar]**. Esta tarefa altera somente documentação e testes locais.
 
-## E-mail permanece desligado
+## E-mail ligado em produção
 
-Manter o e-mail desligado até a chave SMTP estar disponível e a configuração e os textos legais correspondentes serem revisados. Publicar o pacote sem envio não habilita códigos, boas-vindas ou resumos por e-mail e não cria fila retroativa de boas-vindas. O cadastro continua sem pedir e-mail; Novidades, alertas e lembretes dentro do site estão publicados.
+O envio está ligado desde **12/11/2026**, via **Brevo SMTP**, remetente **IAprovale <avisos@augustusai.com.br>**. O e-mail é opcional nas Configurações, confirmado por código de 6 dígitos válido por 10 minutos. As cotas globais são 200 códigos e 100 avisos por dia; códigos usam a sobra dos avisos, nunca o contrário. Sem cota no cadastro com endereço informado, a conta é criada com e-mail pendente para confirmação posterior; Novidades segue acessível no site. Boas-vindas só após confirmar; sem cota, fica para a manhã seguinte, antes dos resumos. Não há fila retroativa do período anterior à ativação. Veja as [condições completas de envio](funcionalidades.md#cotas-de-e-mail).
 
-Habilitar o transporte é uma liberação posterior, com credenciais fora desta documentação. A validação por advogado dos textos legais continua pendente.
+Brevo (Sendinblue SAS, França) é operador, com transferência internacional. Os textos legais 1.3 do convite estão vigentes desde 12/11/2026 e incluem e-mail opcional, Brevo e Carreira; a variante grátis em `scripts/legal-gratis/v1_3.py` está **ainda não ativada**. Conferir o texto efetivamente apresentado e seu aceite antes de qualquer ativação dessa variante. Credenciais ficam fora desta documentação. A validação por advogado continua pendente.
