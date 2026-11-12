@@ -18,6 +18,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login é entregue à pessoa.
 - [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. Cadastro com e-mail obrigatório quando o envio estiver configurado: ainda não publicado.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
+- [Empresas: currículo ATS e entrevista](docs/empresas-e3-e4.md): preços previstos, geração conservadora, cota e armazenamento (ainda não publicado).
 - [Roadmap](docs/roadmap.md): o que vem depois.
 - [Preparação da publicação](docs/pre-deploy.md): migrações v3_17 a v3_22 e, para Empresas, v3_23 e pypdf antes do reinício, aceite `gratis-1.2` e e-mail desligado até a chave SMTP. Tudo ainda não publicado.
 - [Decisões de produto](docs/decisoes.md): regras de produto que valem para todo o projeto.

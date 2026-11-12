@@ -3,6 +3,9 @@
 Versões [SemVer](https://semver.org/lang/pt-BR/) alinhadas ao que a documentação descreve: maior = mudança de produto,
 menor = funcionalidade documentada, correção = ajuste de texto.
 
+## [Não publicado — Empresas E3/E4]
+- Documentados o currículo ATS em PDF/DOCX (R$ 1,49) e o pacote de entrevista (R$ 2,99): geração conservadora, cota e armazenamento. Cobrança real ainda desligada.
+
 ## [1.14.0] - Não publicado
 - Documentado o [IAprovale Empresas E1/E2](docs/empresas.md), implementado no backend 2.15.0 e ainda não publicado: endpoints autenticados, currículo e original opcional compactados, compatibilidade calculada em Python, explicação sob demanda e cache. Cota própria de 17 chamadas ou US$ 0,01 por dia (o que vier primeiro), exportação/exclusão, envio ao DeepSeek com remoção de contatos antes do perfil e limites dessa remoção, transferência internacional e revisão dos textos legais. Índice, funcionalidades, configurações, decisões, roadmap e dependências v3_23/pypdf alinhados; regressões locais incluídas, sem anunciar nova versão ou publicação.
 - Documentada a [compatibilidade entre perfil e cargos (etapa 3)](docs/compatibilidade.md), implementada no backend e ainda não publicada: consulta autenticada sobre acompanhados, níveis conservadores por cargo, IA só para explicar lacunas, cache por versão do perfil, reserva antes de chamadas externas, cota e feedback compartilhados e recuperação de falhas. Exportação e exclusão abrangem o cache; índice, funcionalidades, decisões, roadmap e referências de cota e eventos alinhados.
