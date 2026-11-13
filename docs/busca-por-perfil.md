@@ -16,6 +16,36 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
   - sem UF no perfil: lista geral.
 - Em seguida entra o filtro por nível.
 
+## C6a: equivalentes de cargo
+
+Estado: **Ainda não publicado**. Nas buscas em linguagem natural, o filtro local passa a aceitar os termos originais da formação ou todos os termos de um cargo equivalente sugerido pelo DeepSeek. Exemplo: Direito encontra Advogado entre os cargos já retornados pela fonte. A comparação usa palavras inteiras, sem diferença de acentos ou maiúsculas: Advogado não corresponde a Superadvogado; TI não corresponde a infantil ou dentista só por conterem essas letras. Cada formação admite até cinco equivalentes.
+
+O C6a não amplia a consulta à fonte: amplia somente o filtro dos cargos já retornados. UFs, inscrições abertas, escolaridade e datas mantêm suas regras. A geração não ocorre na busca só por nível nem quando a fonte retorna uma lista vazia. Esta etapa não se aplica à consulta determinística “Buscar com meu perfil”, que continua sem IA. A tabela curta de siglas como alternativa fica para C17; não integra esta entrega.
+
+Cada busca admite geração para até três formações sem cache válido, em paralelo, com teto conjunto de seis segundos de espera pelo modelo. Acertos do cache não consomem esse limite. As demais formações seguem com os termos originais e podem tentar gerar equivalentes em outra busca. A chamada de equivalentes é feita sem retentativas automáticas, inclusive nos alertas. Se o provedor falhar ou o teto for atingido, a busca segue com os termos originais para as formações sem resposta, sem erro por essa etapa; respostas já concluídas e seu uso são preservados. Chamadas pendentes são canceladas e não geram uma entrada vazia no cache. O teto limita a espera pelo modelo, não o tempo total da busca: não interrompe operações síncronas do banco que estejam bloqueadas.
+
+Os equivalentes são sugestões conservadoras; o modelo pode errar e não comprova habilitação para o cargo. Confira sempre os requisitos no edital. A validação limita formato, tamanho e quantidade, sem garantir o significado de toda sugestão.
+
+### Reutilização, privacidade e falhas
+
+Cache significa guardar uma resposta para reutilizá-la. Aqui ele é global, compartilhado por formação, sem vínculo com usuário: formações iguais após uniformizar acentos, maiúsculas e espaços usam a mesma entrada. Ela contém uma chave SHA-256 (resumo da formação normalizada), os equivalentes normalizados e a expiração. Não guarda o texto original da formação, busca, currículo, e-mail ou localização. O resumo não é garantia de anonimato, sobretudo para formações raras.
+
+Nesta geração, o DeepSeek recebe somente o termo da formação normalizado, além da instrução fixa; nenhum dado do usuário, perfil completo, currículo ou identificação da conta é enviado nesta chamada. Isso descreve apenas a geração de equivalentes, não as demais etapas da busca. Os registros técnicos mostram estado do cache e quantidade de equivalentes, sem formação nem cargos, SQL, parâmetros ou texto das exceções. A validação descarta e-mails, telefones e URLs na saída e equivalentes isolados genéricos: professor, técnico, analista, auxiliar e assistente. Cargos específicos como “analista de sistemas” continuam aceitos.
+
+Respostas com equivalentes valem 30 dias; uma lista vazia válida vale 24 horas. Após vencer, a entrada é renovada na próxima consulta. Entradas vencidas são substituídas sob demanda; não há limpeza periódica neste lote. Erros de comunicação, JSON inválido e chamadas canceladas não são guardados: o filtro mantém os termos originais e pode tentar gerar equivalentes em outra consulta.
+
+A transação do cache é independente da busca. Uma falha no cache não derruba a busca: falhas de leitura, inclusive tabela ausente ou conteúdo inválido, mantêm os termos originais sem chamar o modelo. Falhas de escrita preservam os equivalentes recém-gerados para aquela busca, mas não os guardam para reutilização.
+
+Nos alertas, a geração opcional respeita o saldo de chamadas compartilhado com as demais etapas. Sem saldo, ainda pode usar um cache válido; sem ele, segue com os termos originais. Consultas simultâneas sem cache podem gerar mais de uma chamada para a mesma formação; não há garantia de uma única chamada nem teto global de custo neste lote.
+
+### Estimativa de custo
+
+Uma resposta válida no cache usa zero tokens adicionais nesta etapa. Cada geração admite entrada de até 120 caracteres de formação mais a instrução fixa e saída de até 200 tokens (unidades de texto cobradas pelo provedor).
+
+Exemplo de orçamento: com 200 tokens de entrada sem cache e 200 de saída, a estimativa pelas tarifas do código é US$ 0,0003 por geração, ou US$ 0,30 por 1.000 formações distintas em 30 dias, antes de renovações e chamadas simultâneas. Não é cotação atual nem fatura; conferir as tarifas antes de orçar. O cache de formações é diferente do desconto de cache de tokens do provedor descrito em [Estatísticas](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado).
+
+Os tokens informados pelo provedor entram no custo registrado da busca, inclusive quando a resposta tem JSON inválido. Falhas e cancelamentos sem informação de uso não permitem estimar o número exato de tokens. Cancelar a espera não garante que o processamento no provedor tenha parado. A [preparação da publicação](pre-deploy.md#c6a-cache-de-equivalentes-de-cargo) descreve a dependência do banco e a reversão.
+
 ## Filtro por nível
 
 - O nível do perfil vem da escolaridade marcada (fundamental, médio, técnico, superior; "pós" conta como superior). Se há graduação ou pós preenchida, o perfil também conta como superior. Valem exatamente os níveis marcados: quem marcou só Médio não recebe concurso só de Superior.
