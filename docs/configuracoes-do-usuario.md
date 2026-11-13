@@ -19,6 +19,16 @@ Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido 
 - **Avisos por e-mail (no ar):** preferência ativada por padrão, mas o resumo diário das **07:00 de São Paulo** só é enviado com e-mail verificado, preferência ligada e envio disponível. A pessoa pode desligar os avisos por e-mail sem perder a caixa de Novidades dentro do site. Boas-vindas só sai após confirmar o endereço; sem cota, fica para a rotina da manhã seguinte, antes dos resumos. Veja [Funcionalidades](funcionalidades.md) para as cotas globais, alertas e lembretes.
 - **Segurança:** "Sair de todos os aparelhos" encerra a conta em todos os lugares, inclusive no aparelho atual. Errar a senha atual várias vezes bloqueia essa troca por um tempo, sem impedir o login. O login expira depois de 30 dias sem uso: quem passa esse tempo sem abrir o IAprovale precisa entrar de novo. Usar o serviço renova o prazo.
 
+## C5: proteção das sessões
+
+Estado: **Ainda não publicado**. A mudança está implementada no backend, sem confirmação de aplicação em produção.
+
+Uma sessão mantém a pessoa conectada depois do login. O token é o código secreto que o aplicativo apresenta para reconhecer essa sessão. Com o C5, o servidor guarda apenas o hash SHA-256 desse código: um resumo irreversível usado para conferir o token recebido, sem guardar o segredo original na tabela de sessões. O hash armazenado não é aceito como credencial de acesso.
+
+O aplicativo continua recebendo o token no login e enviando-o como Bearer (a credencial apresentada nas requisições autenticadas). Login, saída, troca de senha e "Sair de todos os aparelhos" mantêm o comportamento. A expiração continua após 30 dias sem uso, com renovação pelo uso do serviço.
+
+Na migração, todas as sessões existentes são encerradas: todos precisam entrar novamente uma vez. Um token anterior à migração deixa de dar acesso. Contas, senhas e perfis são preservados. A reversão também encerra as sessões e exige novo login; ela não recupera os códigos apagados. Veja a [preparação da migração e reversão](pre-deploy.md#c5-migração-e-reversão).
+
 ## Aparência
 
 - Tema claro, escuro ou automático (segue o aparelho).

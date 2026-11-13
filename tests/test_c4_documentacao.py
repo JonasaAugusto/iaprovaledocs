@@ -35,8 +35,8 @@ class C4DocumentacaoTest(unittest.TestCase):
         for regra in ("scripts/migrate_v3_25_history_index.py", "v3_24", "idempotente",
                       "reversível", "`search_history(user_id, created_at)`",
                       "`--downgrade`", "preservam os registros", "antes do reinício",
-                      "não usa Alembic", "recursos descartáveis", "Claude/serviço",
-                      "[Publicar]", "não comprova"):
+                      "não usa Alembic", "recursos descartáveis", "a operação",
+                      "operação autorizada", "não comprova"):
             self.assertIn(regra, texto)
 
     def test_referencias_e_eventos_separados(self):

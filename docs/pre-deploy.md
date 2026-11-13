@@ -21,7 +21,7 @@ Aplicar as versões v3_17 a v3_22 na ordem abaixo, antes do reinício. Os script
 
 Estado: **No ar** desde **12/11/2026**. O [Empresas](empresas.md) E1–E5 está em produção (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior), com cobrança desligada. Em uma instalação que ainda não tenha E1/E2, acrescentar às dependências anteriores a migração aditiva e idempotente `scripts/migrate_v3_23_empresas.py` (v3_23), **antes do reinício**, e a dependência de leitura de PDF `pypdf==6.21.4` do backend. A migração cria o armazenamento compactado, requisitos de vagas, explicações e uso diário de IA; este registro de dependência não substitui a conferência da base pelo operador.
 
-Conferir os textos legais do site para currículo compactado, original opcional, materiais de E3/E4, exportação/exclusão, envio ao DeepSeek, limites da remoção de contatos e transferência internacional; a validação por advogado continua pendente. E3/E4 estão gratuitos no teste; preços e meio de pagamento pendentes. Para E5, conferir índice disponível, atualização diária e comportamento com coleta parcial, conforme [Busca de vagas](empresas-vagas.md). Em novas liberações, validar cota, exportação/exclusão e integração das telas em recursos descartáveis. Execução e publicação continuam a cargo de Claude/serviço, pelo botão do dono.
+Conferir os textos legais do site para currículo compactado, original opcional, materiais de E3/E4, exportação/exclusão, envio ao DeepSeek, limites da remoção de contatos e transferência internacional; a validação por advogado continua pendente. E3/E4 estão gratuitos no teste; preços e meio de pagamento pendentes. Para E5, conferir índice disponível, atualização diária e comportamento com coleta parcial, conforme [Busca de vagas](empresas-vagas.md). Em novas liberações, validar cota, exportação/exclusão e integração das telas em recursos descartáveis. Execução e publicação continuam a cargo da operação autorizada.
 
 ## C1: validação antes da publicação
 
@@ -31,7 +31,7 @@ O lote C1 acrescenta [erro claro de upload acima de 5 MB](empresas.md#c1-erro-de
 
 A configuração de referência da API declara **`--workers 1`**, ou seja, **um processo** de atendimento. Parte dos limites de proteção e dos caches fica na **memória** desse processo: esses dados **não são compartilhados** entre processos. Aumentar esse número exige antes uma solução compartilhada e decisão do dono. Um teste verifica que a referência mantém exatamente um processo; ele não comprova a configuração ativa.
 
-A referência **não foi instalada** pelo lote C1. Antes de liberar, Claude/serviço deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer revisão cruzada do código e das docs. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a publicação segue pelo botão **[Publicar]** do dono.
+A referência **não foi instalada** pelo lote C1. Antes de liberar, a operação deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer revisão cruzada do código e das docs. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a liberação depende da validação pela operação autorizada.
 
 ## C4: histórico e retenção
 
@@ -43,7 +43,24 @@ Na limpeza diária, continuam protegidos os pedidos aprovados e as exclusões e 
 
 A migração `scripts/migrate_v3_25_history_index.py`, após a v3_24, cria o índice `search_history(user_id, created_at)`: uma estrutura auxiliar para localizar o histórico por conta e data com mais eficiência. É idempotente e reversível; a reversão com `--downgrade` remove somente esse índice. Aplicação e reversão preservam os registros, sem reescrever resultados antigos. O backend usa scripts próprios de migração, não usa Alembic.
 
-Antes de liberar C4, Claude/serviço deve fazer revisão cruzada do código e destas docs, validar em recursos descartáveis a criação e a remoção do índice, os limites do histórico, a exportação e as regras de limpeza. A migração deve ser aplicada e conferida antes do reinício. Esta página não comprova aplicação da migração nem publicação de C4; ambas dependem da operação autorizada e a publicação segue pelo botão **[Publicar]** do dono.
+Antes de liberar C4, a operação deve fazer revisão cruzada do código e destas docs, validar em recursos descartáveis a criação e a remoção do índice, os limites do histórico, a exportação e as regras de limpeza. A migração deve ser aplicada e conferida antes do reinício. Esta página não comprova aplicação da migração nem publicação de C4; ambas dependem da operação autorizada.
+
+## C5: migração e reversão
+
+Estado: **Ainda não publicado**. O C5 está implementado; esta documentação não executa nem atesta a migração em produção. Os estados publicados das outras seções não se estendem ao C5. A troca prevê o encerramento das sessões uma vez e a possibilidade de reversão.
+
+O backend usa o script próprio `scripts/migrate_v3_25_session_hash.py` (v3.25). A migração substitui o armazenamento do token pelo hash SHA-256 e encerra as sessões existentes na mesma transação. Contas, senhas e perfis permanecem. Repetir a operação no formato já atualizado não encerra sessões novas. O [efeito para a pessoa](configuracoes-do-usuario.md#c5-proteção-das-sessões) é precisar entrar novamente.
+
+Antes de liberar o C5, a operação deve:
+
+1. Concluir a revisão cruzada do código e destas docs; avisar sobre a janela de indisponibilidade e a necessidade de novo login.
+2. Confirmar backup consistente e protegido, com restauração validada em ambiente isolado sob responsabilidade da operação. Não copiar dados reais para clones ou testes nem registrar credenciais ou tokens.
+3. Na janela autorizada, interromper os processos que acessam sessões. Código antigo e novo não podem operar simultaneamente, pois o formato armazenado muda. Aplicar a migração e ativar a versão C5 de forma coordenada; a operação usa transação, revertida em caso de falha.
+4. Validar em recursos descartáveis login, acesso autenticado, logout, revogação e expiração por 30 dias sem uso; confirmar recusa do token anterior à migração, da sessão encerrada e do hash armazenado como credencial. Conferir que o armazenamento contém somente hashes, sem registrar seus valores. Só reabrir o acesso após a validação da operação.
+
+Para reverter, repetir os cuidados de janela e backup, interromper os processos, aplicar a reversão (`downgrade`) e restaurar a versão anterior da aplicação antes de reabrir o acesso. A reversão restaura o formato anterior, encerra as sessões C5 e exige novo login. Repeti-la no formato anterior não encerra sessões novas criadas pela versão anterior.
+
+Reversível significa recuperar o esquema e a operação anteriores: não recupera os tokens apagados nem converte hashes em segredos. Não restaurar sessões antigas de backup para reativar tokens invalidados. Execução operacional e publicação cabem à operação, com autorização do responsável.
 
 ## Ordem da publicação
 
@@ -55,7 +72,7 @@ Referência para futuras instalações ou liberações; os passos abaixo não s�
 4. Conferir a rotina diária de avisos das 07:00 de São Paulo com e-mail ligado via Brevo: endereço verificado e preferência ativa para resumos, boas-vindas após confirmação, cotas e Novidades como alternativa sem entrega.
 5. Publicar o site alinhado à variante legal aprovada e às rotas disponíveis, mantendo a variante grátis 1.3 ainda não ativada até liberação específica, após revisão das telas e validação das etapas anteriores; se houver falha, interromper a publicação e avaliar a recuperação.
 
-Produção, backup, migrações, reinício e publicação cabem ao responsável pela operação (Claude/serviço), após autorização explícita do dono; a publicação depende do botão **[Publicar]**. Esta tarefa altera somente documentação e testes locais.
+Produção, backup, migrações, reinício e publicação cabem à operação, após autorização explícita do responsável. Esta tarefa altera somente documentação e testes locais.
 
 ## E-mail ligado em produção
 
