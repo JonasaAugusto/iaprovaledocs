@@ -24,6 +24,30 @@ Estado: **No ar**.
 
 Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca tem custo.
 
+## C1: limites do PDF de concursos
+
+Estado: **Ainda não publicado**. O lote C1 valida os dados enviados à rota autenticada `POST /pdf` antes de gerar o PDF dos resultados de concursos. O PDF continua disponível; a correção acrescenta os limites abaixo ao pedido de geração. Cada nome entre crases identifica um campo da integração.
+
+| Campo | Máximo | Unidade ou significado |
+|---|---|---|
+| `results` | 100 | Resultados por PDF |
+| `query` | 500 | Caracteres da busca |
+| `extracted_summary` | 2000 | Caracteres do resumo |
+| `titulo` | 500 | Caracteres por título |
+| `cargos` | 100 | Itens por lista de cargos de cada resultado |
+| `cargos_compativeis` | 100 | Itens por lista de cargos compatíveis de cada resultado |
+| `cargos[]` | 200 | Caracteres por nome de cargo |
+| `cargos_compativeis[]` | 200 | Caracteres por nome de cargo compatível |
+| `uf` | 32 | Caracteres da UF |
+| `regiao` | 100 | Caracteres da região |
+| `datas.fim` | 100 | Caracteres do prazo de inscrição |
+| `data_formacao_futura` | 7 | Caracteres da data de formação futura |
+| `noticia.link` | 2048 | Caracteres do endereço da matéria |
+
+Os campos de título até link pertencem a cada resultado. São aceitos até **100 links**, **um por resultado**, somente endereços válidos com **HTTP ou HTTPS**. O link pode estar ausente ou vazio. Campo acima do limite ou link inválido retorna **422** (dados não aceitos), sem gerar o PDF; a integração precisa corrigir o pedido. A mesma validação protege chamadas diretas ao gerador, e metadados extras não usados no documento são descartados.
+
+Esse contrato não altera o limite de **15 páginas** do PDF enviado como currículo ao [Empresas](empresas.md#e1--currículo), nem os materiais PDF de E3/E4. Veja também a [validação antes da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
+
 ## Acrescentado na Rodada 1 (novembro de 2026)
 
 Estado: **No ar**, em https://augustusai.com.br/iaprovale/ (versão grátis na raiz; o modo por convite é build alternativo).

@@ -23,6 +23,16 @@ Estado: **No ar** desde **12/11/2026**. O [Empresas](empresas.md) E1–E5 está 
 
 Conferir os textos legais do site para currículo compactado, original opcional, materiais de E3/E4, exportação/exclusão, envio ao DeepSeek, limites da remoção de contatos e transferência internacional; a validação por advogado continua pendente. E3/E4 estão gratuitos no teste; preços e meio de pagamento pendentes. Para E5, conferir índice disponível, atualização diária e comportamento com coleta parcial, conforme [Busca de vagas](empresas-vagas.md). Em novas liberações, validar cota, exportação/exclusão e integração das telas em recursos descartáveis. Execução e publicação continuam a cargo de Claude/serviço, pelo botão do dono.
 
+## C1: validação antes da publicação
+
+Estado: **Ainda não publicado**.
+
+O lote C1 acrescenta [erro claro de upload acima de 5 MB](empresas.md#c1-erro-de-tamanho), [identificação confiável da conexão](versao-gratis.md#c1-identificação-da-conexão) e [limites do PDF de concursos](funcionalidades.md#c1-limites-do-pdf-de-concursos). Os estados de produção anteriores desta página não comprovam a publicação de C1.
+
+A configuração de referência da API declara **`--workers 1`**, ou seja, **um processo** de atendimento. Parte dos limites de proteção e dos caches fica na **memória** desse processo: esses dados **não são compartilhados** entre processos. Aumentar esse número exige antes uma solução compartilhada e decisão do dono. Um teste verifica que a referência mantém exatamente um processo; ele não comprova a configuração ativa.
+
+A referência **não foi instalada** pelo lote C1. Antes de liberar, Claude/serviço deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer revisão cruzada do código e das docs. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a publicação segue pelo botão **[Publicar]** do dono.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
