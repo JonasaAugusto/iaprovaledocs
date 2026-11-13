@@ -11,6 +11,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - C4, **ainda não publicado**: [histórico enxuto](docs/configuracoes-do-usuario.md#c4-histórico-enxuto), com até 100 resultados por nova busca, só identificador, título e link; [retenção diretamente no banco e índice reversível](docs/pre-deploy.md#c4-histórico-e-retenção), preservando prazos e registros antigos.
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
+- C7, **ainda não publicado**: [ranking por relevância](docs/busca-por-perfil.md#c7-ranking-por-relevância), com prioridade geográfica, cargo e prazo, motivo da ordem e [selo conservador por cargo](docs/compatibilidade.md#c7-selo-na-resposta-da-busca), sem IA adicional.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
 - C6a, **ainda não publicado**: [equivalentes de cargo com cache](docs/busca-por-perfil.md#c6a-equivalentes-de-cargo), até cinco por formação; cache de 30 dias, lista vazia por 24 horas e até três gerações paralelas por busca com teto de seis segundos de espera pelo modelo.
 - [Compatibilidade entre perfil e cargos — etapa 3](docs/compatibilidade.md): publicada, acessível em Alertas > Acompanhando; níveis por cargo, lacunas, cota, cache e recuperação de falhas.

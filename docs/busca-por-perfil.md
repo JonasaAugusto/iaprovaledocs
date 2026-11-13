@@ -46,6 +46,32 @@ Exemplo de orçamento: com 200 tokens de entrada sem cache e 200 de saída, a es
 
 Os tokens informados pelo provedor entram no custo registrado da busca, inclusive quando a resposta tem JSON inválido. Falhas e cancelamentos sem informação de uso não permitem estimar o número exato de tokens. Cancelar a espera não garante que o processamento no provedor tenha parado. A [preparação da publicação](pre-deploy.md#c6a-cache-de-equivalentes-de-cargo) descreve a dependência do banco e a reversão.
 
+## C7: ranking por relevância
+
+Estado: **Ainda não publicado**. Ranking é a ordem de relevância dos resultados. O C7 ordena localmente as buscas por texto e pelo perfil, sem IA nesta etapa. “Buscar com meu perfil” continua sem IA em todo o caminho. Os filtros de inscrições abertas, UF, formação e formação futura continuam anteriores à ordenação, sem novo limite de resultados.
+
+A localização tem prioridade sobre cargo e prazo. Com UFs selecionadas, vale a ordem escolhida, com nacionais depois. Sem seleção e sem local explícito, a preferência é mesma UF do perfil, mesma região e demais locais. Local explícito não recebe preferência regional do perfil; sem UF válida, contam apenas cargo e prazo.
+
+Dentro de cada grupo geográfico, cargo exato vale 200 pontos; correspondência parcial por palavras inteiras vale 100; seleção apenas por nível vale zero. A comparação ignora maiúsculas, acentos e pontuação. Conta o melhor cargo do concurso, considerando a formação em uso, o cargo ou termo extraído da busca e os equivalentes já obtidos. A formação futura só pontua nos resultados admitidos pelas regras de prazo já existentes.
+
+O prazo de inscrição completo e válido acrescenta `max(1, 30 - dias)` pontos: quanto menos dias faltam, maior a prioridade; dias negativos são tratados como zero no cálculo, sem dispensar o filtro de inscrições abertas. São aceitas datas ISO (`AAAA-MM-DD`) e `DD/MM/AAAA`. Data ausente ou inválida vale zero, sem inventar prazo. Em empate de pontos, vem a data mais próxima; em empate completo, fica a ordem recebida, inclusive a preferência da cidade já aplicada na busca pelo perfil.
+
+Cada grupo geográfico soma múltiplos de 1.000 pontos. Na seleção de UFs, a primeira recebe a quantidade de UFs vezes 1.000, a seguinte recebe 1.000 a menos, até a última com 1.000; nacionais recebem zero. Na preferência regional, mesma UF soma 2.000, mesma região soma 1.000 e demais locais zero. Cargo e prazo não ultrapassam essa prioridade.
+
+### Campos da resposta
+
+Em `POST /search`, cada item de `results` recebe os campos adicionais abaixo. A pontuação não é probabilidade de aprovação e não deve ser comparada entre buscas.
+
+| Campo | Tipo | Significado |
+|---|---|---|
+| `pontuacao` | Inteiro | Soma relativa de localização, cargo e prazo nesta busca. |
+| `motivo` | Texto | Explica cargo, localização quando aplicável, prazo confirmado ou não e formação futura quando houver. |
+| `compatibilidade_cargos` | Lista | Avaliação por cargo na ordem da fonte, com `nome`, `nivel`, `motivo` e `falta` (lacunas a confirmar). |
+
+O motivo da ordenação é diferente do motivo de compatibilidade de cada cargo. `cargos_compativeis` continua indicando correspondência textual e não comprova habilitação. Veja os [limites do selo por cargo](compatibilidade.md#c7-selo-na-resposta-da-busca). A apresentação visual do selo e do motivo depende da integração de quem usa a resposta; esta entrega não anuncia uma nova tela.
+
+A marca `is_new`, a contagem, o histórico e as condições de formação futura mantêm seus contratos. O PDF recebe a ordem da busca e ainda aplica sua preferência por novos.
+
 ## Filtro por nível
 
 - O nível do perfil vem da escolaridade marcada (fundamental, médio, técnico, superior; "pós" conta como superior). Se há graduação ou pós preenchida, o perfil também conta como superior. Valem exatamente os níveis marcados: quem marcou só Médio não recebe concurso só de Superior.

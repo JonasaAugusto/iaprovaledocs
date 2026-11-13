@@ -28,6 +28,10 @@ Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca te
 
 Estado: **Ainda não publicado**. Buscas em linguagem natural passam a usar até cinco equivalentes de cargo por formação, com palavras inteiras. Direito encontra Advogado entre os cargos já retornados. O cache global vale 30 dias para equivalentes e 24 horas para lista vazia. Cada busca gera no máximo três formações novas em paralelo, com teto conjunto de seis segundos de espera pelo modelo; falhas do provedor ou cache preservam a busca. “Buscar com meu perfil” continua sem IA; a tabela curta de siglas fica para C17. Veja [alcance, privacidade, falhas e custo estimado](busca-por-perfil.md#c6a-equivalentes-de-cargo) e a [migração reversível](pre-deploy.md#c6a-cache-de-equivalentes-de-cargo). Confira sempre os requisitos no edital.
 
+## C7: ranking e selo por cargo
+
+Estado do C7: **Ainda não publicado**. O [ranking por relevância](busca-por-perfil.md#c7-ranking-por-relevância) preserva a prioridade geográfica e ordena por cargo exato, parcial e prazo, com pontuação e motivo na resposta. A [compatibilidade por cargo na busca](compatibilidade.md#c7-selo-na-resposta-da-busca) usa regras sem IA adicional; sem requisitos individuais, o selo permanece parcial e exige confirmação no edital. A apresentação na interface não é anunciada nesta entrega; a consulta detalhada em Acompanhando mantém suas regras.
+
 ## Busca fora da URL
 
 Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
