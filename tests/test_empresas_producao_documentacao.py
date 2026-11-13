@@ -63,6 +63,40 @@ class EmpresasProducaoDocumentacaoTest(unittest.TestCase):
                       "E2", "não é chance de contratação", "empresas.md"):
             self.assertIn(regra, previa)
 
+    def test_c2_busca_por_palavra_e_ordenacao(self):
+        busca = secao(ler("docs/empresas-vagas.md"), "## Busca por palavra e ordenação — C2")
+        for regra in ("Ainda não publicado", "todos os termos", "palavras completas",
+                      "título, descrição, empresa e área", "análise", "analise",
+                      "JavaScript", "Java", "C++", "Go", "golang",
+                      "siglas curtas", "maiúsculas", "cada termo encontrado no título",
+                      "empresa, título e identificador", "antes da paginação",
+                      "Sem termo", "não é uma nota de compatibilidade"):
+            with self.subTest(regra=regra):
+                self.assertIn(regra, busca)
+
+    def test_c2_cache_nao_prolonga_validade_nem_oculta_falha(self):
+        cache = secao(ler("docs/empresas-vagas.md"), "## Reutilização do índice — C2")
+        for regra in ("Ainda não publicado", "cache", "memória", "data de modificação",
+                      "recarregado", "consultas simultâneas", "durante a coleta",
+                      "Índices antigos", "sem migração", "a cada consulta",
+                      "mais de 24 horas", "72 horas", "503", "ausente ou inválido",
+                      "não usa a cópia anterior", "identificador", "404"):
+            with self.subTest(regra=regra):
+                self.assertIn(regra, cache)
+
+    def test_c2_estado_e_referencias_sem_anunciar_publicacao(self):
+        abertura = ler("docs/empresas-vagas.md").split("\n## ", 1)[0]
+        self.assertIn("No ar", abertura)
+        self.assertIn("12/11/2026", abertura)
+        funcionalidades = secao(ler("docs/funcionalidades.md"), "## IAprovale Empresas — E1–E5")
+        self.assertIn("C2", funcionalidades)
+        self.assertIn("Ainda não publicado", funcionalidades)
+        self.assertIn("empresas-vagas.md#busca-por-palavra-e-ordenação--c2", funcionalidades)
+        changelog = secao(ler("CHANGELOG.md"), "## [1.16.0] - Não publicado")
+        for regra in ("C2", "palavras completas", "título", "cache", "72 horas",
+                      "ainda não publicado", "docs/empresas-vagas.md"):
+            self.assertIn(regra, changelog)
+
     def test_tela_carreira_e_materiais(self):
         tela = secao(ler("docs/navegacao.md"), "## Carreira")
         for regra in ("GET /empresas/cota", "só aparece", "Currículo e vaga", "Buscar vagas",
