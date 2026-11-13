@@ -24,6 +24,12 @@ Estado: **No ar**.
 
 Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca tem custo.
 
+## Busca fora da URL
+
+Estado: **Em publicação**, front **3.13.0**, sem confirmação de deploy nesta atualização. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
+
+Um link antigo com `?q=` abre a busca uma vez e a URL é limpa. Copiar o endereço da página não compartilha a busca; quem recebe o link precisa informar os critérios. Esse histórico de navegação é diferente do [histórico de buscas da conta](configuracoes-do-usuario.md#c4-histórico-enxuto), que tem retenção própria no serviço. A mudança na URL da página não significa que o texto deixou de ser enviado à API para executar a busca.
+
 ## C1: limites do PDF de concursos
 
 Estado: **Ainda não publicado**. O lote C1 valida os dados enviados à rota autenticada `POST /pdf` antes de gerar o PDF dos resultados de concursos. O PDF continua disponível; a correção acrescenta os limites abaixo ao pedido de geração. Cada nome entre crases identifica um campo da integração.
@@ -58,7 +64,7 @@ Estado: **No ar**, em https://augustusai.com.br/iaprovale/ (versão grátis na r
 | Navegação lateral no computador e barra inferior no celular | **No ar** |
 | Barra lateral recolhível no computador, com a escolha lembrada | **No ar** |
 | Busca com rótulo visível, validação e estados claros (inicial, carregando, resultados, vazio, erro) | **No ar** |
-| Estado da busca na URL e recarregar sem nova busca | **No ar** |
+| Estado da busca: na versão anterior, guardado na URL; no front 3.13.0, no histórico do navegador, com recarga preservada (veja [Busca fora da URL](#busca-fora-da-url)) | **Em publicação** (3.13.0) |
 | Área de cursos patrocinados, visível só antes de uma pesquisa e sempre marcada como "Patrocinado" | **No ar** |
 | Espaços "Anuncie aqui!" para cursinhos e instituições: faixa na home (entre "Como funciona" e "O que você recebe") e cartão na vitrine do app quando não há curso configurado. Só espaço reservado, marcado como "Publicidade", sem anúncio de terceiro | Pronto, aguardando publicação |
 | Cartão de resultado com prazo em evidência e um botão principal ("Ir para a inscrição" ou "Ver o concurso") | **No ar** |

@@ -31,6 +31,12 @@ As respostas de currículo incluem `versao`, `enviado_em`, `atualizado_em`, `per
 - Reenviar o mesmo texto extraído com perfil válido reaproveita o resultado, sem nova chamada. Texto diferente cria nova versão e invalida as explicações anteriores.
 - Se a cota acabar ou a IA falhar, o texto é salvo e o perfil fica `pendente`, com aviso. Use `POST /empresas/curriculo/perfil` para tentar novamente quando houver disponibilidade; a compatibilidade depende de um perfil pronto.
 
+### Front 3.13.0: aviso de tamanho
+
+Estado: **Em publicação**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
+
+Se o envio for recusado pelo servidor com **413**, a tela mostra a mesma orientação sobre o limite de 5 MB, sem o tamanho real do arquivo. A conferência no navegador não substitui a validação do servidor.
+
 ### C1: erro de tamanho
 
 Estado: **Ainda não publicado**. A correção do backend mantém o limite apresentado como **5 MB**, equivalente a **5 MiB (5.242.880 bytes)**. Um arquivo com exatamente esse tamanho passa pela verificação de tamanho; as verificações de formato, páginas e conteúdo continuam valendo.
@@ -44,7 +50,7 @@ Em `POST /empresas/curriculo`, arquivo acima do limite retorna **413**, com a re
 }
 ```
 
-Reduza o arquivo e tente novamente. Esse contrato é da API; a apresentação do erro na tela depende da integração do site, sem confirmação de publicação nesta tarefa. A conferência antes da liberação está em [Preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
+Reduza o arquivo e tente novamente. Esse contrato é da API; o tratamento do erro na tela está descrito no [aviso de tamanho do front 3.13.0](#front-3130-aviso-de-tamanho), em publicação, sem confirmação de deploy nesta tarefa. A conferência antes da liberação está em [Preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
 
 ## E2 — compatibilidade e explicação
 
