@@ -6,9 +6,9 @@ Rebranding do app web e da home, tela de login, páginas de privacidade e termos
 
 ## Front 3.13.0
 
-Estado: **Em publicação**, sem confirmação de deploy nesta atualização. Busca com texto e UFs fora da URL, estado preservado no navegador, compatibilidade com links antigos e aviso de 5 MB antes do envio ou após erro 413. Veja [Navegação](navegacao.md#busca-fora-da-url) e [validação da publicação](pre-deploy.md#front-3130).
+Estado: **Publicado em 13/11/2026**. Busca com texto e UFs fora da URL, estado preservado no navegador, compatibilidade com links antigos e aviso de 5 MB antes do envio ou após erro 413. Veja [Navegação](navegacao.md#busca-fora-da-url) e [validação da publicação](pre-deploy.md#front-3130).
 
-O detalhe das novas buscas terá título e link, sem local e prazo, após a liberação separada do C4; registros antigos permanecem até a retenção. O front 3.13.0 permanece sem confirmação de deploy, conforme o CHANGELOG e o pré-deploy.
+O detalhe das novas buscas terá título e link, sem local e prazo, após a liberação separada do C4; registros antigos permanecem até a retenção. O front 3.13.0 foi publicado em 13/11/2026, conforme o CHANGELOG e o pré-deploy.
 
 ## Em seguida
 

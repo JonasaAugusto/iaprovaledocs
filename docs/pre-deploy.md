@@ -4,11 +4,11 @@ Estado: **Publicado com envio de e-mail**, ligado em produção desde **12/11/20
 
 ## Front 3.13.0
 
-Estado: **Em publicação**, sem confirmação de deploy nesta tarefa. O pacote inclui [busca fora da URL](navegacao.md#busca-fora-da-url) e [aviso de 5 MB](empresas.md#front-3130-aviso-de-tamanho). O front é compatível com o histórico atual e com o C4; publicar o front não confirma a liberação do C4 do backend.
+Estado: **Publicado em 13/11/2026**. O pacote inclui [busca fora da URL](navegacao.md#busca-fora-da-url) e [aviso de 5 MB](empresas.md#front-3130-aviso-de-tamanho). O front é compatível com o histórico atual e com o C4; publicar o front não confirma a liberação do C4 do backend.
 
 Antes da publicação, validar em ambiente de teste: busca nova sem texto ou UFs na URL; link antigo com `?q=` consumido uma vez e URL limpa; voltar/avançar e recarregar preservando a busca; arquivo fictício acima de 5 MB recusado antes do envio com tamanho real; erro 413 do servidor com orientação sem tamanho. Conferir também login e detalhe do histórico com título e link. Antes de liberar C4, revisar a chave de cada resultado no detalhe: títulos repetidos não podem causar chave duplicada ou ocultar resultados.
 
-O front 3.13.0 permanece em publicação; os estados já publicados desta página não confirmam sua disponibilidade.
+O front 3.13.0 foi publicado em 13/11/2026; essa publicação não confirma a liberação do C4 do backend.
 
 ## Migrações necessárias
 
