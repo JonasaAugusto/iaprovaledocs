@@ -1,6 +1,6 @@
 # Navegação do site e Carreira
 
-Estado: **No ar** desde **12/11/2026**. Esta página descreve as telas publicadas e identifica separadamente os ajustes do front 3.13.0 em publicação, sem alterar a interface.
+Estado: **No ar** desde **12/11/2026**. Esta página descreve as telas publicadas e identifica separadamente os ajustes do front 3.13.0 (publicado em 13/11/2026), sem alterar a interface.
 
 ## Barra e topo
 
@@ -10,13 +10,13 @@ No topo, **Alertas** fica junto do **sino**, e **Configurações** ocupa o lugar
 
 ## Busca fora da URL
 
-Estado: **Em publicação**, front **3.13.0**, sem confirmação de deploy nesta atualização. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
+Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
 
 Um link antigo com `?q=` abre a busca uma vez e a URL é limpa. Copiar o endereço da página não compartilha a busca; quem recebe o link precisa informar os critérios. Esse histórico de navegação é diferente do [histórico de buscas da conta](configuracoes-do-usuario.md#c4-histórico-enxuto), que tem retenção própria no serviço. A mudança na URL da página não significa que o texto deixou de ser enviado à API para executar a busca.
 
 ## Login
 
-No front 3.13.0, em publicação, a gravação compartilhada da sessão acontece só no navegador; isso não impõe uma única sessão no backend, e vários aparelhos continuam permitidos.
+No front 3.13.0, publicado em 13/11/2026, a gravação compartilhada da sessão acontece só no navegador; isso não impõe uma única sessão no backend, e vários aparelhos continuam permitidos.
 
 ## Carreira
 
@@ -31,7 +31,7 @@ Os materiais são **por vaga**: currículo ATS em **PDF**, **Word** (DOCX) ou te
 
 ## Envio de currículo: aviso de tamanho
 
-Estado: **Em publicação**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
+Estado: **Publicado em 13/11/2026**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
 
 Se o envio for recusado pelo servidor com **413**, a tela mostra a mesma orientação sobre o limite de 5 MB, sem o tamanho real do arquivo. A conferência no navegador não substitui a validação do servidor.
 

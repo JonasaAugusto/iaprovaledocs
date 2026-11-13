@@ -33,7 +33,7 @@ As respostas de currículo incluem `versao`, `enviado_em`, `atualizado_em`, `per
 
 ### Front 3.13.0: aviso de tamanho
 
-Estado: **Em publicação**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
+Estado: **Publicado em 13/11/2026**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
 
 Se o envio for recusado pelo servidor com **413**, a tela mostra a mesma orientação sobre o limite de 5 MB, sem o tamanho real do arquivo. A conferência no navegador não substitui a validação do servidor.
 
@@ -50,7 +50,7 @@ Em `POST /empresas/curriculo`, arquivo acima do limite retorna **413**, com a re
 }
 ```
 
-Reduza o arquivo e tente novamente. Esse contrato é da API; o tratamento do erro na tela está descrito no [aviso de tamanho do front 3.13.0](#front-3130-aviso-de-tamanho), em publicação, sem confirmação de deploy nesta tarefa. A conferência antes da liberação está em [Preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
+Reduza o arquivo e tente novamente. Esse contrato é da API; o tratamento do erro na tela está descrito no [aviso de tamanho do front 3.13.0](#front-3130-aviso-de-tamanho), publicado em 13/11/2026. A conferência antes da liberação está em [Preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
 
 ## E2 — compatibilidade e explicação
 
