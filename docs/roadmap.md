@@ -4,6 +4,12 @@
 
 Rebranding do app web e da home, tela de login, páginas de privacidade e termos, pedido de acesso por chat, aba Solicitações na Administração, login enviado por WhatsApp e Configurações completas. Veja [Rebranding](rebranding-rodada-1.md), [Solicitações de acesso](solicitacoes-de-acesso.md) e [Configurações](configuracoes-do-usuario.md).
 
+## Front 3.13.0
+
+Estado: **Em publicação**, sem confirmação de deploy nesta atualização. Busca com texto e UFs fora da URL, estado preservado no navegador, compatibilidade com links antigos e aviso de 5 MB antes do envio ou após erro 413. Veja [Navegação](navegacao.md#busca-fora-da-url) e [validação da publicação](pre-deploy.md#front-3130).
+
+O detalhe das novas buscas terá título e link, sem local e prazo, após a liberação separada do C4; registros antigos permanecem até a retenção. O front 3.13.0 permanece sem confirmação de deploy, conforme o CHANGELOG e o pré-deploy.
+
 ## Em seguida
 
 - Validação das páginas de Privacidade e Termos por um advogado.

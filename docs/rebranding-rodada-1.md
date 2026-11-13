@@ -22,7 +22,7 @@ Ao adicionar o site à tela de início do celular, o ícone é o ramo do IAprova
 ## App web
 
 - Navegação lateral (recolhível) no computador e barra inferior no celular.
-- Busca com estados claros e URL que guarda a busca.
+- Busca com estados claros; na Rodada 1, a URL guarda a busca. O front 3.13.0, em publicação, passa a preservar o estado no histórico do navegador, com [texto fora da URL](navegacao.md#busca-fora-da-url).
 - Cursos patrocinados só antes de uma pesquisa, sempre identificados como anúncio, sem rastreadores e com imagens hospedadas no próprio site.
 - Cada cartão de resultado tem uma ação principal.
 

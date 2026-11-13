@@ -1,12 +1,22 @@
 # Navegação do site e Carreira
 
-Estado: **No ar** desde **12/11/2026**. Esta página descreve as telas publicadas, sem alterar a interface.
+Estado: **No ar** desde **12/11/2026**. Esta página descreve as telas publicadas e identifica separadamente os ajustes do front 3.13.0 em publicação, sem alterar a interface.
 
 ## Barra e topo
 
 A barra de navegação apresenta **Concursos, Carreira, Perfil, Administração e Estatísticas**, conforme a disponibilidade do serviço e as permissões da conta. Administração e Estatísticas são exclusivas de administradores. A barra fica na lateral no computador e embaixo no celular.
 
 No topo, **Alertas** fica junto do **sino**, e **Configurações** ocupa o lugar do atalho de tema. Tema claro, escuro ou automático continua disponível nas Configurações. A home ganhou uma seção do **Empresas** e um **menu no celular** para acessar suas seções.
+
+## Busca fora da URL
+
+Estado: **Em publicação**, front **3.13.0**, sem confirmação de deploy nesta atualização. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
+
+Um link antigo com `?q=` abre a busca uma vez e a URL é limpa. Copiar o endereço da página não compartilha a busca; quem recebe o link precisa informar os critérios. Esse histórico de navegação é diferente do [histórico de buscas da conta](configuracoes-do-usuario.md#c4-histórico-enxuto), que tem retenção própria no serviço. A mudança na URL da página não significa que o texto deixou de ser enviado à API para executar a busca.
+
+## Login
+
+No front 3.13.0, em publicação, a gravação compartilhada da sessão acontece só no navegador; isso não impõe uma única sessão no backend, e vários aparelhos continuam permitidos.
 
 ## Carreira
 
@@ -18,6 +28,16 @@ A aba Carreira **só aparece** quando **`GET /empresas/cota` responde** e confir
 Quem já tem currículo salvo no Perfil pode **usar o currículo do Perfil** em vez de enviar o arquivo de novo, e o botão **Preencher com currículo**, no começo do Perfil, completa só os campos vazios com o que o currículo tiver, avisando o que preencheu.
 
 Os materiais são **por vaga**: currículo ATS em **PDF**, **Word** (DOCX) ou texto para **copiar**, e **roteiro de entrevista**. Consulte as regras conservadoras de geração, a cota e o teste gratuito em [E3/E4](empresas-e3-e4.md). A nota não representa chance de contratação e os materiais precisam ser revisados pela pessoa antes do uso.
+
+## Envio de currículo: aviso de tamanho
+
+Estado: **Em publicação**, front **3.13.0**. Na Carreira e no Perfil, o navegador confere o limite de **5 MB** antes de enviar o currículo. Acima do limite, o envio é recusado e o aviso mostra o tamanho real do arquivo, por exemplo: “O arquivo tem 7,3 MB. O limite é 5 MB…”. Reduza o arquivo e tente novamente.
+
+Se o envio for recusado pelo servidor com **413**, a tela mostra a mesma orientação sobre o limite de 5 MB, sem o tamanho real do arquivo. A conferência no navegador não substitui a validação do servidor.
+
+## Detalhe do histórico
+
+Após a liberação do C4 do backend, as novas buscas em Configurações mostram título e link, sem local e prazo no detalhe; registros antigos não são reescritos e podem continuar completos até a retenção removê-los. O front 3.13.0 não ativa o C4. Veja o [contrato e os prazos do histórico](configuracoes-do-usuario.md#c4-histórico-enxuto).
 
 ## Acessibilidade dos avisos
 

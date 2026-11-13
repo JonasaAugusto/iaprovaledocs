@@ -78,7 +78,7 @@ Com o filtro ligado e nenhum concurso, a resposta diz isso: "Não encontrei conc
 ## Seletor na tela de busca (site 3.10.0)
 
 - Abaixo do campo de busca há o botão **Onde**, que mostra o resumo ("Brasil todo", "BA, MG, SP" ou "5 estados") e abre os 27 estados em chips agrupados por região (Norte, Nordeste, Centro-Oeste, Sudeste, Sul). Pode marcar vários; vazio = Brasil todo.
-- A escolha vai no pedido de busca como `ufs` e na URL como `&uf=SP,RJ`: recarregar e voltar/avançar mantêm o filtro. Sem estados, o pedido é igual ao de antes.
+- A escolha vai no pedido de busca como `ufs`. Na versão anterior, fica na URL como `&uf=SP,RJ`. **Em publicação**, o front **3.13.0** passa a guardar as UFs no histórico do navegador (`history.state`), fora da URL; recarregar e voltar/avançar mantêm o filtro. Sem estados, o pedido é igual ao de antes. Veja [Busca fora da URL](navegacao.md#busca-fora-da-url).
 - O seletor recolhe ao buscar. "Nova busca" limpa os estados junto com o texto.
 - Resultados mostram "Só BA, MG, SP e concursos nacionais (os marcados assim pela fonte)." O texto de ajuda do seletor diz o mesmo e avisa que a vaga pode ser em uma sede específica, como Brasília. Se a busca com estados não acha nada, a tela diz que os estados continuam valendo e oferece **Buscar no Brasil todo**.
 - Acessível: cada chip é um botão com estado marcado/desmarcado, nome completo do estado para leitores de tela, alvo de 44 px, marcado = preenchido (não depende só de cor). Claro e escuro, sem vermelho nem azul.

@@ -2,6 +2,14 @@
 
 Estado: **Publicado com envio de e-mail**, ligado em produção desde **12/11/2026**, via Brevo SMTP, além de avisos no site, compatibilidade por cargo e Empresas. Este documento preserva as dependências e a ordem de validação para novas instalações; não é um atestado da execução de cada migração. A distinção entre [textos legais 1.3 do convite e variante grátis](versao-gratis.md#termos-de-uso-e-política-de-privacidade) e o estado da [estimativa de custos de IA](stats-do-administrador.md) estão nas páginas correspondentes.
 
+## Front 3.13.0
+
+Estado: **Em publicação**, sem confirmação de deploy nesta tarefa. O pacote inclui [busca fora da URL](navegacao.md#busca-fora-da-url) e [aviso de 5 MB](empresas.md#front-3130-aviso-de-tamanho). O front é compatível com o histórico atual e com o C4; publicar o front não confirma a liberação do C4 do backend.
+
+Antes da publicação, validar em ambiente de teste: busca nova sem texto ou UFs na URL; link antigo com `?q=` consumido uma vez e URL limpa; voltar/avançar e recarregar preservando a busca; arquivo fictício acima de 5 MB recusado antes do envio com tamanho real; erro 413 do servidor com orientação sem tamanho. Conferir também login e detalhe do histórico com título e link. Antes de liberar C4, revisar a chave de cada resultado no detalhe: títulos repetidos não podem causar chave duplicada ou ocultar resultados.
+
+O front 3.13.0 permanece em publicação; os estados já publicados desta página não confirmam sua disponibilidade.
+
 ## Migrações necessárias
 
 Aplicar as versões v3_17 a v3_22 na ordem abaixo, antes do reinício. Os scripts são idempotentes e executados separadamente do servidor; o servidor web não executa migrações automaticamente. A v3_20 ajusta a unicidade de e-mail, preservando os endereços e as verificações existentes. A documentação pública lista os arquivos e seus efeitos, sem comandos de acesso ao ambiente ou credenciais.
