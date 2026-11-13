@@ -31,6 +31,21 @@ As respostas de currículo incluem `versao`, `enviado_em`, `atualizado_em`, `per
 - Reenviar o mesmo texto extraído com perfil válido reaproveita o resultado, sem nova chamada. Texto diferente cria nova versão e invalida as explicações anteriores.
 - Se a cota acabar ou a IA falhar, o texto é salvo e o perfil fica `pendente`, com aviso. Use `POST /empresas/curriculo/perfil` para tentar novamente quando houver disponibilidade; a compatibilidade depende de um perfil pronto.
 
+### C1: erro de tamanho
+
+Estado: **Ainda não publicado**. A correção do backend mantém o limite apresentado como **5 MB**, equivalente a **5 MiB (5.242.880 bytes)**. Um arquivo com exatamente esse tamanho passa pela verificação de tamanho; as verificações de formato, páginas e conteúdo continuam valendo.
+
+Em `POST /empresas/curriculo`, arquivo acima do limite retorna **413**, com a resposta JSON abaixo. `detail` é a mensagem para a pessoa e `codigo` identifica o erro para a integração. A resposta vale tanto quando o tamanho vem informado em `Content-Length` quanto quando o excesso é identificado durante a leitura do envio:
+
+```json
+{
+  "detail": "O arquivo passa de 5 MB. Envie um arquivo de até 5 MB.",
+  "codigo": "arquivo_muito_grande"
+}
+```
+
+Reduza o arquivo e tente novamente. Esse contrato é da API; a apresentação do erro na tela depende da integração do site, sem confirmação de publicação nesta tarefa. A conferência antes da liberação está em [Preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
+
 ## E2 — compatibilidade e explicação
 
 A pessoa cola a descrição da vaga em `texto` (até 30.000 caracteres) ou informa um link público em `url`. A descrição precisa ter pelo menos 80 caracteres após normalização. Sem currículo ou com perfil pendente, a compatibilidade retorna 409 antes de buscar a vaga ou chamar IA.

@@ -57,7 +57,7 @@ Quando a conta grátis é criada, o sistema guarda na própria linha do usuário
 | Campo | O que guarda |
 |---|---|
 | `aceite_termos_em` | data e hora do "aceito" no chat (se a conversa não tiver o instante, o da criação da conta) |
-| `aceite_termos_ip` | endereço IP do cliente em texto (não só o código irreversível), lido como o resto do cadastro: primeiro IP do `X-Forwarded-For` atrás do proxy |
+| `aceite_termos_ip` | endereço IP do cliente em texto (não só o código irreversível); a correção C1 da origem desse endereço está em [identificação da conexão](#c1-identificação-da-conexão), ainda não publicada |
 | `aceite_termos_versao` | versão dos Termos e da Política aceita, no formato `gratis-<versão>`; por exemplo, `gratis-1.1` |
 
 - **Retenção:** enquanto a conta existir. Excluir a conta apaga a linha do usuário e, com ela, esses três campos; a exportação de dados da própria pessoa os inclui.
@@ -65,6 +65,14 @@ Quando a conta grátis é criada, o sistema guarda na própria linha do usuário
 - **Texto legal:** os Termos e a Política do plano grátis avisam o registro, a finalidade e a retenção. A versão dos textos (`VERSAO` no site) e `ACEITE_TERMOS_VERSAO` no backend devem mudar juntas, conforme a variante efetivamente apresentada.
 - **Implementação anterior (publicação ainda não confirmada):** já implementado no backend, `ACEITE_TERMOS_VERSAO = "gratis-1.2"` registra 1.2 nos novos cadastros quando alinhado aos textos apresentados. A informação de vigência 1.3 do convite não comprova a publicação desse aceite no plano grátis. Os aceites anteriores preservam a versão que a pessoa aceitou, inclusive `gratis-1.1`; não são reescritos. A persistência e a exportação incluem a versão registrada. A variante grátis 1.3 ainda não foi ativada e não autoriza registrar `gratis-1.3`. Veja a [ordem da publicação](pre-deploy.md).
 - Decisão do responsável (6 de novembro de 2026): guardar o IP em claro, necessário como prova.
+
+## C1: identificação da conexão
+
+Estado: **Ainda não publicado**. O lote C1 usa o **IP da conexão**, o endereço de rede de quem se conecta à API. Um cabeçalho enviado diretamente pelo cliente não substitui esse endereço. A lista de endereços do cabeçalho `X-Forwarded-For` só é considerada quando a conexão vem de um **proxy confiável**, o intermediário autorizado a encaminhar o acesso.
+
+Nesse caso, a lista é lida do intermediário mais próximo para trás, até o **último endereço não confiável** da cadeia. Sem cabeçalho, com cadeia inválida ou sem endereço não confiável, prevalece o IP da conexão. A documentação anterior descrevia o primeiro item da lista; C1 substitui essa regra, sem reescrever os registros de aceite antigos.
+
+A correção vale para a identificação no cadastro e nas proteções de login. Os limites por origem e por usuário continuam valendo; seus números internos não são publicados. O IP do aceite continua guardado em claro enquanto a conta existir, incluído na exportação e apagado com a conta, conforme o registro acima. Esta correção não anuncia nova versão dos textos legais nem novo aceite. A conferência da integração fica na [preparação da publicação](pre-deploy.md#c1-validação-antes-da-publicação).
 
 ## Mensagens revisadas
 
