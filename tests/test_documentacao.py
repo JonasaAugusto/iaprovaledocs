@@ -50,6 +50,19 @@ class DocumentacaoTest(unittest.TestCase):
                         ancoras = [re.sub(r"[^\w\- ]", "", t.lower()).replace(" ", "-") for t in titulos]
                         self.assertIn(unquote(url.fragment), ancoras, f"Âncora inexistente: {destino}")
 
+    def test_paginas_publicas_sem_fluxo_interno_de_desenvolvimento(self):
+        documentos = [RAIZ / "README.md", RAIZ / "CHANGELOG.md",
+                      *sorted((RAIZ / "docs").glob("*.md"))]
+        proibidos = (r"\b(?:Claude|Codex)\b", r"\[Publicar\]",
+                     r"botão do dono", r"\b(?:agentes?|IA)\b[^.\n]*"
+                     r"\b(?:desenvolvimento|revisão do código|deploy)\b")
+        for documento in documentos:
+            with self.subTest(documento=documento.name):
+                texto = documento.read_text(encoding="utf-8")
+                for padrao in proibidos:
+                    self.assertIsNone(re.search(padrao, texto, re.IGNORECASE),
+                                      f"Referência interna em {documento.name}: {padrao}")
+
     def test_cadastro_e_confirmacao_posterior(self):
         cadastro = secao(ler("docs/versao-gratis.md"), "## Cadastro com e-mail")
         self.assertIn("e-mail é **opcional**", cadastro)
@@ -189,7 +202,7 @@ class DocumentacaoTest(unittest.TestCase):
         self.assertIn("site", passos[4])
         for regra in ("reexecutar a v3_18", "mesmo com a rotina diária desligada",
                       "Brevo", "não executa migrações automaticamente",
-                      "botão **[Publicar]**"):
+                      "backup antes de alterar a base", "autorização explícita"):
             self.assertIn(regra, texto)
         self.assertIn("e-mail pendente", passos[2])
         self.assertIn("e-mail ligado", passos[3])

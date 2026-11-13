@@ -112,6 +112,7 @@ Estado: **No ar**. Detalhes em [Configurações do usuário](configuracoes-do-us
 | Resumo diário no Telegram do responsável, às 19h (horário de São Paulo): cadastros do dia (grátis e por convite) e total de contas, buscas e custo do dia e do mês. Só envia se houve novidade no dia (cadastro novo, busca ou avaliação nova); sem novidade não manda nada | No ar desde 6 de novembro de 2026 (só com novidade desde a v2.10.1) |
 | Quem é usuário do IAprovale nunca recebe prospecção da empresa | **No ar** |
 | Redefinir a senha de alguém, na Administração, encerra as sessões dela | **No ar** |
+| C5: [sessões guardadas apenas como hash](configuracoes-do-usuario.md#c5-proteção-das-sessões); migração exige entrar novamente uma vez | **Ainda não publicado** (implementado; cuidados antes da publicação em [pré-deploy](pre-deploy.md#c5-migração-e-reversão)) |
 | Proteção contra tentativas repetidas de senha também com tentativas simultâneas | **No ar** |
 | Bloqueio de login por origem e por usuário: quem erra muito é barrado sem tirar o dono da conta do ar | No ar |
 | Proteções contra uso abusivo do pedido de acesso e do pedido de exclusão de conta | **No ar** |

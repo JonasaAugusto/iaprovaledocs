@@ -22,6 +22,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Solicitações de acesso](docs/solicitacoes-de-acesso.md): como o administrador aprova ou recusa pedidos e como o login é entregue à pessoa.
 - [Versão grátis](docs/versao-gratis.md): a versão publicada em produção. Cadastro pelo chat (confirmação do usuário, termos com botões, dúvidas), plano grátis de 17 buscas por dia e avaliação a cada 5 buscas. E-mail opcional na conta; textos legais 1.3 do convite vigentes e variante grátis ainda não ativada.
 - [Configurações do usuário](docs/configuracoes-do-usuario.md): decisões da tela de configurações.
+- C5, **ainda não publicado**: [proteção das sessões por hash](docs/configuracoes-do-usuario.md#c5-proteção-das-sessões), com novo login na mudança, e [cuidados da migração e reversão](docs/pre-deploy.md#c5-migração-e-reversão).
 - [Empresas: currículo ATS e entrevista](docs/empresas-e3-e4.md): no ar desde 12/11/2026; geração conservadora, cota e armazenamento. Gratuitos no teste, cobrança desligada; preços e meio de pagamento pendentes.
 - [Roadmap](docs/roadmap.md): o que vem depois.
 - [Preparação da publicação](docs/pre-deploy.md): dependências de migrações e pypdf, registro da publicação do Empresas e do e-mail e pendências legais. Esta documentação não executa nem atesta cada migração.
