@@ -181,6 +181,8 @@ Texto, perfil, original guardado, explicações, materiais gerados e uso entram 
 
 [E3/E4](empresas-e3-e4.md) entregam currículo ATS em PDF/Word/copiar e roteiro de entrevista por vaga, gratuitos no teste, com cobrança desligada; preços e meio de pagamento pendentes. [E5](empresas-vagas.md) oferece busca, panorama e prévia gratuita sem IA no índice local. A [aba Carreira e a navegação](navegacao.md) estão publicadas; Carreira aparece somente quando `/empresas/cota` responde. Veja as dependências em [Preparação da publicação](pre-deploy.md#empresas-em-produção).
 
+**Ainda não publicado — C2:** a [busca por palavra e ordenação](empresas-vagas.md#busca-por-palavra-e-ordenação--c2) exige todos os termos como palavras completas, preserva a comparação sem acentos e prioriza termos no título antes da paginação. O [cache do índice](empresas-vagas.md#reutilização-do-índice--c2) reutiliza a leitura enquanto o arquivo não muda, mantendo a verificação de validade de 72 horas a cada consulta e a indisponibilidade quando o arquivo está ausente ou inválido.
+
 ## Ainda por construir
 
 | Funcionalidade | Estado |
