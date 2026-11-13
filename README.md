@@ -12,6 +12,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
+- C6a, **ainda não publicado**: [equivalentes de cargo com cache](docs/busca-por-perfil.md#c6a-equivalentes-de-cargo), até cinco por formação; cache de 30 dias, lista vazia por 24 horas e até três gerações paralelas por busca com teto de seis segundos de espera pelo modelo.
 - [Compatibilidade entre perfil e cargos — etapa 3](docs/compatibilidade.md): publicada, acessível em Alertas > Acompanhando; níveis por cargo, lacunas, cota, cache e recuperação de falhas.
 - [IAprovale Empresas — E1/E2](docs/empresas.md): no ar desde 12/11/2026; currículo compactado, compatibilidade com vagas, explicação sob demanda, cota própria e privacidade.
 - [Busca de vagas — E5](docs/empresas-vagas.md): busca, panorama, prévia gratuita e cobertura do índice local.

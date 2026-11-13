@@ -70,6 +70,23 @@ Para reverter, repetir os cuidados de janela e backup, interromper os processos,
 
 Reversível significa recuperar o esquema e a operação anteriores: não recupera os tokens apagados nem converte hashes em segredos. Não restaurar sessões antigas de backup para reativar tokens invalidados. Execução operacional e publicação cabem à operação, com autorização do responsável.
 
+## C6a: cache de equivalentes de cargo
+
+Estado: **Ainda não publicado**. Os [equivalentes de cargo](busca-por-perfil.md#c6a-equivalentes-de-cargo) dependem da migração v3.26, `scripts/migrate_v3_26_cargo_synonyms.py`, que cria a tabela compartilhada de cache. Aplicar e conferir antes de ativar a versão que usa o cache; a ausência da tabela desativa os equivalentes, mas não interrompe a busca.
+
+Comandos do backend, a executar somente na janela autorizada pela operação:
+
+```sh
+python -m scripts.migrate_v3_26_cargo_synonyms
+python -m scripts.migrate_v3_26_cargo_synonyms --downgrade
+```
+
+O primeiro aplica a migração; o segundo é a alternativa de reversão. O formato segue a v3.25 do índice (`migrate_v3_25_history_index`): sem argumento aplica, `--downgrade` reverte. O C5 mantém seus argumentos posicionais `upgrade`/`downgrade`; seu procedimento não muda.
+
+Aplicação e reversão são idempotentes. A reversão apaga somente o cache, que pode ser gerado novamente; exige primeiro retirar a versão da aplicação que usa a tabela. Não altera contas, perfis nem histórico. A validade de 30 dias para equivalentes e de 24 horas para lista vazia não significa remoção periódica das entradas vencidas.
+
+Antes de liberar, preparar backup e fazer revisão cruzada do código e destas docs. Validar em recursos descartáveis criação e reversão da tabela, reutilização e vencimento, lista vazia por 24 horas, falhas do provedor e de leitura/escrita do cache, três gerações em paralelo e teto de seis segundos, descarte de genéricos, palavras inteiras, custo e alertas sem saldo. Confirmar que a busca pelo perfil continua sem IA. Esta documentação não executa nem atesta migração ou publicação em produção; execução e liberação cabem à operação autorizada.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
