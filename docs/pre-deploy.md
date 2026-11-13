@@ -33,6 +33,18 @@ A configuração de referência da API declara **`--workers 1`**, ou seja, **um 
 
 A referência **não foi instalada** pelo lote C1. Antes de liberar, Claude/serviço deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer revisão cruzada do código e das docs. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a publicação segue pelo botão **[Publicar]** do dono.
 
+## C4: histórico e retenção
+
+Estado: **Ainda não publicado**. O lote C4 implementa o [histórico enxuto para novas buscas](configuracoes-do-usuario.md#c4-histórico-enxuto) e muda a forma de executar a limpeza, preservando os prazos e as contagens de registros removidos.
+
+A poda mantém no máximo as últimas 10 buscas por conta e remove as de mais de 90 dias. A poda e a limpeza diária passam a usar `DELETE` com condições em SQL: o próprio banco seleciona e apaga os registros vencidos, sem carregar cada registro na aplicação para apagá-lo individualmente. Isso reduz o trabalho de limpeza sem criar um novo prazo de retenção.
+
+Na limpeza diária, continuam protegidos os pedidos aprovados e as exclusões e verificações pendentes. Sessões revogadas são removidas depois de mais de 30 dias da revogação, mesmo que seu último uso seja antigo. Para as demais sessões, a regra continua sendo 30 dias de inatividade para expirar e mais 30 dias de retenção antes de remover o registro; sem data de último uso, vale a data de criação. Remover esse registro não exclui a conta. Eventos de busca mantêm 90 dias; Novidades lidas mantêm sua regra própria de mais de 183 dias desde a criação, e não lidas permanecem.
+
+A migração `scripts/migrate_v3_25_history_index.py`, após a v3_24, cria o índice `search_history(user_id, created_at)`: uma estrutura auxiliar para localizar o histórico por conta e data com mais eficiência. É idempotente e reversível; a reversão com `--downgrade` remove somente esse índice. Aplicação e reversão preservam os registros, sem reescrever resultados antigos. O backend usa scripts próprios de migração, não usa Alembic.
+
+Antes de liberar C4, Claude/serviço deve fazer revisão cruzada do código e destas docs, validar em recursos descartáveis a criação e a remoção do índice, os limites do histórico, a exportação e as regras de limpeza. A migração deve ser aplicada e conferida antes do reinício. Esta página não comprova aplicação da migração nem publicação de C4; ambas dependem da operação autorizada e a publicação segue pelo botão **[Publicar]** do dono.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
