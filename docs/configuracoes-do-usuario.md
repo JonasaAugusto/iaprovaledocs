@@ -33,6 +33,14 @@ Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido 
 
 Lista das últimas 10 buscas, com a data e a quantidade de concursos encontrados. Cada busca abre ali mesmo e mostra os resultados da época (título, local, prazo e o link do concurso), com o aviso de que os prazos podem ter mudado. Há botões para apagar uma busca ou todas. Cada busca é guardada por 90 dias e tudo é apagado junto com a conta.
 
+### C4: histórico enxuto
+
+Estado: **Ainda não publicado**. O comportamento acima descreve a versão publicada; o lote C4 já implementado no backend muda o conteúdo salvo nas **novas buscas**, após sua liberação.
+
+Cada nova busca guarda até 100 resultados, somente com identificador (`id`), título (`titulo`) e endereço (`link`). O endereço prioriza o link da notícia (`noticia.link`); se ele não estiver disponível, usa o link direto do resultado. Nesse conjunto de resultados, local, prazo e demais detalhes não são guardados. O texto da busca, a indicação de uso do currículo, a contagem total de concursos encontrados e o resumo continuam salvos. Assim, uma busca com 500 resultados mantém a contagem total de 500, mas salva no histórico somente os primeiros 100. Esse teto não limita os resultados da busca ao vivo.
+
+Os registros anteriores não são reescritos e podem continuar contendo os detalhes antigos até saírem pelas regras vigentes: no máximo as últimas 10 buscas e retenção de 90 dias. Permanecem as ações de apagar uma busca ou todas e a remoção com a exclusão da conta. A exportação dos dados acompanha o conteúdo efetivamente salvo, sem reconstruir os detalhes ausentes das novas buscas. A consulta ao histórico não garante que os prazos originais continuem válidos; confira o link do concurso.
+
 ## Dados e privacidade
 
 - **Baixar meus dados:** um arquivo com o que o IAprovale guarda sobre a pessoa: perfil, currículo, histórico de buscas, o registro de uso de buscas por dia, a data de criação da conta, o telefone cadastrado (e se foi verificado) e a data do último acesso. Não inclui senha nem dados de outras pessoas.

@@ -30,6 +30,8 @@ No mesmo ponto em que `search_usage` é atualizado: depois de uma busca que resp
 - **Exclusão da conta.** Os eventos saem junto com a conta (exclusão explícita no código e `ON DELETE CASCADE` no banco).
 - **Exportação de dados** (`/conta/exportar`): inclui `eventos_de_busca`, com o horário, o tipo e o custo de cada busca dos últimos 90 dias.
 
+O **C4, ainda não publicado**, executa a limpeza diretamente no banco, mantendo os 90 dias dos eventos. O evento continua sendo um registro separado do [histórico enxuto](configuracoes-do-usuario.md#c4-histórico-enxuto): o limite de 100 resultados salvos por busca se aplica ao histórico, não aos eventos usados nas Estatísticas.
+
 ## Como a aba Estatísticas usa
 
 - **Hoje:** buscas, custo e pessoas ativas por hora (24 pontos, horas sem busca valem 0, hora de São Paulo) vêm de `search_events`. Cada pessoa conta uma vez por hora.

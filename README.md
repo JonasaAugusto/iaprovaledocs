@@ -8,6 +8,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 
 - [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item. Novidades, alertas e acompanhamento publicados; envio de e-mail ligado via Brevo desde 12/11/2026.
 - Correções C1, **ainda não publicadas**: [erro de upload acima de 5 MB](docs/empresas.md#c1-erro-de-tamanho), [identificação da conexão](docs/versao-gratis.md#c1-identificação-da-conexão), [limites do PDF de concursos](docs/funcionalidades.md#c1-limites-do-pdf-de-concursos) e [validação de um único processo da API](docs/pre-deploy.md#c1-validação-antes-da-publicação).
+- C4, **ainda não publicado**: [histórico enxuto](docs/configuracoes-do-usuario.md#c4-histórico-enxuto), com até 100 resultados por nova busca, só identificador, título e link; [retenção diretamente no banco e índice reversível](docs/pre-deploy.md#c4-histórico-e-retenção), preservando prazos e registros antigos.
 - [Rebranding (Rodada 1)](docs/rebranding-rodada-1.md): novo visual do app e da home.
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
