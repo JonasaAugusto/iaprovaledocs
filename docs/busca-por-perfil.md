@@ -106,8 +106,26 @@ A marca `is_new`, a contagem, o histórico e as condições de formação futura
 
 - O nível do perfil vem da escolaridade marcada (fundamental, médio, técnico, superior; "pós" conta como superior). Se há graduação ou pós preenchida, o perfil também conta como superior. Valem exatamente os níveis marcados: quem marcou só Médio não recebe concurso só de Superior.
 - O concurso entra se o campo de nível dele citar **qualquer** nível do perfil ("Fundamental / Médio / Técnico / Superior" serve para quem marcou Médio).
-- Quem tem graduação, técnico, pós ou áreas continua com o casamento por cargo; os dois somam-se, e os concursos que casam por cargo aparecem primeiro, com os cargos compatíveis. Concursos que entram só pelo nível mostram os primeiros cargos.
+- Quem tem graduação, técnico, pós ou áreas continua com o casamento por cargo; os dois somam-se, e os concursos que casam por cargo aparecem primeiro, com os cargos compatíveis. Na versão publicada, concursos que entram só pelo nível mostram os primeiros cargos; o C6b abaixo corrige essa seleção, ainda sem publicação em produção.
 - Só concursos com inscrição aberta.
+
+## C6b: terceiros e nível dos cargos
+
+Estado: **Ainda não publicado em produção**. As correções preservam a busca do próprio usuário e tornam mais conservadora a lista de cargos em buscas por nível.
+
+### Busca para terceiros
+
+Pedidos como “para o meu sobrinho”, “pra a minha neta” e “pro meu afilhado” são reconhecidos como busca para terceiro e bloqueiam a busca, com pedido de reformulação para não usar a formação do perfil de quem está conectado. Sobrinhos, netos, afilhados e vizinhos são contemplados em ambos os gêneros, inclusive com artigos e contrações antes do possessivo. Também vale quando a pessoa é sujeito de um pedido, como “meu sobrinho quer concurso”.
+
+Uma menção narrativa não bloqueia a busca do próprio usuário: “meu pai já fez esse concurso” não é pedido para ele. A construção do/da exige um pedido de busca, como “buscar concursos do meu vizinho”; uma referência de proximidade ou narrativa isolada não basta.
+
+### Cargos nas buscas por nível
+
+A seleção de cargos ocorre antes do limite de oito exibidos em `cargos_compativeis`. Um cargo sem nível individual anotado permanece entre os candidatos à lista, inclusive em concursos mistos; só sai por nível explícito incompatível com os níveis buscados. O sistema não deduz escolaridade pelo nome da profissão nem aplica o nível global do concurso a todos os cargos.
+
+Anotações como “Assistente - Médio” e “Analista - Nível Superior em TI” permitem comparar o requisito individual. Já “Professor - Ensino Médio” descreve a etapa em que leciona: permanece com requisito desconhecido e não é excluído por essa etapa. Isso também vale para “Professor de Ensino Médio”.
+
+O concurso que passou pelo filtro global de nível permanece no resultado mesmo com lista compatível vazia, e a lista original de cargos é preservada. Permanecer na lista não comprova habilitação: confirme os requisitos de cada cargo no edital. A [compatibilidade detalhada](compatibilidade.md) continua sendo uma consulta própria.
 
 ## Escolaridade nunca vira termo
 
