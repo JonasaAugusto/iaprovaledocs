@@ -6,6 +6,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 
 ## Índice
 
+- T4, T3 e T6, **ainda não publicado em produção**: [privacidade, segurança, retenção e armazenamento no navegador](docs/privacidade-e-seguranca.md) e [referência da API para administração e erros](docs/referencia-api.md). Hash de IP dos pedidos por 30 dias, com limpeza diária às 03:30, horário de Brasília.
 - [Privacidade do currículo na busca](docs/busca-por-perfil.md#privacidade-do-currículo-na-busca), ajuste **ainda não publicado em produção**: remoção de e-mails, telefones, links e CPF reconhecidos antes do corte de 6.000 caracteres e do envio ao DeepSeek, inclusive nas repetições, sem mudar o currículo salvo. Mantém nome e endereço; não anonimiza o currículo.
 - C14, **ainda não publicado em produção**: [link de compartilhamento de busca](docs/funcionalidades.md#c14-link-de-compartilhamento-de-busca), só com títulos e links públicos, válido por 7 dias; [troca, revogação e privacidade](docs/configuracoes-do-usuario.md#c14-gerenciar-links-de-busca) e [migração v3.29 e proteção da credencial nos registros de acesso](docs/pre-deploy.md#c14-compartilhamento-e-proteção-do-link). Telas pendentes.
 - [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item. Novidades, alertas e acompanhamento publicados; envio de e-mail ligado via Brevo desde 12/11/2026.

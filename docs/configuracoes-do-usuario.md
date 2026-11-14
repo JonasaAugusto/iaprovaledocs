@@ -19,6 +19,10 @@ Vale para administrador e usuário comum. Estado: **No ar**, incluindo o pedido 
 - **Avisos por e-mail (no ar):** preferência ativada por padrão, mas o resumo diário das **07:00 de São Paulo** só é enviado com e-mail verificado, preferência ligada e envio disponível. A pessoa pode desligar os avisos por e-mail sem perder a caixa de Novidades dentro do site. Boas-vindas só sai após confirmar o endereço; sem cota, fica para a rotina da manhã seguinte, antes dos resumos. Veja [Funcionalidades](funcionalidades.md) para as cotas globais, alertas e lembretes.
 - **Segurança:** "Sair de todos os aparelhos" encerra a conta em todos os lugares, inclusive no aparelho atual. Errar a senha atual várias vezes bloqueia essa troca por um tempo, sem impedir o login. O login expira depois de 30 dias sem uso: quem passa esse tempo sem abrir o IAprovale precisa entrar de novo. Usar o serviço renova o prazo.
 
+## Armazenamento no navegador
+
+O token recebido pelo aplicativo fica no `sessionStorage`, junto dos dados do usuário e da última atividade; preferências como tema, tamanho, menu e “usar currículo” ficam no `localStorage`. Veja [armazenamento no navegador](privacidade-e-seguranca.md#armazenamento-no-navegador) para finalidades e distinção entre sessão e preferências.
+
 ## C5: proteção das sessões
 
 Estado: **Ainda não publicado**. A mudança está implementada no backend, sem confirmação de aplicação em produção.
