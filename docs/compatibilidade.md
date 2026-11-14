@@ -41,7 +41,7 @@ Essa anotação na busca é distinta da consulta detalhada de **Alertas > Acompa
 - Há reserva durável antes de qualquer chamada externa, inclusive antes de ler a matéria ou extrair informações. A reserva respeita cota e avaliação pendente. Pedidos simultâneos para a mesma chave não executam a avaliação duas vezes: em processamento retorna 409; falha na leitura retorna 502.
 - Após a reserva, qualquer exceção encerra a tentativa como falha. A falha não consome busca nem feedback; custos já informados pelo provedor são preservados. Resultado, busca consumida e feedback são confirmados juntos.
 - Reservas abandonadas expiram e falhas permitem nova tentativa mais tarde, sem repetir custos já registrados. Uma execução ainda ativa não é sobreposta. Não há repetição automática da explicação pela IA na mesma tentativa. Se uma interrupção ocorrer antes de receber a telemetria do provedor, esse custo permanece desconhecido.
-- A estimativa inclui a leitura e a explicação, mesmo se a extração que gastou tokens for inválida, conforme as [tarifas e a contagem de cache](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado).
+- A estimativa inclui a leitura e a explicação, mesmo se a extração que gastou tokens for inválida, conforme as [tarifas e a contagem de cache](stats-do-administrador.md#estimativa-de-custo).
 
 ## C9: conexões durante a avaliação
 

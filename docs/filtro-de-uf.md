@@ -1,6 +1,6 @@
 # Filtro rígido de UF
 
-Estado: seleção de UFs **publicada em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0). A UF citada no texto como filtro rígido e o campo `ufs` em `POST /v1/search` estão **prontos, aguardando publicação do backend 2.12.0** (seção "UF citada no texto e API de parceiros").
+Estado: seleção de UFs **publicada em 09/11/2026** (backend 2.11.0, site 3.10.0, docs 1.12.0). A UF citada no texto como filtro rígido e o campo `ufs` em `POST /v1/search` estão **disponíveis desde o backend 2.12.0** (seção "UF citada no texto e API de parceiros").
 
 ## Como era
 
@@ -26,7 +26,7 @@ Estado: seleção de UFs **publicada em 09/11/2026** (backend 2.11.0, site 3.10.
 - Federais com sede em DF aparecem só para quem escolhe DF (decisão do dono); nacionais genuínos entram sempre.
 - O resumo da busca mostra, por exemplo, "UF: SP, RJ (e nacionais)".
 
-## UF citada no texto e API de parceiros (backend 2.12.0, aguardando publicação)
+## UF citada no texto e API de parceiros (backend 2.12.0, disponível)
 
 - **Texto da busca.** Quando o usuário não envia `ufs` (ausente ou lista vazia), a UF que a IA extrai do texto ("enfermeiro em SP", "nível médio em SP ou no RJ") passa a ser filtro rígido, com a mesma regra da seleção: só as UFs citadas e os nacionais, mesmo que a fonte devolva outro estado. Vale também para a busca só por nível e por cidade. A IA pode devolver várias UFs; siglas que não existem ou em formato errado são descartadas, sem derrubar a busca.
 - **Prioridade.** `ufs` enviado vence a UF do texto e o perfil. Não são combinados.
@@ -100,10 +100,6 @@ Com o filtro ligado e nenhum concurso, a resposta diz isso: "Não encontrei conc
 2. Federais com sede em DF (`uf` = DF) continuam contando como DF, não como nacionais: quem escolhe SP não os recebe. Nacionais genuínos entram sempre.
 3. Busca pelo perfil com mobilidade local ou estado inclui os nacionais (feito, backend 2.11.0).
 
-## Pendências
-
-- Até a publicação do backend 2.12.0, a UF citada no texto da busca ("enfermeiro em SP") segue como antes: a fonte já devolve a UF e os nacionais, mas sem filtro final no servidor, e `POST /v1/search` ainda não aceita `ufs`.
-
 ## Testes
 
-Site: verificação em navegador (desktop e celular, claro e escuro, API simulada). Backend: `tests/test_search_filtro_uf.py` (UF única, várias UFs, nacionais, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação e endpoint) e `tests/test_search_filtro_uf_nacionais.py` com registros reais da PCI como fixtures (MGS, Marinha, INB, Câmara, TRF3), detecção por texto, paralelismo com limite, ordem determinística, falha parcial, timeout e busca pelo perfil via `pesquisar_concursos`. Backend 2.12.0 (pronto, não publicado): os mesmos arquivos de teste e `tests/test_partner_search.py` cobrem UF extraída em cargo, pesquisa e cidade, várias UFs, prioridade de `ufs`, siglas inválidas vindas da IA, busca por nível, zero resultados e repasse e validação de `ufs` no `/v1/search`. Teste ao vivo contra a fonte (2.11.0): nenhum concurso de estado não escolhido apareceu, e MGS e distritos navais só aparecem para a UF certa.
+Site: verificação em navegador (desktop e celular, claro e escuro, API simulada). Backend: `tests/test_search_filtro_uf.py` (UF única, várias UFs, nacionais, sem UF, zero resultados, fonte que devolve outro estado, UF escolhida contra IA e mobilidade, busca pelo perfil, validação e endpoint) e `tests/test_search_filtro_uf_nacionais.py` com registros reais da PCI como fixtures (MGS, Marinha, INB, Câmara, TRF3), detecção por texto, paralelismo com limite, ordem determinística, falha parcial, timeout e busca pelo perfil via `pesquisar_concursos`. Backend 2.12.0 (publicado): os mesmos arquivos de teste e `tests/test_partner_search.py` cobrem UF extraída em cargo, pesquisa e cidade, várias UFs, prioridade de `ufs`, siglas inválidas vindas da IA, busca por nível, zero resultados e repasse e validação de `ufs` no `/v1/search`. Teste ao vivo contra a fonte (2.11.0): nenhum concurso de estado não escolhido apareceu, e MGS e distritos navais só aparecem para a UF certa.

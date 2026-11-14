@@ -35,7 +35,7 @@ class DocumentacaoTest(unittest.TestCase):
         self.assertEqual(len(versoes), len({v for v, _ in versoes}))
         self.assertIn("[1.12.2] - Não publicado", changelog)
         self.assertIn("ainda não publicado", ler("README.md"))
-        self.assertIn("ainda não publicado", ler("docs/roadmap.md"))
+        self.assertIn("após a liberação separada do C4", ler("docs/roadmap.md"))
         documentos = [RAIZ / "README.md", RAIZ / "CHANGELOG.md", *sorted((RAIZ / "docs").glob("*.md"))]
         for documento in documentos:
             for destino in re.findall(r"\[[^\]\n]+\]\(([^)\s]+)\)", documento.read_text(encoding="utf-8")):
@@ -120,7 +120,7 @@ class DocumentacaoTest(unittest.TestCase):
 
     def test_estimativa_de_custo_e_historico_preservado(self):
         custo = secao(ler("docs/stats-do-administrador.md"), "## Estimativa de custo")
-        self.assertIn("Ainda não publicado", custo)
+        self.assertIn("**No ar** desde **12/11/2026**", custo)
         self.assertIn("tarifa de pico", custo)
         self.assertIn("não equivale à fatura", custo)
         self.assertIn("Histórico já registrado não é recalculado", custo)
@@ -193,6 +193,8 @@ class DocumentacaoTest(unittest.TestCase):
             "scripts/migrate_v3_20_email_pendente.py",
             "scripts/migrate_v3_21_boas_vindas.py",
             "scripts/migrate_v3_22_compatibilidade.py",
+            "scripts/migrate_v3_23_empresas.py",
+            "scripts/migrate_v3_24_empresas_produtos.py",
         ])
         ordem = secao(texto, "## Ordem da publicação")
         passos = re.findall(r"^\d+\. (.+)$", ordem, re.MULTILINE)

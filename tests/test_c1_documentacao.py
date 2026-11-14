@@ -54,7 +54,7 @@ class C1DocumentacaoTest(unittest.TestCase):
         for regra in ("Ainda não publicado", "--workers 1", "um processo",
                       "memória", "não são compartilhados", "não foi instalada",
                       "configuração ativa", "solução compartilhada", "decisão do dono",
-                      "a operação", "recursos descartáveis", "revisão cruzada"):
+                      "a operação", "recursos descartáveis", "conferência do código e da documentação"):
             self.assertIn(regra, texto)
 
     def test_indice_changelog_e_estado_sem_versao_inventada(self):

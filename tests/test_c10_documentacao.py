@@ -42,7 +42,7 @@ class C10DocumentacaoTest(unittest.TestCase):
     def test_validacao_antes_da_publicacao(self):
         texto = secao(ler('docs/pre-deploy.md'), '## C10: links e consulta por cidade')
         for regra in ('Ainda não publicado', 'recursos descartáveis',
-                      'rede simulada', 'sem dados reais', 'revisão cruzada',
+                      'rede simulada', 'sem dados reais', 'conferência do código e da documentação',
                       'IP público validado', 'IPv4 mapeado em IPv6',
                       'Host/SNI', 'certificado', 'proxy', 'redirecionamento',
                       'no máximo duas chamadas', 'sem segunda consulta',

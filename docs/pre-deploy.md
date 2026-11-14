@@ -12,7 +12,7 @@ O front 3.13.0 foi publicado em 13/11/2026; essa publicação não confirma a li
 
 ## Migrações necessárias
 
-Aplicar as versões v3_17 a v3_22 na ordem abaixo, antes do reinício. Os scripts são idempotentes e executados separadamente do servidor; o servidor web não executa migrações automaticamente. A v3_20 ajusta a unicidade de e-mail, preservando os endereços e as verificações existentes. A documentação pública lista os arquivos e seus efeitos, sem comandos de acesso ao ambiente ou credenciais.
+Aplicar as versões v3_17 a v3_24 na ordem abaixo, antes do reinício. Os scripts são idempotentes e executados separadamente do servidor; o servidor web não executa migrações automaticamente. A v3_20 ajusta a unicidade de e-mail, preservando os endereços e as verificações existentes. A documentação pública lista os arquivos e seus efeitos, sem comandos de acesso ao ambiente ou credenciais.
 
 | Arquivo no backend | Finalidade |
 |---|---|
@@ -22,12 +22,14 @@ Aplicar as versões v3_17 a v3_22 na ordem abaixo, antes do reinício. Os script
 | `scripts/migrate_v3_20_email_pendente.py` | Unicidade só para e-mails verificados; pendência não reserva endereço. |
 | `scripts/migrate_v3_21_boas_vindas.py` | Registro de boas-vindas por conta, sem envio retroativo. |
 | `scripts/migrate_v3_22_compatibilidade.py` | Cache persistente da etapa 3, com reserva por usuário, concurso e versão do perfil e exclusão em cascata com a conta. |
+| `scripts/migrate_v3_23_empresas.py` | Currículo compactado, requisitos, explicações e cota diária de IA do Empresas E1/E2. |
+| `scripts/migrate_v3_24_empresas_produtos.py` | Armazenamento dos materiais por vaga do Empresas E3/E4, após a v3_23. |
 
 É necessário reexecutar a v3_18 em bases que receberam uma versão anterior dela, para acrescentar o estado da linha de base e do processamento. As tabelas são necessárias mesmo com a rotina diária desligada: a exportação e a exclusão de contas também as consultam. Desligar o e-mail não elimina a necessidade dessas migrações.
 
 ## Empresas em produção
 
-Estado: **No ar** desde **12/11/2026**. O [Empresas](empresas.md) E1–E5 está em produção (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior), com cobrança desligada. Em uma instalação que ainda não tenha E1/E2, acrescentar às dependências anteriores a migração aditiva e idempotente `scripts/migrate_v3_23_empresas.py` (v3_23), **antes do reinício**, e a dependência de leitura de PDF `pypdf==6.21.4` do backend. A migração cria o armazenamento compactado, requisitos de vagas, explicações e uso diário de IA; este registro de dependência não substitui a conferência da base pelo operador.
+Estado: **No ar** desde **12/11/2026**. O [Empresas](empresas.md) E1–E5 está em produção (backend ef7dc58 ou posterior; site 0ccfa9d ou posterior), com cobrança desligada. Em uma instalação que ainda não tenha E1/E2, acrescentar às dependências anteriores a migração aditiva e idempotente `scripts/migrate_v3_23_empresas.py` (v3_23), **antes do reinício**, e a dependência de leitura de PDF `pypdf==6.21.4` do backend. A migração cria o armazenamento compactado, requisitos de vagas, explicações e uso diário de IA. Para E3/E4, aplicar também a migração aditiva e idempotente `scripts/migrate_v3_24_empresas_produtos.py` (v3_24), após a v3_23 e antes do reinício, para armazenar os materiais por vaga. Este registro de dependência não substitui a conferência da base pelo operador.
 
 Conferir os textos legais do site para currículo compactado, original opcional, materiais de E3/E4, exportação/exclusão, envio ao DeepSeek, limites da remoção de contatos e transferência internacional; a validação por advogado continua pendente. E3/E4 estão gratuitos no teste; preços e meio de pagamento pendentes. Para E5, conferir índice disponível, atualização diária e comportamento com coleta parcial, conforme [Busca de vagas](empresas-vagas.md). Em novas liberações, validar cota, exportação/exclusão e integração das telas em recursos descartáveis. Execução e publicação continuam a cargo da operação autorizada.
 
@@ -39,7 +41,7 @@ O lote C1 acrescenta [erro claro de upload acima de 5 MB](empresas.md#c1-erro-de
 
 A configuração de referência da API declara **`--workers 1`**, ou seja, **um processo** de atendimento. Parte dos limites de proteção e dos caches fica na **memória** desse processo: esses dados **não são compartilhados** entre processos. Aumentar esse número exige antes uma solução compartilhada e decisão do dono. Um teste verifica que a referência mantém exatamente um processo; ele não comprova a configuração ativa.
 
-A referência **não foi instalada** pelo lote C1. Antes de liberar, a operação deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer revisão cruzada do código e das docs. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a liberação depende da validação pela operação autorizada.
+A referência **não foi instalada** pelo lote C1. Antes de liberar, a operação deve comparar a configuração ativa com a referência, conferir a confiança no intermediário de conexão e fazer conferência do código e da documentação. Em recursos descartáveis, validar upload no limite e acima dele, resposta JSON 413 e sua apresentação no site, recusa 422 do PDF fora dos limites e preservação das proteções de login e cadastro. Esta documentação não executa instalação nem reinício; a liberação depende da validação pela operação autorizada.
 
 ## C4: histórico e retenção
 
@@ -51,7 +53,7 @@ Na limpeza diária, continuam protegidos os pedidos aprovados e as exclusões e 
 
 A migração `scripts/migrate_v3_25_history_index.py`, após a v3_24, cria o índice `search_history(user_id, created_at)`: uma estrutura auxiliar para localizar o histórico por conta e data com mais eficiência. É idempotente e reversível; a reversão com `--downgrade` remove somente esse índice. Aplicação e reversão preservam os registros, sem reescrever resultados antigos. O backend usa scripts próprios de migração, não usa Alembic.
 
-Antes de liberar C4, a operação deve fazer revisão cruzada do código e destas docs, validar em recursos descartáveis a criação e a remoção do índice, os limites do histórico, a exportação e as regras de limpeza. A migração deve ser aplicada e conferida antes do reinício. Esta página não comprova aplicação da migração nem publicação de C4; ambas dependem da operação autorizada.
+Antes de liberar C4, a operação deve fazer conferência do código e da documentação, validar em recursos descartáveis a criação e a remoção do índice, os limites do histórico, a exportação e as regras de limpeza. A migração deve ser aplicada e conferida antes do reinício. Esta página não comprova aplicação da migração nem publicação de C4; ambas dependem da operação autorizada.
 
 ## C5: migração e reversão
 
@@ -61,7 +63,7 @@ O backend usa o script próprio `scripts/migrate_v3_25_session_hash.py` (v3.25).
 
 Antes de liberar o C5, a operação deve:
 
-1. Concluir a revisão cruzada do código e destas docs; avisar sobre a janela de indisponibilidade e a necessidade de novo login.
+1. Concluir a conferência do código e da documentação; avisar sobre a janela de indisponibilidade e a necessidade de novo login.
 2. Confirmar backup consistente e protegido, com restauração validada em ambiente isolado sob responsabilidade da operação. Não copiar dados reais para clones ou testes nem registrar credenciais ou tokens.
 3. Na janela autorizada, interromper os processos que acessam sessões. Código antigo e novo não podem operar simultaneamente, pois o formato armazenado muda. Aplicar a migração e ativar a versão C5 de forma coordenada; a operação usa transação, revertida em caso de falha.
 4. Validar em recursos descartáveis login, acesso autenticado, logout, revogação e expiração por 30 dias sem uso; confirmar recusa do token anterior à migração, da sessão encerrada e do hash armazenado como credencial. Conferir que o armazenamento contém somente hashes, sem registrar seus valores. Só reabrir o acesso após a validação da operação.
@@ -85,13 +87,13 @@ O primeiro aplica a migração; o segundo é a alternativa de reversão. O forma
 
 Aplicação e reversão são idempotentes. A reversão apaga somente o cache, que pode ser gerado novamente; exige primeiro retirar a versão da aplicação que usa a tabela. Não altera contas, perfis nem histórico. A validade de 30 dias para equivalentes e de 24 horas para lista vazia não significa remoção periódica das entradas vencidas.
 
-Antes de liberar, preparar backup e fazer revisão cruzada do código e destas docs. Validar em recursos descartáveis criação e reversão da tabela, reutilização e vencimento, lista vazia por 24 horas, falhas do provedor e de leitura/escrita do cache, três gerações em paralelo e teto de seis segundos, descarte de genéricos, palavras inteiras, custo e alertas sem saldo. Confirmar que a busca pelo perfil continua sem IA. Esta documentação não executa nem atesta migração ou publicação em produção; execução e liberação cabem à operação autorizada.
+Antes de liberar, preparar backup e fazer conferência do código e da documentação. Validar em recursos descartáveis criação e reversão da tabela, reutilização e vencimento, lista vazia por 24 horas, falhas do provedor e de leitura/escrita do cache, três gerações em paralelo e teto de seis segundos, descarte de genéricos, palavras inteiras, custo e alertas sem saldo. Confirmar que a busca pelo perfil continua sem IA. Esta documentação não executa nem atesta migração ou publicação em produção; execução e liberação cabem à operação autorizada.
 
 ## C10: links e consulta por cidade
 
 Estado: **Ainda não publicado**. O [contrato previsto de links e cidade](busca-por-perfil.md#c10-verificação-de-links-e-cidade) não exige migração de banco. Esta documentação não atesta implementação ou ativação em produção. Os estados publicados das demais seções não se estendem ao C10.
 
-Antes da liberação, concluir a revisão cruzada do código e destas docs e validar em recursos descartáveis, com rede simulada e sem dados reais:
+Antes da liberação, concluir a conferência do código e da documentação e validar em recursos descartáveis, com rede simulada e sem dados reais:
 
 - Conexão ao IP público validado, tentativas de cada IP em ordem quando necessário e recusa de endereços privados, inclusive IPv4 mapeado em IPv6. Confirmar que a conexão mantém o endereço já validado.
 - Preservação de Host/SNI e validação do certificado HTTPS com cliente dedicado, sem proxy de ambiente; repetir a validação a cada redirecionamento antes de acessá-lo.
@@ -105,12 +107,12 @@ A publicação depende da confirmação desses comportamentos no backend e da op
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
 
 1. Revisar e validar as docs e a integração das telas; conferir os textos legais 1.3 do convite, vigentes desde 12/11/2026, e o alinhamento entre textos apresentados e aceite do plano grátis, sem presumir ativação da sua variante 1.3; preparar backup antes de alterar a base.
-2. Aplicar e conferir as migrações v3_17 a v3_22 antes de reiniciar o backend, incluindo a reexecução da v3_18 quando necessária; para Empresas, incluir também a v3_23 e conferir a dependência pypdf e os textos legais acima.
+2. Aplicar e conferir as migrações v3_17 a v3_22 antes de reiniciar o backend, incluindo a reexecução da v3_18 quando necessária; para Empresas, incluir também a v3_23 e, após ela, a v3_24, ambas antes do reinício; conferir a dependência pypdf e os textos legais acima.
 3. Reiniciar o backend e validar o funcionamento básico em recursos de teste: conta sem e-mail, confirmação por código, conta criada com e-mail pendente sem cota, aceite correspondente ao texto apresentado, preservação dos aceites antigos, Novidades, alertas, acompanhados, compatibilidade, exportação e exclusão.
 4. Conferir a rotina diária de avisos das 07:00 de São Paulo com e-mail ligado via Brevo: endereço verificado e preferência ativa para resumos, boas-vindas após confirmação, cotas e Novidades como alternativa sem entrega.
 5. Publicar o site alinhado à variante legal aprovada e às rotas disponíveis, mantendo a variante grátis 1.3 ainda não ativada até liberação específica, após revisão das telas e validação das etapas anteriores; se houver falha, interromper a publicação e avaliar a recuperação.
 
-Produção, backup, migrações, reinício e publicação cabem à operação, após autorização explícita do responsável. Esta tarefa altera somente documentação e testes locais.
+Produção, backup, migrações, reinício e publicação cabem à operação, após autorização explícita do responsável.
 
 ## E-mail ligado em produção
 
