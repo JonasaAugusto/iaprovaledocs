@@ -102,6 +102,16 @@ Antes da liberação, concluir a conferência do código e da documentação e v
 
 A publicação depende da confirmação desses comportamentos no backend e da operação autorizada. Se a validação falhar, interromper a liberação e avaliar a recuperação; esta seção não executa publicação nem altera os procedimentos das outras entregas.
 
+## C12: calendário e proteção do link
+
+Estado: **Ainda não publicado em produção**. O [calendário dos acompanhados](funcionalidades.md#c12-calendário-dos-acompanhados) exige a migração v3.27, que só cria a tabela das credenciais de leitura. É aditiva e idempotente; aplicar e conferir antes do código novo. Incluir na preparação as migrações v3.25 do índice do histórico, hash de sessão (C5) e v3.26 do cache de equivalentes, se ainda pendentes, preservando a janela e a coordenação exigidas pelo C5. Esta documentação não executa nem atesta a aplicação dessas migrações.
+
+O link carrega o parâmetro `token` na URL. Antes de disponibilizá-lo, os registros de acesso do servidor web e da aplicação precisam ocultar o parâmetro, ou ter o registro de acesso desativado; a telemetria também não pode registrar a URL completa com a credencial. Os cabeçalhos de proteção do calendário e a migração não substituem esse requisito operacional.
+
+Validar com contas e dados descartáveis: gerar, trocar e revogar o link, recusa imediata do antigo, isolamento entre contas, calendário vazio, datas de dia inteiro e títulos com acentos e caracteres especiais. Conferir a limitação por processo e em memória e a resposta de excesso de consultas; verificar que nenhum registro de acesso expõe a credencial. A reversão apaga as credenciais existentes e exige gerar novos links depois da reaplicação; retirar antes o código que depende da tabela.
+
+O contrato de [alerta por termo e UFs](funcionalidades.md#c12-contrato-de-alerta-por-busca) não exige uma migração adicional neste lote. Os controles de calendário nas Configurações e o atalho de alerta com a busca atual dependem da interface. Liberação pela operação autorizada, após conferir essas dependências.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.

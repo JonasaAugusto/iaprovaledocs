@@ -60,6 +60,14 @@ class C10DocumentacaoTest(unittest.TestCase):
         for pagina in paginas:
             with self.subTest(pagina=pagina):
                 texto = ler(pagina)
+                # Outros lotes podem ter migração e regras próprias de duplicação.
+                if pagina == 'docs/pre-deploy.md':
+                    texto = contrato
+                elif pagina == 'docs/busca-por-perfil.md':
+                    texto = secao(texto, '## C10: verificação de links e cidade')
+                else:
+                    texto = '\n'.join(linha for linha in texto.splitlines()
+                                      if re.search(r'\bC10\b', linha))
                 self.assertIsNone(re.search(
                     r'dedup|[óo]rg[ãa]o\s*\+\s*edital|v?3[._]27', texto, re.I))
 

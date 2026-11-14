@@ -29,6 +29,18 @@ O aplicativo continua recebendo o token no login e enviando-o como Bearer (a cre
 
 Na migração, todas as sessões existentes são encerradas: todos precisam entrar novamente uma vez. Um token anterior à migração deixa de dar acesso. Contas, senhas e perfis são preservados. A reversão também encerra as sessões e exige novo login; ela não recupera os códigos apagados. Veja a [preparação da migração e reversão](pre-deploy.md#c5-migração-e-reversão).
 
+## C12: link pessoal do calendário
+
+Estado: **Ainda não publicado em produção**. A geração, troca e revogação estão implementadas no backend; os controles nas Configurações ainda dependem da interface.
+
+O [calendário dos acompanhados](funcionalidades.md#c12-calendário-dos-acompanhados) usa um link pessoal `.ics`. Ele é uma credencial de leitura: quem tem o link pode ler os títulos, links públicos e prazos dos concursos acompanhados da conta, sem entrar no aplicativo. Guarde-o como segredo e compartilhe somente com o aplicativo de calendário escolhido; ele não dá acesso às outras funções da conta. O token da sessão não serve como credencial do calendário.
+
+Gerar ou trocar o link exige sessão autenticada e substitui a credencial anterior: o link antigo deixa de valer imediatamente para novas consultas. É possível revogar o acesso; repetir a revogação não reativa o link. Só o hash SHA-256 do token é guardado, sem persistir o segredo original. Depois de trocar, atualize a assinatura no aplicativo de calendário.
+
+A credencial não expira automaticamente e sair da sessão não revoga o calendário: use a revogação ou gere outro link quando necessário. Link ausente, inválido ou revogado, conta inativa ou com senha provisória não libera o calendário. Revogar não remove os dados que outro aplicativo já tenha copiado; a sincronização depende dele.
+
+Antes da liberação, os registros de acesso precisam proteger o token presente na URL, conforme os [requisitos de publicação](pre-deploy.md#c12-calendário-e-proteção-do-link).
+
 ## Aparência
 
 - Tema claro, escuro ou automático (segue o aparelho).
