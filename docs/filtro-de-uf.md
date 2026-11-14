@@ -40,7 +40,7 @@ Estado: seleção de UFs **publicada em 09/11/2026** (backend 2.11.0, site 3.10.
 A fonte (PCI Concursos) marca nacionais com `uf` vazio e `regiao` = NACIONAL. Mas ela também marca assim concursos que são regionais (por exemplo, a MGS, empresa de Minas Gerais, e os Comandos de Distrito Naval da Marinha). Por isso a regra é em duas partes:
 
 1. Concurso marcado NACIONAL pela fonte **só é nacional se o título ou o órgão não indicar estado nem região**.
-2. Se indicar, vale a UF indicada, como se a fonte tivesse dado essa UF. O texto indica UF quando traz: nome de estado ("Minas Gerais"), "Distrito Federal", nome de capital ("Manaus"), sigla de UF em maiúsculas ("SP/RJ") ou Nordeste, Sudeste, Centro-Oeste. "Pará" só conta com P maiúsculo (para não confundir com a preposição "para"). Se citar mais de um estado, vale para todos.
+2. Se indicar, vale a UF indicada, como se a fonte tivesse dado essa UF. Na versão publicada, o texto indica UF quando traz: nome de estado ("Minas Gerais"), "Distrito Federal", nome de capital ("Manaus"), sigla de UF em maiúsculas ("SP/RJ") ou Nordeste, Sudeste, Centro-Oeste. "Pará" só conta com P maiúsculo (para não confundir com a preposição "para"). Se citar mais de um estado, vale para todos. O C3 altera essa inferência conforme a seção abaixo, ainda sem publicação em produção.
 
 Distritos Navais seguem uma tabela pequena, pela **sede oficial** do comando:
 
@@ -63,6 +63,17 @@ Não há lista de exceções por concurso: só essas duas regras. Concurso sem U
 - INB, Câmara dos Deputados e TRF3 (Tribunal Regional Federal da 3ª Região) não trazem estado no título: continuam nacionais pela regra da fonte e aparecem para qualquer UF, mesmo que a vaga seja só em Brasília ou em outra sede. Não inventamos lotação. O site avisa que "nacionais" são os que a fonte marca assim.
 - Distrito Naval vale para a UF da sede; a jurisdição pode cobrir outros estados (o 1º DN, por exemplo, também atende Minas Gerais), e quem escolhe só esse outro estado não o vê.
 - Um concurso nacional que cita uma cidade ou estado só de passagem no título seria tratado como regional. Hoje isso não aconteceu nos dados lidos.
+
+## C3: inferência textual e prazo
+
+Estado: **Ainda não publicado em produção**. O C3 corrige a UF inferida do título ou órgão do concurso marcado como nacional pela fonte. Essa leitura local é diferente da interpretação da pergunta pela IA e não substitui a prioridade das UFs escolhidas.
+
+- Siglas são reconhecidas após barra, hífen ou travessão e entre parênteses, em maiúsculas ou minúsculas: “Salvador/ba”, “Salvador - BA”, “Salvador – BA”, “Salvador — ba” e “Salvador (BA)”. Não se usam siglas soltas, mesmo em títulos em caixa alta, evitando interpretar palavras comuns como estados.
+- Nomes de estados continuam valendo. “Pará”, inclusive “PARÁ”, indica PA; a preposição “para”, sem acento, não indica estado.
+- Capitais ambíguas sozinhas não determinam UF: Palmas, Vitória, Belém, Campo Grande, Boa Vista, Rio Branco e São Luís precisam de indicação adicional de estado, como “Palmas/TO”. Salvador, Natal e Fortaleza indicam suas UFs, exceto quando seguidas de do, da ou de em nomes compostos de municípios, como “Fortaleza de Minas”.
+- Este lote não promete suporte a recortes regionais como “Sul da Bahia”; não acrescenta esse filtro à busca.
+
+Na busca, um prazo completo válido anterior ao dia de Brasília exclui o concurso mesmo se a fonte ainda o marcar como aberto. São aceitos os formatos `YYYY-MM-DD` e `DD/MM/AAAA`. Prazo igual ao dia atual permanece elegível se a fonte indicar inscrição aberta; a comparação é por dia, sem inferir o horário de encerramento. Prazo ausente ou inválido conserva a flag da fonte. Confirme sempre a data e o horário no edital. A regra de formação futura permanece independente e inalterada.
 
 ## Como a busca consulta a fonte
 
