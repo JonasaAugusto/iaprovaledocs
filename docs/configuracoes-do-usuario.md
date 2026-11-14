@@ -39,6 +39,16 @@ Gerar ou trocar o link exige sessão autenticada e substitui a credencial anteri
 
 A credencial não expira automaticamente e sair da sessão não revoga o calendário: use a revogação ou gere outro link quando necessário. Link ausente, inválido ou revogado, conta inativa ou com senha provisória não libera o calendário. Revogar não remove os dados que outro aplicativo já tenha copiado; a sincronização depende dele.
 
+Para integrações da própria conta, o contrato do calendário é:
+
+| Método e rota | Acesso | Resposta de sucesso |
+| --- | --- | --- |
+| `POST /me/acompanhando.ics/token` | Sessão autenticada | 201, com o campo `token`; substitui o link anterior |
+| `DELETE /me/acompanhando.ics/token` | Sessão autenticada | 204, sem corpo, inclusive se já revogado |
+| `GET /me/acompanhando.ics` | Credencial no parâmetro `token`, sem sessão | 200, arquivo `.ics` |
+
+As recusas de leitura descritas acima retornam HTTP 401 com a mesma mensagem “Calendário indisponível.”, sem distinguir a causa. O download usa o tipo `text/calendar; charset=utf-8`. A emissão, a revogação e a leitura enviam `Cache-Control: no-store`, que orienta não guardar a resposta em cache. A leitura também envia `Referrer-Policy: no-referrer` para não repassar a URL como referência e `X-Robots-Tag: noindex, nofollow` para orientar buscadores a não indexar nem seguir o conteúdo, inclusive nos erros 401 e 429. Esses cabeçalhos não apagam cópias salvas pelo aplicativo de calendário nem substituem o cuidado com o link.
+
 Antes da liberação, os registros de acesso precisam proteger o token presente na URL, conforme os [requisitos de publicação](pre-deploy.md#c12-calendário-e-proteção-do-link).
 
 ## Aparência

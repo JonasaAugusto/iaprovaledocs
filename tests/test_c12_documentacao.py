@@ -41,6 +41,32 @@ class C12DocumentacaoTest(unittest.TestCase):
             with self.subTest(regra=regra):
                 self.assertIn(regra, texto)
 
+    def test_rotas_do_calendario_e_respostas(self):
+        texto = secao(ler('docs/configuracoes-do-usuario.md'),
+                      '## C12: link pessoal do calendário')
+        linhas = re.findall(r'^\| `(POST|DELETE|GET) ([^`]+)` \| ([^|]+) \| ([^|]+) \|$',
+                            texto, re.M)
+        contrato = {(metodo, rota): (acesso.strip(), resposta.strip())
+                    for metodo, rota, acesso, resposta in linhas}
+        self.assertEqual(contrato, {
+            ('POST', '/me/acompanhando.ics/token'):
+                ('Sessão autenticada', '201, com o campo `token`; substitui o link anterior'),
+            ('DELETE', '/me/acompanhando.ics/token'):
+                ('Sessão autenticada', '204, sem corpo, inclusive se já revogado'),
+            ('GET', '/me/acompanhando.ics'):
+                ('Credencial no parâmetro `token`, sem sessão', '200, arquivo `.ics`'),
+        })
+
+    def test_recusa_e_cabecalhos_do_calendario(self):
+        texto = secao(ler('docs/configuracoes-do-usuario.md'),
+                      '## C12: link pessoal do calendário')
+        for regra in ('401', 'Calendário indisponível.', 'text/calendar; charset=utf-8',
+                      'Cache-Control: no-store', 'Referrer-Policy: no-referrer',
+                      'X-Robots-Tag: noindex, nofollow', 'inclusive nos erros 401 e 429',
+                      'não apagam cópias salvas'):
+            with self.subTest(regra=regra):
+                self.assertIn(regra, texto)
+
     def test_contrato_alerta_e_exemplo_valido(self):
         texto = secao(ler('docs/funcionalidades.md'), '## C12: contrato de alerta por busca')
         exemplo = json.loads(re.search(r'```json\n(.*?)\n```', texto, re.S).group(1))
