@@ -44,6 +44,7 @@ Quando chega um pedido, o responsável recebe um aviso informativo, com o usuár
 ## Segurança e privacidade
 
 - Só administradores veem a lista e decidem.
+- T4, **ainda não publicado em produção**: acessos sem credencial válida de administrador recebem 404, inclusive com método incorreto, conforme a [referência da API](referencia-api.md#acesso-administrativo).
 - A senha provisória não fica guardada em lugar nenhum; o sistema guarda apenas o resultado protegido dela. A mensagem enviada pelo Telegram fica no histórico da conversa do responsável com o bot, por escolha do produto.
 - Como a senha é provisória e deve ser trocada no primeiro acesso, o risco dessa cópia no histórico é pequeno.
 - O telefone usado para enviar o login é o informado pela própria pessoa no pedido.
@@ -51,3 +52,5 @@ Quando chega um pedido, o responsável recebe um aviso informativo, com o usuár
 ## Quanto tempo o pedido fica guardado
 
 Pedidos pendentes ou recusados são apagados automaticamente depois de 90 dias. Pedidos aprovados ficam enquanto a conta existir e saem junto com ela.
+
+T6, **ainda não publicado em produção**: o hash de IP de todos os pedidos, inclusive aprovados, é removido aos 30 dias desde a criação, preservando o pedido aprovado. Veja [retenção e exclusão](privacidade-e-seguranca.md#retenção-e-exclusão), incluindo os prazos e a limpeza diária às 03:30, horário de Brasília.
