@@ -83,6 +83,8 @@ Comparar a mesma versão retorna alterações vazias; inverter a ordem inverte a
 
 **Usar o meu currículo:** quando ligado e com currículo salvo no Perfil, a busca já começa com ele como pista extra. Vale só neste aparelho e muda na hora, sem recarregar a página.
 
+Estado da correção de privacidade: **Ainda não publicado em produção**. Na busca por texto com essa opção, e-mails, telefones, links e CPF reconhecidos passam a ser substituídos por marcadores antes do corte de 6.000 caracteres e do envio ao DeepSeek, inclusive nas repetições da chamada, com a mesma função da Carreira. O texto salvo no Perfil não muda. **Nome e endereço continuam no texto**; a remoção **não anonimiza o currículo** e formatos não reconhecidos podem permanecer. Revise o conteúdo antes de usar. Veja o [alcance do tratamento e a distinção da busca sem IA pelo perfil](busca-por-perfil.md#privacidade-do-currículo-na-busca).
+
 ## Histórico de buscas
 
 Lista das últimas 10 buscas, com a data e a quantidade de concursos encontrados. Cada busca abre ali mesmo e mostra os resultados da época (título, local, prazo e o link do concurso), com o aviso de que os prazos podem ter mudado. Há botões para apagar uma busca ou todas. Cada busca é guardada por 90 dias e tudo é apagado junto com a conta.
