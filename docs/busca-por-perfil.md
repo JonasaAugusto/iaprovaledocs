@@ -16,6 +16,18 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
   - sem UF no perfil: lista geral.
 - Em seguida entra o filtro por nível.
 
+## C9: cache da PCI
+
+Estado: **Ainda não publicado**. As consultas à fonte pública PCI Concursos passam a reutilizar respostas em memória. Esse cache é uma cópia temporária da resposta da fonte, compartilhada entre buscas atendidas pelo mesmo processo do serviço, antes dos filtros e das anotações de cada pessoa.
+
+A entrada é identificada pela ferramenta e argumentos enviados à fonte; mudar a ordem das chaves dos argumentos não cria outra entrada. A validade é de **5 minutos** após guardar a resposta; reutilizar a entrada não renova o prazo. Ao vencer, a próxima consulta volta à fonte. Há até **500 entradas por processo**; ao ultrapassar o limite, as mais antigas são removidas. Cada processo tem sua própria cópia, perdida ao reiniciar, sem persistência no banco.
+
+Uma lista vazia válida também pode ser reutilizada. Respostas com avisos e falhas não alimentam o cache, permitindo nova consulta à fonte na próxima tentativa. Consultas simultâneas sem entrada válida podem fazer mais de uma chamada para os mesmos critérios; este lote não reúne essas chamadas em uma só.
+
+A chave usa SHA-256, um resumo da ferramenta e dos argumentos: não guarda os termos em claro na chave e não acrescenta identificação da conta, perfil completo ou currículo. Os critérios de consulta podem derivar da busca ou do perfil; o resumo não garante anonimato desses critérios. Só a resposta pública da fonte é reutilizada. Cada busca recebe uma cópia independente antes dos filtros e das anotações, como `is_new` e cargos compatíveis, evitando compartilhar marcas pessoais entre buscas.
+
+Esse cache não torna a busca gratuita nem altera cotas, avaliação, histórico ou custos das demais etapas de IA. Ele é diferente do cache de equivalentes de cargo, do cache de compatibilidade por pessoa e do cache de tokens do provedor. Pode apresentar dados da fonte ainda não renovados dentro da validade: confirme no edital e no portal oficial os requisitos e os prazos antes da inscrição.
+
 ## C6a: equivalentes de cargo
 
 Estado: **Ainda não publicado**. Nas buscas em linguagem natural, o filtro local passa a aceitar os termos originais da formação ou todos os termos de um cargo equivalente sugerido pelo DeepSeek. Exemplo: Direito encontra Advogado entre os cargos já retornados pela fonte. A comparação usa palavras inteiras, sem diferença de acentos ou maiúsculas: Advogado não corresponde a Superadvogado; TI não corresponde a infantil ou dentista só por conterem essas letras. Cada formação admite até cinco equivalentes.

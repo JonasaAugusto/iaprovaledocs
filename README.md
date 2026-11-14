@@ -13,6 +13,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [Pedido de acesso pelo chat](docs/pedido-de-acesso.md): como o pedido e a janela de dúvidas funcionam.
 - C7, **ainda não publicado**: [ranking por relevância](docs/busca-por-perfil.md#c7-ranking-por-relevância), com prioridade geográfica, cargo e prazo, motivo da ordem e [selo conservador por cargo](docs/compatibilidade.md#c7-selo-na-resposta-da-busca), sem IA adicional.
 - [Busca pelo perfil e nível](docs/busca-por-perfil.md): consulta sem IA, filtro por nível, cota e exclusão de avaliações.
+- C9, **ainda não publicado**: [cache público da PCI](docs/busca-por-perfil.md#c9-cache-da-pci), por cinco minutos, com cópias independentes antes dos filtros pessoais; [conexões durante a compatibilidade](docs/compatibilidade.md#c9-conexões-durante-a-avaliação), preservando a trava contra avaliações duplicadas.
 - C6a, **ainda não publicado**: [equivalentes de cargo com cache](docs/busca-por-perfil.md#c6a-equivalentes-de-cargo), até cinco por formação; cache de 30 dias, lista vazia por 24 horas e até três gerações paralelas por busca com teto de seis segundos de espera pelo modelo.
 - [Compatibilidade entre perfil e cargos — etapa 3](docs/compatibilidade.md): publicada, acessível em Alertas > Acompanhando; níveis por cargo, lacunas, cota, cache e recuperação de falhas.
 - [IAprovale Empresas — E1/E2](docs/empresas.md): no ar desde 12/11/2026; currículo compactado, compatibilidade com vagas, explicação sob demanda, cota própria e privacidade.

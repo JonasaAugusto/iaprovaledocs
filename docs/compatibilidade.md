@@ -43,6 +43,14 @@ Essa anotação na busca é distinta da consulta detalhada de **Alertas > Acompa
 - Reservas abandonadas expiram e falhas permitem nova tentativa mais tarde, sem repetir custos já registrados. Uma execução ainda ativa não é sobreposta. Não há repetição automática da explicação pela IA na mesma tentativa. Se uma interrupção ocorrer antes de receber a telemetria do provedor, esse custo permanece desconhecido.
 - A estimativa inclui a leitura e a explicação, mesmo se a extração que gastou tokens for inválida, conforme as [tarifas e a contagem de cache](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado).
 
+## C9: conexões durante a avaliação
+
+Estado: **Ainda não publicado**. O pool do banco, conjunto de conexões reutilizáveis pelo serviço, passa a admitir 12 conexões persistentes e até 12 extras por processo. O ajuste dá espaço às avaliações de compatibilidade enquanto aguardam o provedor de IA e às leituras concorrentes, como autenticação.
+
+A transação de leitura continua encerrada antes da chamada de IA. Cada avaliação ativa mantém uma conexão para a trava que impede executar duas vezes a mesma combinação de pessoa, concurso e versão do perfil; encerrar a transação não significa liberar essa conexão. Um pedido duplicado em processamento continua retornando 409. As regras de cota, cache por perfil e contabilização de custos permanecem as descritas acima.
+
+O cenário de validação usa 12 avaliações simultâneas com provedor fictício mantido em espera e outras leituras em paralelo, sem erro 500 por esgotamento do pool nesse cenário. Isso não é garantia de capacidade ilimitada nem de disponibilidade do provedor real. Mais processos multiplicam a demanda de conexões; a capacidade total depende também dos limites do banco. Este ajuste não muda a tela nem exige migração de dados.
+
 ## Dados e privacidade
 
 O cache da própria pessoa entra na exportação de dados em `compatibilidades` e é apagado com a conta, tanto na exclusão pela pessoa quanto pelo administrador. O registro inclui a versão do perfil, o estado da tentativa, a data e a resposta, quando disponível.

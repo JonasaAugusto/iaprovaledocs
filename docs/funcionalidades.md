@@ -36,6 +36,10 @@ Estado do C7: **Ainda não publicado**. O [ranking por relevância](busca-por-pe
 
 Estado do C8: **Ainda não publicado**. `GET /me/inicio` reúne cota do Empresas, concursos acompanhados, Perfil de concursos e total de novidades não lidas da própria conta em uma chamada, sem consumir IA nem marcar avisos como lidos. As rotas individuais continuam disponíveis por uma versão como alternativa de recuperação. A adaptação da interface segue separada. Veja [campos, autenticação, falhas e compatibilidade](navegacao.md#c8-início-agregado).
 
+## C9: cache da fonte e conexões da compatibilidade
+
+Estado do C9: **Ainda não publicado**. O [cache público da PCI](busca-por-perfil.md#c9-cache-da-pci) reutiliza consultas iguais por cinco minutos, com até 500 entradas por processo e cópias independentes antes dos filtros pessoais. Falhas e respostas com avisos não são guardadas; as cotas permanecem iguais. O [pool da compatibilidade](compatibilidade.md#c9-conexões-durante-a-avaliação) ganha margem para avaliações simultâneas e leituras concorrentes, preservando a trava contra execução duplicada e sem prometer capacidade ilimitada.
+
 ## Busca fora da URL
 
 Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
