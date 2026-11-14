@@ -124,6 +124,16 @@ Se o código anterior for retomado, suas alterações não geram versões; uma r
 
 A eliminação lógica não garante remoção imediata de resíduos físicos do banco nem de backups. Prazos e tratamento das cópias residuais exigem validação jurídica antes da liberação. A interface também é uma entrega pendente. Publicação e reversão dependem da operação autorizada.
 
+## C14: compartilhamento e proteção do link
+
+Estado: **Ainda não publicado em produção**. O [compartilhamento de busca](funcionalidades.md#c14-link-de-compartilhamento-de-busca) exige a migração v3.29, que só cria a tabela dos links. É aditiva e idempotente; aplicar e conferir antes do código novo, depois da v3.28 do C13 e das demais migrações pendentes. Esta documentação não executa nem atesta a aplicação em produção.
+
+O token vai no caminho da URL. Antes da liberação, os registros de acesso do servidor web e da aplicação precisam ocultar o token, inclusive nas respostas de erro. Telemetria também não pode guardar a URL completa com a credencial. Os cabeçalhos `Cache-Control: no-store`, `X-Robots-Tag: noindex, nofollow` e `Referrer-Policy: no-referrer` protegem as respostas de compartilhamento, mas não substituem o cuidado com os registros de acesso.
+
+Validar com contas e dados descartáveis: geração somente pelo dono autenticado, troca e revogação com recusa do link anterior, expiração de 7 dias, resposta pública só com títulos e links HTTP/HTTPS e mesma resposta 404 para links indisponíveis. Conferir limites de resultados e consultas, resposta 429 com espera de 60 segundos, exportação sem compartilhamento e exclusão dos links ao apagar conta ou busca. Confirmar que nenhum registro de acesso expõe a credencial. As telas de gerar, trocar e revogar e a interface de apresentação dos resultados ainda estão pendentes.
+
+Retirar o código que depende da tabela antes de reverter o esquema. A reversão apaga os links e preserva o histórico; reaplicar a migração não recupera links anteriores. A liberação depende da conferência dessas condições pela operação autorizada.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.
