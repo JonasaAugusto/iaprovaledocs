@@ -62,7 +62,7 @@ Estado: **Ainda não publicado**. O C11 prevê a coleta incremental descrita aba
 
 A listagem não traz texto nem link do anúncio. Por isso, a primeira coleta é lenta: consulta o detalhe de cada vaga para obter esses dados. Nas coletas seguintes, vagas com o mesmo identificador e mesma data de revisão reaproveitam o texto e o link da coleta anterior; o detalhe é consultado para vagas novas ou alteradas. As seguintes ficam mais rápidas por esse reaproveitamento, mas a duração depende da quantidade de vagas e das respostas da fonte.
 
-Mesmo sem mudança na data de revisão, o detalhe é consultado novamente a cada cerca de 7 dias, de forma escalonada entre as vagas, para captar edições de texto. O reaproveitamento não elimina as consultas de detalhe nem garante atualização imediata do anúncio.
+Mesmo sem mudança na data de revisão, a renovação do detalhe vence entre 4 e 7 dias, de forma escalonada pelo identificador da vaga, para captar edições de texto. O intervalo conta da data própria do detalhe: reler a listagem não renova esse prazo. Na próxima coleta após o vencimento, o detalhe é consultado novamente; índices antigos sem essa data também exigem nova consulta. O reaproveitamento não elimina as consultas de detalhe e não garante atualização imediata do anúncio.
 
 O orçamento é de 120 segundos por board (a página de vagas de cada empresa). Ao atingir esse limite, a coleta fica parcial: vagas já conhecidas e ainda não revisitadas permanecem no índice, marcadas como desatualizadas. O processo termina com código de saída 2, uma falha temporária tolerada pelo timer; isso não equivale a uma coleta completa. A preservação não renova a validade das vagas: continua valendo o limite de 72 horas descrito acima.
 

@@ -16,7 +16,7 @@ class C11DocumentacaoTest(unittest.TestCase):
                       'listagem não traz texto nem link', 'detalhe de cada vaga',
                       'mesmo identificador e mesma data de revisão',
                       'texto e o link da coleta anterior', 'novas ou alteradas',
-                      'cerca de 7 dias', 'escalonada', 'edições de texto'):
+                      'entre 4 e 7 dias', 'escalonada', 'edições de texto'):
             with self.subTest(regra=regra):
                 self.assertIn(regra, texto)
 
