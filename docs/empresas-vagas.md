@@ -56,6 +56,18 @@ A prévia de compatibilidade localiza a vaga diretamente pelo identificador entr
 - O catálogo reúne **176 empresas** em `data/empresas` no backend. Estar no catálogo não garante vagas abertas, coleta bem-sucedida ou participação de todas as empresas em cada atualização.
 - A cobertura é restrita aos sistemas públicos **Greenhouse, Lever, Ashby, Workable e SmartRecruiters**, em fontes cuja coleta é permitida por **`robots.txt`**. Não há acesso a páginas privadas ou contorno de restrições. **Gupy não está implementado**; o catálogo não amplia a lista de fontes suportadas.
 
+## C11: coleta incremental SmartRecruiters
+
+Estado: **Ainda não publicado**. O C11 prevê a coleta incremental descrita abaixo para a SmartRecruiters; o estado **No ar** do E5 não confirma integração ou ativação desta mudança em produção.
+
+A listagem não traz texto nem link do anúncio. Por isso, a primeira coleta é lenta: consulta o detalhe de cada vaga para obter esses dados. Nas coletas seguintes, vagas com o mesmo identificador e mesma data de revisão reaproveitam o texto e o link da coleta anterior; o detalhe é consultado para vagas novas ou alteradas. As seguintes ficam mais rápidas por esse reaproveitamento, mas a duração depende da quantidade de vagas e das respostas da fonte.
+
+Mesmo sem mudança na data de revisão, o detalhe é consultado novamente a cada cerca de 7 dias, de forma escalonada entre as vagas, para captar edições de texto. O reaproveitamento não elimina as consultas de detalhe nem garante atualização imediata do anúncio.
+
+O orçamento é de 120 segundos por board (a página de vagas de cada empresa). Ao atingir esse limite, a coleta fica parcial: vagas já conhecidas e ainda não revisitadas permanecem no índice, marcadas como desatualizadas. O processo termina com código de saída 2, uma falha temporária tolerada pelo timer; isso não equivale a uma coleta completa. A preservação não renova a validade das vagas: continua valendo o limite de 72 horas descrito acima.
+
+A coleta respeita `robots.txt` e o intervalo de 1 segundo por host. O C11 não garante cobertura completa e não contorna restrições da fonte; confirme a disponibilidade no anúncio oficial. O reaproveitamento de detalhes entre coletas é diferente do [cache do índice de busca do C2](#reutilização-do-índice--c2).
+
 ## Prévia de compatibilidade
 
 A consulta `GET /empresas/vagas/{id}/compatibilidade` oferece uma **prévia gratuita, sem IA**, usando os requisitos disponíveis e comparação **por regras** com o perfil do currículo. Não consome chamadas de IA nem executa a extração e a explicação sob demanda de [E2](empresas.md#e2--compatibilidade-e-explicação).

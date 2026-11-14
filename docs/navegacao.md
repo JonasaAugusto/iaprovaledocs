@@ -44,6 +44,8 @@ A aba Carreira **só aparece** quando **`GET /empresas/cota` responde** e confir
 - **Currículo e vaga:** envio de **PDF/DOCX/TXT até 5 MB**, acompanhamento do perfil extraído e comparação com uma vaga. O resultado apresenta nota de **0 a 10 com régua**, pontos fortes, lacunas e a ação **“Por que essa nota?”**. Os limites de extração e as situações de perfil pendente estão em [Empresas E1/E2](empresas.md).
 - **Buscar vagas:** consulta ao índice e prévia gratuita por regras, com cobertura e validade descritas em [Busca de vagas (E5)](empresas-vagas.md).
 
+O C11, **ainda não publicado**, prevê [coleta incremental SmartRecruiters](empresas-vagas.md#c11-coleta-incremental-smartrecruiters): a primeira coleta é lenta; as seguintes ficam mais rápidas ao reaproveitar os detalhes de vagas sem alteração. Uma coleta parcial preserva vagas já conhecidas ainda não revisitadas como desatualizadas, respeitando a validade do índice. Isso não garante cobertura completa nem confirma mudança na interface publicada.
+
 Quem já tem currículo salvo no Perfil pode **usar o currículo do Perfil** em vez de enviar o arquivo de novo, e o botão **Preencher com currículo**, no começo do Perfil, completa só os campos vazios com o que o currículo tiver, avisando o que preencheu.
 
 Os materiais são **por vaga**: currículo ATS em **PDF**, **Word** (DOCX) ou texto para **copiar**, e **roteiro de entrevista**. Consulte as regras conservadoras de geração, a cota e o teste gratuito em [E3/E4](empresas-e3-e4.md). A nota não representa chance de contratação e os materiais precisam ser revisados pela pessoa antes do uso.
