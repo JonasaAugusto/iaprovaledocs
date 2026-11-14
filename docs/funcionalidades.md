@@ -32,6 +32,10 @@ Estado: **Ainda não publicado**. Buscas em linguagem natural passam a usar até
 
 Estado do C7: **Ainda não publicado**. O [ranking por relevância](busca-por-perfil.md#c7-ranking-por-relevância) preserva a prioridade geográfica e ordena por cargo exato, parcial e prazo, com pontuação e motivo na resposta. A [compatibilidade por cargo na busca](compatibilidade.md#c7-selo-na-resposta-da-busca) usa regras sem IA adicional; sem requisitos individuais, o selo permanece parcial e exige confirmação no edital. A apresentação na interface não é anunciada nesta entrega; a consulta detalhada em Acompanhando mantém suas regras.
 
+## C8: início agregado
+
+Estado do C8: **Ainda não publicado**. `GET /me/inicio` reúne cota do Empresas, concursos acompanhados, Perfil de concursos e total de novidades não lidas da própria conta em uma chamada, sem consumir IA nem marcar avisos como lidos. As rotas individuais continuam disponíveis por uma versão como alternativa de recuperação. A adaptação da interface segue separada. Veja [campos, autenticação, falhas e compatibilidade](navegacao.md#c8-início-agregado).
+
 ## Busca fora da URL
 
 Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
