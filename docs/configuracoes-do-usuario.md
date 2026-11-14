@@ -51,6 +51,28 @@ As recusas de leitura descritas acima retornam HTTP 401 com a mesma mensagem “
 
 Antes da liberação, os registros de acesso precisam proteger o token presente na URL, conforme os [requisitos de publicação](pre-deploy.md#c12-calendário-e-proteção-do-link).
 
+## C13: versões do perfil
+
+Estado: **Ainda não publicado em produção**. O histórico está implementado no backend; a consulta visual das versões ainda depende da interface e da [preparação da liberação](pre-deploy.md#c13-checklist-e-versões-do-perfil). É separado do currículo do Empresas.
+
+As versões não guardam o texto do currículo: guardam somente o hash SHA-256 e o tamanho em bytes UTF-8, nulos quando ausente. Os demais campos editáveis do perfil são guardados. O histórico mantém até 20 versões, sem prazo em dias, até a poda das mais antigas ou a exclusão da conta; não é um backup. O número da versão é independente do hash usado pelo cache de compatibilidade.
+
+`PUT /profile` preserva campos não enviados. Na primeira gravação cria uma versão; para um perfil já existente sem versões, registra o estado anterior e, se houver alteração, o novo. O histórico não reconstrói edições anteriores à funcionalidade. Salvar conteúdo idêntico não acrescenta versão, mas continua atualizando a data do perfil.
+
+`GET /profile/versoes` lista somente da própria conta, da mais recente à mais antiga, com `numero` e `criado_em`. Sem gravações desde a migração, a lista fica vazia. A numeração cresce mesmo após a poda.
+
+`GET /profile/versoes/diff?de=1&para=2` compara as duas versões solicitadas. Nos demais campos editáveis, retorna `campo`, `antes` e `depois`, preservando a distinção entre null e texto vazio. Omite campos iguais e datas de atualização. Para currículo, compara hash e tamanho e indica apenas “currículo alterado”, sem texto nem hash no diff. Exemplo fictício de resposta:
+
+```json
+{"de":1,"para":2,"alteracoes":[{"campo":"graduacao","antes":"Direito","depois":null},{"campo":"curriculo","antes":"currículo alterado","depois":"currículo alterado"}]}
+```
+
+Comparar a mesma versão retorna alterações vazias; inverter a ordem inverte antes/depois. Os parâmetros `de` e `para` aceitam inteiros de 1 a 2147483647; fora da faixa retornam HTTP 422, sem erro interno 500. Versões ausentes, podadas ou de outra conta retornam 404. As consultas exigem sessão ativa e senha definitiva e não recebem identificador de usuário.
+
+`PUT /profile` com `curriculo: null` e `DELETE /me/curriculo` removem texto legado, hash e tamanho de todas as versões da conta, mesmo se o currículo atual já estiver vazio; os demais campos são preservados. O diff deixa de mostrar alterações antigas do currículo. Essa limpeza se refere ao Perfil de concursos; o currículo do Empresas mantém sua exclusão própria.
+
+`GET /me/exportar` inclui `checklist` e `versoes_perfil`, sem identificador interno de usuário, e a exclusão da conta remove ambos. A eliminação é lógica no banco ativo: resíduos físicos não são removidos imediatamente e backups seguem sua rotação própria. Prazos e tratamento dessas cópias residuais dependem de validação jurídica antes da liberação; não há promessa de apagamento físico imediato.
+
 ## Aparência
 
 - Tema claro, escuro ou automático (segue o aparelho).
