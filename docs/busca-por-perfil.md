@@ -16,6 +16,24 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
   - sem UF no perfil: lista geral.
 - Em seguida entra o filtro por nível.
 
+## C10: verificação de links e cidade
+
+Estado: **Ainda não publicado**. Esta seção descreve o contrato previsto do C10 para a verificação de links oficiais em Informações e a consulta por cidade. Não confirma ativação em produção.
+
+### Verificação de links
+
+A proteção contra SSRF (requisições indevidas do servidor a destinos internos) prevê conexão ao **IP público validado**, tentando cada IP em ordem quando necessário. A conexão usa o endereço já validado. Endereços privados são bloqueados, inclusive quando representados como IPv4 mapeado em IPv6. A verificação usa cliente dedicado, sem utilizar variáveis de ambiente de proxy.
+
+O nome original do destino é preservado no cabeçalho Host, no SNI (nome informado na conexão HTTPS) e na validação do certificado. A proteção se repete em cada redirecionamento, antes de acessar o próximo destino. Conseguir abrir um link não comprova a legitimidade do concurso nem a exatidão da extração automática: confirme no edital e no portal oficial os requisitos e prazos.
+
+### Consulta por cidade
+
+A consulta tenta primeiro a grafia original da cidade e usa a forma normalizada somente se a resposta vier vazia: no máximo duas chamadas à ferramenta de consulta por cidade. Com resultados na primeira tentativa, não faz a segunda consulta. Esse limite se refere a esta etapa, não ao conjunto de consultas de uma busca regional.
+
+“Salvador - BA” e “Salvador/BA” são tratados como “Salvador”, mantendo a UF separada. As grafias “Ilhéus” e “Ilheus” funcionam nos dois sentidos, com a tentativa original antes da alternativa. Isso amplia a tolerância de escrita, mas não garante resultados quando a fonte não tiver concursos disponíveis.
+
+O [cache da PCI](#c9-cache-da-pci) continua valendo nas duas tentativas, com as mesmas regras de validade e reutilização, inclusive para uma lista vazia válida. A alternativa não força ignorar o cache nem muda as regras de UF, nível, mobilidade ou cotas. Veja as [validações antes da publicação](pre-deploy.md#c10-links-e-consulta-por-cidade).
+
 ## C9: cache da PCI
 
 Estado: **Ainda não publicado**. As consultas à fonte pública PCI Concursos passam a reutilizar respostas em memória. Esse cache é uma cópia temporária da resposta da fonte, compartilhada entre buscas atendidas pelo mesmo processo do serviço, antes dos filtros e das anotações de cada pessoa.

@@ -87,6 +87,19 @@ Aplicação e reversão são idempotentes. A reversão apaga somente o cache, qu
 
 Antes de liberar, preparar backup e fazer revisão cruzada do código e destas docs. Validar em recursos descartáveis criação e reversão da tabela, reutilização e vencimento, lista vazia por 24 horas, falhas do provedor e de leitura/escrita do cache, três gerações em paralelo e teto de seis segundos, descarte de genéricos, palavras inteiras, custo e alertas sem saldo. Confirmar que a busca pelo perfil continua sem IA. Esta documentação não executa nem atesta migração ou publicação em produção; execução e liberação cabem à operação autorizada.
 
+## C10: links e consulta por cidade
+
+Estado: **Ainda não publicado**. O [contrato previsto de links e cidade](busca-por-perfil.md#c10-verificação-de-links-e-cidade) não exige migração de banco. Esta documentação não atesta implementação ou ativação em produção. Os estados publicados das demais seções não se estendem ao C10.
+
+Antes da liberação, concluir a revisão cruzada do código e destas docs e validar em recursos descartáveis, com rede simulada e sem dados reais:
+
+- Conexão ao IP público validado, tentativas de cada IP em ordem quando necessário e recusa de endereços privados, inclusive IPv4 mapeado em IPv6. Confirmar que a conexão mantém o endereço já validado.
+- Preservação de Host/SNI e validação do certificado HTTPS com cliente dedicado, sem proxy de ambiente; repetir a validação a cada redirecionamento antes de acessá-lo.
+- Consulta por cidade com grafia original primeiro e alternativa normalizada só após resposta vazia, no máximo duas chamadas nesta etapa; com resultados iniciais, sem segunda consulta. Cobrir “Salvador - BA”, “Salvador/BA”, “Ilhéus” e “Ilheus” nos dois sentidos, sem ampliar a UF escolhida.
+- Reutilização do cache da PCI em ambas as tentativas, inclusive para lista vazia válida, preservando expiração, filtros pessoais e cotas. Confirmar o funcionamento de Informações e dos links oficiais, sem tratar resposta HTTP como prova de legitimidade do concurso.
+
+A publicação depende da confirmação desses comportamentos no backend e da operação autorizada. Se a validação falhar, interromper a liberação e avaliar a recuperação; esta seção não executa publicação nem altera os procedimentos das outras entregas.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.

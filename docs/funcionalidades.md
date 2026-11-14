@@ -40,6 +40,10 @@ Estado do C8: **Ainda não publicado**. `GET /me/inicio` reúne cota do Empresas
 
 Estado do C9: **Ainda não publicado**. O [cache público da PCI](busca-por-perfil.md#c9-cache-da-pci) reutiliza consultas iguais por cinco minutos, com até 500 entradas por processo e cópias independentes antes dos filtros pessoais. Falhas e respostas com avisos não são guardadas; as cotas permanecem iguais. O [pool da compatibilidade](compatibilidade.md#c9-conexões-durante-a-avaliação) ganha margem para avaliações simultâneas e leituras concorrentes, preservando a trava contra execução duplicada e sem prometer capacidade ilimitada.
 
+## C10: links e cidade
+
+Estado do C10: **Ainda não publicado**. O contrato previsto da [verificação de links e consulta por cidade](busca-por-perfil.md#c10-verificação-de-links-e-cidade) conecta ao IP público validado e revalida cada redirecionamento, preservando a identidade HTTPS do destino. Na cidade, tenta a grafia original e só consulta a alternativa normalizada após resposta vazia, no máximo duas chamadas; aceita “Salvador - BA”/“Salvador/BA” e variações “Ilhéus”/“Ilheus” nos dois sentidos, mantendo o cache da PCI. A mudança não garante resultados nem comprova a legitimidade de um concurso. Veja a [validação antes da publicação](pre-deploy.md#c10-links-e-consulta-por-cidade).
+
 ## Busca fora da URL
 
 Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica fora da URL da página: texto, modo de busca, uso do currículo e UFs ficam no histórico do navegador (`history.state`). Os botões voltar e avançar e a ação de recarregar preservam o estado da busca, sem depender de `?q=` ou `uf=` na URL.
