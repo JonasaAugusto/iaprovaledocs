@@ -174,7 +174,7 @@ Estado: **No ar**, com envio de e-mail ligado em produção desde **12/11/2026**
 
 ### Alertas e concursos acompanhados
 
-- Até **10 alertas por conta**, com nome, uso do perfil e/ou termo de busca e uma lista de UFs. É necessário informar um termo ou usar o perfil. A lista de UFs segue as mesmas regras do [filtro de UF](filtro-de-uf.md); vazia significa Brasil todo. É possível criar, editar, pausar, reativar e excluir alertas.
+- Até **10 alertas por conta**, com nome, uso do perfil e/ou termo de busca e uma lista de UFs. É necessário informar um termo ou usar o perfil. A lista de UFs segue as mesmas regras do [filtro de UF](filtro-de-uf.md); vazia não impõe UFs explícitas, permitindo inferência pelo termo da busca. É possível criar, editar, pausar, reativar e excluir alertas.
 - Ao criar ou reativar um alerta, a primeira busca bem-sucedida registra os concursos encontrados como **linha de base**, sem avisá-los. Os alertas avisam só concursos que aparecerem daí para a frente, com até **10 avisos por alerta por dia** na rotina prevista de uma execução diária; excedentes ficam pendentes para os próximos dias. Um concurso não gera avisos repetidos para a mesma conta, mesmo se combinar com mais de um alerta.
 - Acompanhar até **50 concursos por conta**, guardando título e link da matéria do concurso. A lista é ordenada pela próxima data. Acompanhar de novo o mesmo concurso não duplica o item; é possível deixar de acompanhar.
 - As datas vêm da leitura automática das informações do concurso: fim das inscrições, fim do pedido de isenção e data da prova. Se a leitura falhar, o acompanhamento continua salvo; datas podem ficar indisponíveis até uma atualização posterior.
@@ -191,6 +191,39 @@ Estado: **No ar**, com envio de e-mail ligado em produção desde **12/11/2026**
 - E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. A Brevo (Sendinblue SAS, França) atua como operador no envio, com transferência internacional de dados. Veja [Dados e privacidade](configuracoes-do-usuario.md) e o estado dos [textos legais 1.3](versao-gratis.md#termos-de-uso-e-política-de-privacidade).
 
 A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo) está **no ar desde 12/11/2026**, junto da etapa 3, sem recalcular o histórico.
+
+## C12: calendário dos acompanhados
+
+Estado: **Ainda não publicado em produção**. Implementado no backend; o botão de calendário ainda depende da interface. Não altera o estado dos alertas e acompanhados já publicados.
+
+Cada pessoa poderá gerar um link pessoal `.ics` com os concursos que acompanha, para assinar no Google Agenda, Apple Calendário ou Outlook. O link é uma credencial de leitura: compartilhe somente com o aplicativo escolhido. Veja [geração, troca e revogação](configuracoes-do-usuario.md#c12-link-pessoal-do-calendário).
+
+Cada data conhecida de fim das inscrições, fim da isenção e prova gera um evento de dia inteiro. As datas ausentes não geram eventos; sem datas, o calendário é válido e vazio. Inclui datas passadas. Usa só as datas armazenadas, sem consulta externa, sem IA e sem consumir cota. Confirme os prazos no edital: o calendário não garante que as informações estejam completas ou atualizadas.
+
+O arquivo se chama `acompanhados.ics`, com nome de calendário “Concursos acompanhados”, títulos, links públicos e prazos; não exporta nome nem e-mail da pessoa. Os títulos são tratados para não quebrar o arquivo, com escape de texto, remoção de caracteres de controle e divisão de linhas preservando os acentos.
+
+Correções de data preservam o identificador do evento; deixar de acompanhar remove o concurso do calendário fornecido pelo link. A importação é uma fotografia do arquivo naquele momento. Para acompanhar mudanças, use a assinatura do link; a atualização e a remoção no aplicativo escolhido dependem da frequência de sincronização dele. Revogar o link impede novas leituras, mas não apaga cópias já importadas.
+
+A leitura tem limite de 30 consultas por endereço IPv4 ou rede IPv6 /64 em 60 segundos, inclusive tentativas com credencial inválida. Excesso retorna HTTP 429 e orienta aguardar 60 segundos; pessoas na mesma rede podem compartilhar esse limite. Limitação conhecida: o controle é por processo e em memória, reinicia com o processo e não é compartilhado entre instâncias. Não é uma cota persistente global.
+
+A liberação depende da [migração e proteção do link nos registros de acesso](pre-deploy.md#c12-calendário-e-proteção-do-link).
+
+## C12: contrato de alerta por busca
+
+Estado da documentação C12: **Ainda não publicado em produção**. O contrato de alerta por `termo` + `ufs` já existe no backend, sem exigir perfil; o atalho visual para usar a busca atual ainda depende da interface. Os alertas publicados e suas regras de linha de base e avisos continuam descritos acima.
+
+Para integrações autenticadas da própria conta, `POST /me/alertas` aceita, por exemplo:
+
+```json
+{"nome": "Professor em SP", "termo": "professor", "ufs": ["SP"], "usar_perfil": false}
+```
+
+É necessária sessão autenticada; não é o token do calendário nem uma credencial da API de parceiros. A criação retorna 201, com `id`, `nome`, `termo`, `ufs`, `usar_perfil`, `ativo`, `criado_em` e `ultimo_envio_em`.
+
+- `nome` é obrigatório, de 1 a 60 caracteres; `termo` aceita até 200 caracteres e é obrigatório quando `usar_perfil` é falso. Nome e termo têm espaços das extremidades removidos.
+- `ufs` aceita até 27 siglas válidas, normaliza maiúsculas e espaços e remove duplicatas. Lista vazia não impõe UFs explícitas: permite inferência pelo termo da busca, conforme o [filtro de UF](filtro-de-uf.md).
+- `usar_perfil` assume falso e `ativo` assume verdadeiro quando omitidos. São até dez alertas por conta; exceder retorna 409. Repetir o pedido cria outro alerta: não deduplica.
+- `GET /me/alertas` lista os alertas da conta; `PATCH /me/alertas/{id}` edita e `DELETE /me/alertas/{id}` exclui. Um alerta de outra conta retorna 404, sem permitir leitura ou alteração.
 
 ## Compatibilidade entre perfil e cargos — etapa 3
 
