@@ -16,6 +16,16 @@ Quem tinha só a escolaridade no perfil (por exemplo Fundamental e Médio, em Ri
   - sem UF no perfil: lista geral.
 - Em seguida entra o filtro por nível.
 
+## Privacidade do currículo na busca
+
+Estado da correção: **Ainda não publicado em produção**. A opção de usar currículo já existe; a mudança descrita aqui trata o texto antes de enviá-lo ao provedor de IA.
+
+Na busca por texto com a opção “usar currículo” ligada e currículo salvo no Perfil, o DeepSeek recebe o trecho do currículo como pista extra para interpretar a consulta. Com a correção, e-mails, telefones, links e CPF reconhecidos são substituídos por marcadores pela mesma função da Carreira, antes do corte de 6.000 caracteres. O trecho tratado é usado inclusive nas repetições da chamada; o texto salvo no Perfil não muda.
+
+**Nome e endereço continuam no texto** quando presentes no trecho enviado. Essa remoção **não anonimiza o currículo**: informações profissionais também podem identificar alguém, e formatos não reconhecidos podem permanecer. Revise o conteúdo e evite dados sensíveis ou informações desnecessárias de terceiros. A remoção descrita se aplica ao bloco do currículo, não ao texto digitado na busca nem aos demais campos do perfil enviados para interpretação.
+
+“Buscar com meu perfil” continua sem IA; essa consulta determinística não passa a enviar currículo ao DeepSeek por causa da opção. O tratamento do currículo na [Carreira](empresas.md#privacidade-e-textos-legais) tem seu próprio estado de publicação.
+
 ## C10: verificação de links e cidade
 
 Estado: **Ainda não publicado**. Esta seção descreve o contrato previsto do C10 para a verificação de links oficiais em Informações e a consulta por cidade. Não confirma ativação em produção.

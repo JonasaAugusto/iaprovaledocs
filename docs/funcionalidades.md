@@ -24,6 +24,10 @@ Estado: **No ar**.
 
 Regra de produto: não há pesquisas de exemplo clicáveis, porque cada busca tem custo.
 
+## Privacidade do currículo na busca
+
+Estado da correção: **Ainda não publicado em produção**. Na busca por texto com currículo, e-mails, telefones, links e CPF reconhecidos passam a ser substituídos por marcadores antes do corte de 6.000 caracteres e do envio ao DeepSeek, inclusive nas repetições da chamada, com a mesma função da Carreira. O texto salvo no Perfil não muda. **Nome e endereço continuam no texto**; a remoção **não anonimiza o currículo** e formatos não reconhecidos podem permanecer. Veja o [alcance do tratamento](busca-por-perfil.md#privacidade-do-currículo-na-busca). A consulta determinística “Buscar com meu perfil” continua sem IA.
+
 ## C6a: equivalentes de cargo na busca
 
 Estado: **Ainda não publicado**. Buscas em linguagem natural passam a usar até cinco equivalentes de cargo por formação, com palavras inteiras. Direito encontra Advogado entre os cargos já retornados. O cache global vale 30 dias para equivalentes e 24 horas para lista vazia. Cada busca gera no máximo três formações novas em paralelo, com teto conjunto de seis segundos de espera pelo modelo; falhas do provedor ou cache preservam a busca. “Buscar com meu perfil” continua sem IA; a tabela curta de siglas fica para C17. Veja [alcance, privacidade, falhas e custo estimado](busca-por-perfil.md#c6a-equivalentes-de-cargo) e a [migração reversível](pre-deploy.md#c6a-cache-de-equivalentes-de-cargo). Confira sempre os requisitos no edital.
