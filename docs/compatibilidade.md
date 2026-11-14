@@ -16,6 +16,16 @@ Estado: **No ar**, conforme a publicação informada em **12/11/2026**. A tela f
 
 O resultado geral é `combina` se pelo menos um cargo combina; é `nao_combina` se todos os cargos avaliados não combinam; nos demais casos é `parcial`, inclusive quando a leitura não traz cargos. `sem_perfil` não é um nível por cargo.
 
+## C7: selo na resposta da busca
+
+Estado: **Ainda não publicado**. A [resposta da busca](busca-por-perfil.md#c7-ranking-por-relevância) passa a incluir `compatibilidade_cargos`, calculada por regras locais, sem IA, sem chamadas adicionais e sem cobrança adicional por essa avaliação. Isso não torna a busca por texto inteira gratuita nem dispensa sua interpretação por IA.
+
+Cada cargo recebe `nome`, `nivel`, `motivo` e `falta`. O contrato admite `combina`, `parcial` e `nao_combina`, mas a fonte da busca fornece nomes sem requisitos individuais; por isso, os selos atuais permanecem `parcial`, orientando a conferir as exigências. O nível global do concurso não é atribuído a todos os cargos, nem o nome do cargo permite inferir requisitos. A avaliação usa a formação concluída do perfil, mesmo se a busca mencionar outra formação ou houver correspondência com formação futura.
+
+A correspondência textual em `cargos_compativeis` não comprova habilitação. O selo não garante elegibilidade: confirme no edital a formação exigida e os demais requisitos. Lista de cargos vazia produz lista de compatibilidade vazia.
+
+Essa anotação na busca é distinta da consulta detalhada de **Alertas > Acompanhando**, descrita nesta página, que lê informações do concurso e tem cota e cache próprios conforme as regras abaixo. O C7 não anuncia a apresentação do selo na interface.
+
 ## Regras e papel da IA
 
 - Regras em Python comparam a formação concluída e a escolaridade com exigências explícitas de cada cargo. Formação em andamento não equivale a diploma concluído. Escolaridade e requisitos gerais do concurso não são herdados por todos os cargos.
