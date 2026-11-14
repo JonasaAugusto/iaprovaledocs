@@ -14,9 +14,9 @@ A aba **Estatísticas** (chamada Stats nestas docs e no endereço `#stats`) é o
 
 Nenhum dado pessoal aparece: só contagens, somas e médias.
 
-## Estimativa de custo (ainda não publicado)
+## Estimativa de custo
 
-Estado da atualização: **Ainda não publicado**, junto do pacote de avisos e prazos e da etapa 3. A estimativa para novas buscas usa os preços da [tabela oficial da DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/), conferida em 11/11/2026, separando entrada com cache, entrada sem cache e saída. O alias `deepseek-v4-flash` é atendido como `deepseek-flash` (DeepSeek-V4.1-Flash-1017), com a tarifa Flash.
+Estado da atualização: **No ar** desde **12/11/2026**, junto do pacote de avisos e prazos e da etapa 3. A estimativa para novas buscas usa os preços da [tabela oficial da DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/), conferida em 11/11/2026, separando entrada com cache, entrada sem cache e saída. O alias `deepseek-v4-flash` é atendido como `deepseek-flash` (DeepSeek-V4.1-Flash-1017), com a tarifa Flash.
 
 Valores em **US$ por 1 milhão de tokens**, como referência de 11/11/2026:
 

@@ -72,7 +72,7 @@ Nos alertas, a geração opcional respeita o saldo de chamadas compartilhado com
 
 Uma resposta válida no cache usa zero tokens adicionais nesta etapa. Cada geração admite entrada de até 120 caracteres de formação mais a instrução fixa e saída de até 200 tokens (unidades de texto cobradas pelo provedor).
 
-Exemplo de orçamento: com 200 tokens de entrada sem cache e 200 de saída, a estimativa pelas tarifas do código é US$ 0,0003 por geração, ou US$ 0,30 por 1.000 formações distintas em 30 dias, antes de renovações e chamadas simultâneas. Não é cotação atual nem fatura; conferir as tarifas antes de orçar. O cache de formações é diferente do desconto de cache de tokens do provedor descrito em [Estatísticas](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado).
+Exemplo de orçamento: com 200 tokens de entrada sem cache e 200 de saída, a estimativa pelas tarifas do código é US$ 0,0003 por geração, ou US$ 0,30 por 1.000 formações distintas em 30 dias, antes de renovações e chamadas simultâneas. Não é cotação atual nem fatura; conferir as tarifas antes de orçar. O cache de formações é diferente do desconto de cache de tokens do provedor descrito em [Estatísticas](stats-do-administrador.md#estimativa-de-custo).
 
 Os tokens informados pelo provedor entram no custo registrado da busca, inclusive quando a resposta tem JSON inválido. Falhas e cancelamentos sem informação de uso não permitem estimar o número exato de tokens. Cancelar a espera não garante que o processamento no provedor tenha parado. A [preparação da publicação](pre-deploy.md#c6a-cache-de-equivalentes-de-cargo) descreve a dependência do banco e a reversão.
 

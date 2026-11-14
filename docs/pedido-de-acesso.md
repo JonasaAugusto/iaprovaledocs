@@ -8,11 +8,11 @@ Estado: disponível como modo de build alternativo (não é o publicado em produ
 
 ## Como a conversa funciona
 
-1. O chat abre e o agente diz, com o campo bloqueado: "Oi! Para analisar e liberar o seu acesso à plataforma, preciso guardar o seu nome, o seu telefone e o usuário que você quer, ok?" Não há pergunta de sim ou não.
+1. Ao abrir, o chat apresenta a mensagem com o campo bloqueado: "Oi! Para analisar e liberar o seu acesso à plataforma, preciso guardar o seu nome, o seu telefone e o usuário que você quer, ok?" Não há pergunta de sim ou não.
 2. O campo só destrava quando há uma pergunta para responder. Ordem: nome completo, telefone (com máscara e DDD) e nome de usuário.
-3. Enquanto o agente fala, o campo fica bloqueado e a cor do botão e do campo escurece de forma gradual (no tema escuro, o dourado). Ao destravar, clareia de forma gradual. Com "reduzir movimento" ligado, a troca é instantânea.
+3. Enquanto a resposta é apresentada, o campo fica bloqueado e a cor do botão e do campo escurece de forma gradual (no tema escuro, o dourado). Ao destravar, clareia de forma gradual. Com "reduzir movimento" ligado, a troca é instantânea.
 4. O nome de usuário é verificado em tempo real, a cada caractere digitado (a partir do terceiro). O botão de enviar fica apagado e só acende quando o servidor confirma que o nome está livre; nesse caso aparece um "V" discreto dentro do campo. Se o nome já existir, aparece um aviso flutuante em vidro translúcido ("Tente outro usuário."), sem empurrar a conversa, e a pessoa apaga e escreve outro. O servidor responde apenas livre ou em uso, sem dizer o motivo e sem devolver listas, e limita a quantidade de consultas por conexão. Se mesmo assim o servidor recusar no envio, o campo reabre com o mesmo usuário marcado como em uso, sem repetir a pergunta.
-5. Depois do envio, o agente confirma que a pessoa receberá o login e a senha em breve, e convida: "Enquanto você não recebe o seu acesso, pode tirar algumas dúvidas comigo!"
+5. Depois do envio, o chat confirma que a pessoa receberá o login e a senha em breve, e convida: "Enquanto você não recebe o seu acesso, pode tirar algumas dúvidas comigo!"
 6. Começa uma janela de dúvidas de **8 perguntas ou 5 minutos**, o que vier primeiro, com um cronômetro no topo do chat, ao lado do botão de fechar. Ao acabar, o chat é bloqueado.
 
 ## Janela de dúvidas

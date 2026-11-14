@@ -190,7 +190,7 @@ Estado: **No ar**, com envio de e-mail ligado em produção desde **12/11/2026**
 - Se houver falha ou interrupção com entrega incerta, o e-mail não é reenviado automaticamente: a mensagem pode não chegar, mas os avisos continuam em Novidades no site.
 - E-mail, preferência, Novidades, alertas e concursos acompanhados entram na exportação e são apagados com a conta. A Brevo (Sendinblue SAS, França) atua como operador no envio, com transferência internacional de dados. Veja [Dados e privacidade](configuracoes-do-usuario.md) e o estado dos [textos legais 1.3](versao-gratis.md#termos-de-uso-e-política-de-privacidade).
 
-A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo-ainda-não-publicado) também está **ainda não publicada**.
+A atualização da [estimativa de custo de IA](stats-do-administrador.md#estimativa-de-custo) está **no ar desde 12/11/2026**, junto da etapa 3, sem recalcular o histórico.
 
 ## Compatibilidade entre perfil e cargos — etapa 3
 

@@ -25,7 +25,7 @@ class C5DocumentacaoTest(unittest.TestCase):
                       "hash armazenado", "downgrade", "versão anterior",
                       "novo login", "não recupera os tokens apagados",
                       "Não restaurar sessões antigas", "não encerra sessões novas",
-                      "revisão cruzada", "a operação", "encerra as sessões existentes",
+                      "conferência do código e da documentação", "a operação", "encerra as sessões existentes",
                       "não executa nem atesta"):
             self.assertIn(regra, texto)
 
