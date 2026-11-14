@@ -18,6 +18,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 - [IAprovale Empresas — E1/E2](docs/empresas.md): no ar desde 12/11/2026; currículo compactado, compatibilidade com vagas, explicação sob demanda, cota própria e privacidade.
 - [Busca de vagas — E5](docs/empresas-vagas.md): busca, panorama, prévia gratuita e cobertura do índice local.
 - [Navegação e Carreira](docs/navegacao.md): telas publicadas, barra, topo, home e endereços das abas.
+- C8, **ainda não publicado**: [início agregado](docs/navegacao.md#c8-início-agregado), com cota do Empresas, acompanhados, perfil e contagem de não lidas em uma chamada; rotas individuais preservadas por uma versão, adaptação da interface separada.
 - [Filtro de UF](docs/filtro-de-uf.md): com UFs escolhidas só voltam concursos delas e os nacionais; nacionais regionais marcados pela fonte tratados pela UF do texto; zero resultados avisa claramente. No ar (backend 2.11.0, site 3.10.0). UF do texto como filtro e `ufs` na API de parceiros: aguardando publicação do backend 2.12.0.
 - [Stats do administrador](docs/stats-do-administrador.md): a aba Estatísticas, só para administradores, com a evolução do uso. Atualização da estimativa de custo de IA: ainda não publicado.
 - [Eventos de busca](docs/eventos-de-busca.md): o registro de cada busca (horário, custo e tipo, sem conteúdo) que alimenta o Stats por hora, com retenção de 90 dias e o texto para a Política de Privacidade.

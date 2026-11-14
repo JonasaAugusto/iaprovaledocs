@@ -18,6 +18,25 @@ Um link antigo com `?q=` abre a busca uma vez e a URL é limpa. Copiar o endere�
 
 No front 3.13.0, publicado em 13/11/2026, a gravação compartilhada da sessão acontece só no navegador; isso não impõe uma única sessão no backend, e vários aparelhos continuam permitidos.
 
+## C8: início agregado
+
+Estado: **Ainda não publicado**. O backend implementa `GET /me/inicio` para reunir em uma chamada as quatro leituras usadas no início do aplicativo. “Agregado” significa que a resposta junta informações antes consultadas separadamente. A adaptação do front segue separada; esta entrega não confirma uso pela interface nem publicação.
+
+A consulta exige a mesma sessão Bearer (a credencial de acesso enviada pelo aplicativo) e senha definitiva das rotas individuais. Retorna HTTP 200, isto é, leitura bem-sucedida, com quatro campos obrigatórios, todos restritos à conta autenticada:
+
+| Campo | Origem equivalente | Conteúdo |
+|---|---|---|
+| `cota` | `GET /empresas/cota` | Mesmo objeto da cota diária do Empresas; não é a cota de buscas de concursos. Inclui `dia`, `chamadas`, `limite_chamadas`, `custo_usd`, `limite_usd`, `chamadas_restantes` e `esgotada`. |
+| `acompanhados` | `GET /me/acompanhando` | Mesma lista de concursos, com datas e metadados, ordenada por próxima data futura, criação e identificador. Sem acompanhados, retorna lista vazia. |
+| `perfil` | `GET /profile` | Mesmo objeto completo do Perfil de concursos, incluindo `updated_at` (data da atualização). Se nunca foi salvo, retorna objeto com campos nulos e `updated_at` gerado no instante da leitura, em vez de `null` no lugar do objeto. |
+| `nao_lidas` | `GET /me/novidades` | Mesmo contador: inteiro não negativo com todas as novidades não lidas da conta, sem limite de página, sem textos nem lista de novidades. |
+
+Sem uso prévio, a cota tem consumo zero. Mesmo esgotada, a consulta retorna HTTP 200 com `esgotada: true`. A leitura não consome nem reserva chamadas de IA, não cria perfil, não marca novidades como lidas e não consulta provedores externos. A autenticação mantém a renovação usual da sessão.
+
+Sessão ausente, inválida, expirada ou revogada, ou conta inativa, resulta em 401 (acesso não autorizado). Senha provisória resulta em 403 (acesso impedido), com `detail: "senha_provisoria"`; é necessário definir a senha definitiva. Não há resposta parcial: falha em uma leitura falha a requisição inteira. As consultas usam uma mesma sessão de banco, mas isso não garante que todos os campos retratem o mesmo instante se outra requisição alterar dados durante a leitura.
+
+As quatro rotas individuais permanecem disponíveis com contratos intactos por uma versão, como alternativa de recuperação (fallback). O aplicativo pode substituir as quatro chamadas pela agregada; isso depende da adaptação do front. O lote é entregue sem migração de banco e preserva as regras de [cota do Empresas](empresas.md#cota-diária-de-ia) e de [Novidades e acompanhamento](funcionalidades.md#avisos-e-prazos-publicados-e-mail-ligado).
+
 ## Carreira
 
 A aba Carreira **só aparece** quando **`GET /empresas/cota` responde** e confirma a disponibilidade do backend Empresas. Oferece duas opções:
