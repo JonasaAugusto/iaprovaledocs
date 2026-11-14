@@ -6,6 +6,7 @@ Este repositório é público e documenta **o que o produto faz** (funcionalidad
 
 ## Índice
 
+- C14, **ainda não publicado em produção**: [link de compartilhamento de busca](docs/funcionalidades.md#c14-link-de-compartilhamento-de-busca), só com títulos e links públicos, válido por 7 dias; [troca, revogação e privacidade](docs/configuracoes-do-usuario.md#c14-gerenciar-links-de-busca) e [migração v3.29 e proteção da credencial nos registros de acesso](docs/pre-deploy.md#c14-compartilhamento-e-proteção-do-link). Telas pendentes.
 - [Funcionalidades](docs/funcionalidades.md): o que já existia e o que foi acrescentado, com o estado de cada item. Novidades, alertas e acompanhamento publicados; envio de e-mail ligado via Brevo desde 12/11/2026.
 - Correções C1, **ainda não publicadas**: [erro de upload acima de 5 MB](docs/empresas.md#c1-erro-de-tamanho), [identificação da conexão](docs/versao-gratis.md#c1-identificação-da-conexão), [limites do PDF de concursos](docs/funcionalidades.md#c1-limites-do-pdf-de-concursos) e [validação de um único processo da API](docs/pre-deploy.md#c1-validação-antes-da-publicação).
 - C4, **ainda não publicado**: [histórico enxuto](docs/configuracoes-do-usuario.md#c4-histórico-enxuto), com até 100 resultados por nova busca, só identificador, título e link; [retenção diretamente no banco e índice reversível](docs/pre-deploy.md#c4-histórico-e-retenção), preservando prazos e registros antigos.

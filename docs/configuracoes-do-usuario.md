@@ -95,6 +95,16 @@ Cada nova busca guarda até 100 resultados, somente com identificador (`id`), t�
 
 Os registros anteriores não são reescritos e podem continuar contendo os detalhes antigos até saírem pelas regras vigentes: no máximo as últimas 10 buscas e retenção de 90 dias. Permanecem as ações de apagar uma busca ou todas e a remoção com a exclusão da conta. A exportação dos dados acompanha o conteúdo efetivamente salvo, sem reconstruir os detalhes ausentes das novas buscas. A consulta ao histórico não garante que os prazos originais continuem válidos; confira o link do concurso.
 
+## C14: gerenciar links de busca
+
+Estado: **Ainda não publicado em produção**. Para [compartilhar resultados do histórico](funcionalidades.md#c14-link-de-compartilhamento-de-busca), só o dono da conta pode gerar, trocar e revogar o link, com sessão autenticada. Há um link por busca e no máximo 10 buscas por conta, seguindo o limite do histórico. A validade é de 7 dias a partir da emissão, aplicada no servidor. Trocar gera um novo link e o antigo deixa de valer imediatamente; revogar impede novas leituras por aquele link.
+
+O link é uma credencial de leitura: quem o tem pode repassá-lo. Mesmo sem revelar os critérios, títulos e links podem indicar interesses da pessoa. Compartilhe com cuidado; revogar não remove cópias já feitas, e sair da sessão não revoga o link. Link inexistente, expirado, revogado ou de conta inativa recebe a mesma resposta 404, com “Link indisponível.”. Busca apagada ou com mais de 90 dias e conta com troca de senha obrigatória também recebem essa resposta.
+
+Somente o hash SHA-256 do token é guardado; o token não é recuperável a partir dele. A exportação não inclui os registros de compartilhamento: nem estado, expiração, token ou hash; o histórico continua incluído conforme seu conteúdo salvo. A exclusão da conta apaga os links; apagar ou podar a busca também remove seu compartilhamento.
+
+As telas de gerar, trocar e revogar ainda dependem da interface. A liberação exige também a [migração e proteção da credencial nos registros de acesso](pre-deploy.md#c14-compartilhamento-e-proteção-do-link).
+
 ## Dados e privacidade
 
 - **Baixar meus dados:** um arquivo com o que o IAprovale guarda sobre a pessoa: perfil, currículo, histórico de buscas, o registro de uso de buscas por dia, a data de criação da conta, o telefone cadastrado (e se foi verificado) e a data do último acesso. Não inclui senha nem dados de outras pessoas.

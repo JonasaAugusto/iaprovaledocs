@@ -50,6 +50,16 @@ Estado: **Publicado em 13/11/2026**, front **3.13.0**. O texto da busca fica for
 
 Um link antigo com `?q=` abre a busca uma vez e a URL é limpa. Copiar o endereço da página não compartilha a busca; quem recebe o link precisa informar os critérios. Esse histórico de navegação é diferente do [histórico de buscas da conta](configuracoes-do-usuario.md#c4-histórico-enxuto), que tem retenção própria no serviço. A mudança na URL da página não significa que o texto deixou de ser enviado à API para executar a busca.
 
+## C14: link de compartilhamento de busca
+
+Estado: **Ainda não publicado em produção**. O dono pode gerar um link para compartilhar os resultados de uma busca salva no histórico. Quem recebe o link acessa até 100 resultados, com somente títulos e links públicos dos concursos, sem precisar entrar na conta. A resposta não revela o texto da busca, resumo, currículo, perfil nem dados da conta; também não inclui identificadores internos. Ela não refaz a busca: os resultados são os guardados no histórico, e os prazos podem ter mudado.
+
+Somente endereços http e https com destino válido aparecem nos resultados compartilhados. Um resultado sem endereço válido mantém o título, com link nulo. Na emissão, endereços não permitidos também são removidos dos campos de link do histórico; títulos e demais campos são preservados.
+
+O acesso público tem limite de 30 consultas por minuto por endereço IPv4 ou rede IPv6 /64. O limite é por processo e em memória, reinicia com o processo e não é compartilhado entre processos. O excesso responde HTTP 429, com espera de 60 segundos indicada em `Retry-After: 60`.
+
+O link aponta para uma resposta de dados da API; a interface de apresentação ainda está pendente. Copiar o endereço comum da página de busca continua sem compartilhar os resultados. Veja [validade, troca, revogação e cuidados](configuracoes-do-usuario.md#c14-gerenciar-links-de-busca) e os [requisitos antes da liberação](pre-deploy.md#c14-compartilhamento-e-proteção-do-link).
+
 ## C1: limites do PDF de concursos
 
 Estado: **Ainda não publicado**. O lote C1 valida os dados enviados à rota autenticada `POST /pdf` antes de gerar o PDF dos resultados de concursos. O PDF continua disponível; a correção acrescenta os limites abaixo ao pedido de geração. Cada nome entre crases identifica um campo da integração.
