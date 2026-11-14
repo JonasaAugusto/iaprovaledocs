@@ -112,6 +112,18 @@ Validar com contas e dados descartáveis: gerar, trocar e revogar o link, recusa
 
 O contrato de [alerta por termo e UFs](funcionalidades.md#c12-contrato-de-alerta-por-busca) não exige uma migração adicional neste lote. Os controles de calendário nas Configurações e o atalho de alerta com a busca atual dependem da interface. Liberação pela operação autorizada, após conferir essas dependências.
 
+## C13: checklist e versões do perfil
+
+Estado: **Ainda não publicado em produção**. A migração v3.28 do [checklist](funcionalidades.md#c13-checklist-de-inscrição) e das [versões do perfil](configuracoes-do-usuario.md#c13-versões-do-perfil) é aditiva e idempotente: cria as duas estruturas com exclusão em cascata, sem alterar perfil e acompanhados existentes. Não preenche versões retroativas nem roda automaticamente ao iniciar o servidor.
+
+É obrigatória antes do código novo: com esquema antigo falham `PUT /profile`, exportação, exclusão de conta e `DELETE /me/curriculo`. O código anterior funciona com o esquema novo. Preservar também as dependências de migração e os cuidados dos demais lotes; esta documentação não atesta sua execução em produção.
+
+Validar com contas e dados descartáveis: isolamento, limite de 30 itens, respostas 409/404/422, exclusão do checklist ao deixar de acompanhar, retenção de 20 versões e ausência de texto do currículo nas versões. Conferir diff limitado à indicação de alteração do currículo e limpeza de texto legado, hash e tamanho por ambas as formas de apagar o currículo, inclusive quando o atual estiver vazio. Confirmar exportação e exclusão de conta abrangendo checklist e versões, sem dados de outra conta.
+
+Se o código anterior for retomado, suas alterações não geram versões; uma retomada posterior pode comparar uma base defasada. Retirar o código que usa as estruturas novas antes da reversão do esquema. O downgrade exige a confirmação explícita `--confirmar`; sem ela, recusa a operação. A reversão apaga checklist e versões, preservando perfil e acompanhados, sem recuperar o histórico depois de reaplicar a migração.
+
+A eliminação lógica não garante remoção imediata de resíduos físicos do banco nem de backups. Prazos e tratamento das cópias residuais exigem validação jurídica antes da liberação. A interface também é uma entrega pendente. Publicação e reversão dependem da operação autorizada.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.

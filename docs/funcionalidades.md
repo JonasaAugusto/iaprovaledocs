@@ -225,6 +225,24 @@ Para integrações autenticadas da própria conta, `POST /me/alertas` aceita, po
 - `usar_perfil` assume falso e `ativo` assume verdadeiro quando omitidos. São até dez alertas por conta; exceder retorna 409. Repetir o pedido cria outro alerta: não deduplica.
 - `GET /me/alertas` lista os alertas da conta; `PATCH /me/alertas/{id}` edita e `DELETE /me/alertas/{id}` exclui. Um alerta de outra conta retorna 404, sem permitir leitura ou alteração.
 
+## C13: checklist de inscrição
+
+Estado: **Ainda não publicado em produção**. Checklist e [versões do perfil](configuracoes-do-usuario.md#c13-versões-do-perfil) estão implementados no backend; os controles visuais dependem da interface. A liberação exige a [migração e validação do C13](pre-deploy.md#c13-checklist-e-versões-do-perfil).
+
+Cada concurso acompanhado pode ter até 30 itens pessoais, como documentos, isenção e taxa, conforme o edital. Eles não são criados automaticamente. Contas que acompanham o mesmo concurso têm checklists independentes. Todas as rotas exigem sessão ativa e senha definitiva.
+
+| Método e rota | Resultado |
+| --- | --- |
+| `GET /me/acompanhando/{concurso_id}/checklist` | Lista por criação e ID; vazia sem itens |
+| `POST /me/acompanhando/{concurso_id}/checklist` | Cria item; HTTP 201 |
+| `GET /me/acompanhando/{concurso_id}/checklist/{item_id}` | Consulta um item |
+| `PATCH /me/acompanhando/{concurso_id}/checklist/{item_id}` | Altera só os campos enviados |
+| `DELETE /me/acompanhando/{concurso_id}/checklist/{item_id}` | Apaga item; HTTP 204 sem corpo |
+
+O item recebe `texto` de 1 a 200 caracteres após remover espaços nas pontas e `concluido`, booleano estrito com padrão falso. A edição não aceita null. A resposta contém `id` (UUID), `texto`, `concluido` e `criado_em`. Exceder 30 itens retorna HTTP 409. Concurso não acompanhado pela conta ou item inexistente ou alheio retorna 404.
+
+O `concurso_id` numérico aceita de 1 a 2147483647, inclusive na exclusão do acompanhamento; fora dessa faixa retorna HTTP 422, sem erro interno 500. O `item_id` deve ser UUID válido. Deixar de acompanhar apaga o checklist daquela conta; ao acompanhar novamente, começa vazio. Exportação e exclusão da conta cobrem checklist e versões, conforme [Dados e privacidade do C13](configuracoes-do-usuario.md#c13-versões-do-perfil).
+
 ## Compatibilidade entre perfil e cargos — etapa 3
 
 Estado: **No ar**, conforme a publicação informada em 12/11/2026, em **Alertas > Acompanhando**. A consulta autenticada `GET /concursos/{id}/compatibilidade` usa o link da própria lista de acompanhados e o cache de Informações. Cada cargo recebe `combina`, `parcial` ou `nao_combina`, com motivo e lacunas; sem formação/escolaridade no perfil, o resultado geral é `sem_perfil`, sem chamadas externas ou cota.
