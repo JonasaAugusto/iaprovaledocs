@@ -1,6 +1,6 @@
-# Referência da API: administração e erros
+# Referência da API: administração, erros e exportação fiscal
 
-Esta referência cobre as mudanças de segurança T4 e T3, implementadas e **ainda não publicadas em produção**. Não é um catálogo completo de rotas. Autenticação e respostas de sucesso mantêm seus contratos anteriores.
+Esta referência cobre as mudanças de segurança T4 e T3 e a exportação fiscal T5, implementadas e **ainda não publicadas em produção**. Não é um catálogo completo de rotas. Autenticação e respostas de sucesso das rotas de administração e busca mantêm seus contratos anteriores.
 
 ## Acesso administrativo
 
@@ -31,3 +31,11 @@ Estado de T3: **Ainda não publicado em produção**.
 Esses casos não devolvem o corpo bruto nem o texto interno de erro do fornecedor. Os contratos de sucesso e o código 502 permanecem. A tabela delimita as falhas corrigidas; outras validações e erros conservam suas mensagens e códigos próprios, inclusive o 503 quando o pagamento não está configurado.
 
 Os diagnósticos dessas integrações e as limitações dos registros estão em [Privacidade e segurança](privacidade-e-seguranca.md#respostas-e-registros-de-diagnóstico).
+
+## T5: exportação de registros fiscais
+
+Estado: **Ainda não publicado em produção**; **recurso desligado**, previsto somente quando houver cobrança.
+
+`GET /me/exportar` é uma exportação autenticada e inclui somente os registros da própria conta. Com o recurso desligado, a resposta não inclui o bloco `registros_fiscais`. Quando ligado, acrescenta esse bloco com `aviso` sobre a retenção legal e `notas`, uma lista vazia se a pessoa não tiver registros.
+
+Cada nota contém `numero_nota`, `valor_centavos`, `emitida_em`, `documento_pagador`, `nome_pagador`, `pedido_ref`, `criada_em` (data de criação do registro) e `reter_ate`, sem identificadores internos do registro ou do titular. Os demais blocos da exportação permanecem. Veja a [retenção de cinco anos e as exceções após excluir a conta](privacidade-e-seguranca.md#t5-registros-fiscais).
