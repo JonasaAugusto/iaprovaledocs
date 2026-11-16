@@ -134,6 +134,16 @@ Validar com contas e dados descartáveis: geração somente pelo dono autenticad
 
 Retirar o código que depende da tabela antes de reverter o esquema. A reversão apaga os links e preserva o histórico; reaplicar a migração não recupera links anteriores. A liberação depende da conferência dessas condições pela operação autorizada.
 
+## T5: registros fiscais
+
+Estado: **Ainda não publicado em produção**; **recurso desligado**. Só ativar quando houver cobrança, após validação jurídica e operacional.
+
+Aplicar a migração v3.30, `scripts/migrate_v3_30_registros_fiscais.py`, antes do código novo e antes de ligar o recurso. É aditiva e idempotente, cria o armazenamento fiscal separado e permite que o código anterior continue funcionando com o esquema novo. Preservar as dependências dos demais lotes. Esta página não atesta execução em produção.
+
+Validar com contas e dados descartáveis: recurso desligado sem criação de notas e sem bloco fiscal na exportação; recurso ligado com exportação somente do próprio titular; retenção de 5 anos desde a emissão e limpeza após o prazo, inclusive se o recurso voltar a ser desligado. Na exclusão, validar remoção dos demais dados e preservação apenas do registro fiscal e do pedido de exclusão sem dados pessoais, pelo prazo indicado em [Privacidade e segurança](privacidade-e-seguranca.md#t5-registros-fiscais). Validar também o hash de IP dos pedidos por 7 dias, sem alterar os demais prazos.
+
+Antes de qualquer reversão do esquema, retirar o código que usa a tabela. A reversão apaga registros fiscais; não deve eliminar obrigações de retenção vigentes. Migração, ativação e reversão dependem da operação autorizada.
+
 ## Ordem da publicação
 
 Referência para futuras instalações ou liberações; os passos abaixo não são comandos para repetir a publicação já informada.

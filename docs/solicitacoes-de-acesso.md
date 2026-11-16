@@ -53,4 +53,4 @@ Quando chega um pedido, o responsável recebe um aviso informativo, com o usuár
 
 Pedidos pendentes ou recusados são apagados automaticamente depois de 90 dias. Pedidos aprovados ficam enquanto a conta existir e saem junto com ela.
 
-T6, **ainda não publicado em produção**: o hash de IP de todos os pedidos, inclusive aprovados, é removido aos 30 dias desde a criação, preservando o pedido aprovado. Veja [retenção e exclusão](privacidade-e-seguranca.md#retenção-e-exclusão), incluindo os prazos e a limpeza diária às 03:30, horário de Brasília.
+T6, **ainda não publicado em produção**: o hash de IP de todos os pedidos, inclusive aprovados, é removido aos 7 dias desde a criação, preservando o pedido aprovado. Veja [retenção e exclusão](privacidade-e-seguranca.md#retenção-e-exclusão), incluindo os prazos e a limpeza diária às 03:30, horário de Brasília.

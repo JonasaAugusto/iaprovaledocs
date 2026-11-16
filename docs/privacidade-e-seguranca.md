@@ -1,6 +1,6 @@
 # Privacidade e segurança
 
-Esta página descreve armazenamento no navegador e as mudanças T4, T3 e T6 implementadas, **ainda não publicadas em produção**. Não altera os textos legais vigentes nem anuncia um novo aceite. Veja os [Termos e a Política de Privacidade](versao-gratis.md#termos-de-uso-e-política-de-privacidade).
+Esta página descreve armazenamento no navegador e as mudanças T4, T3, T5 e T6 implementadas, **ainda não publicadas em produção**. Não altera os textos legais vigentes nem anuncia um novo aceite. Veja os [Termos e a Política de Privacidade](versao-gratis.md#termos-de-uso-e-política-de-privacidade).
 
 ## Acesso à administração
 
@@ -20,7 +20,7 @@ Estado de T6: **Ainda não publicado em produção**. A rotina de limpeza foi im
 
 | Registro | Prazo e ação da limpeza |
 | --- | --- |
-| Hash de IP dos pedidos, inclusive aprovados | 30 dias desde a criação; remove só o hash, preservando o pedido aprovado |
+| Hash de IP dos pedidos, inclusive aprovados | 7 dias desde a criação; remove só o hash, preservando o pedido aprovado |
 | Falhas de login | 1 dia |
 | Eventos do cadastro | 2 dias |
 | Sessões do cadastro | Vencidas há mais de 1 dia ou criadas há 30 dias |
@@ -31,9 +31,19 @@ O hash é um identificador protegido do IP; não é o IP em texto claro. O IP do
 
 Os prazos são critérios da limpeza diária, não garantia de remoção no segundo exato do vencimento. Há limite por execução para a limpeza dos identificadores de rede; um acúmulo pode exigir execuções seguintes. Falhas de login têm retenção de 1 dia; isso não muda a duração do bloqueio temporário de autenticação.
 
-Pedidos pendentes ou recusados continuam sujeitos à retenção de 90 dias; pedidos aprovados permanecem enquanto a conta existir e saem com ela, mas seu hash de IP passa a seguir o prazo menor da tabela. Histórico e [eventos de busca](eventos-de-busca.md) continuam com retenção de 90 dias. As regras próprias de Novidades, currículo e materiais permanecem nas respectivas páginas.
+Pedidos pendentes ou recusados continuam sujeitos à retenção de 90 dias; pedidos aprovados permanecem enquanto a conta existir e saem com ela, mas seu hash de IP passa a seguir o prazo de 7 dias da tabela. Histórico e [eventos de busca](eventos-de-busca.md) continuam com retenção de 90 dias. As regras próprias de Novidades, currículo e materiais permanecem nas respectivas páginas.
 
 A exclusão da conta apaga também o aceite completo dos termos: data, versão e IP. Data e versão não são mantidas separadamente como prova após a exclusão. Esta descrição não substitui a validação jurídica pendente dos textos legais.
+
+## T5: registros fiscais
+
+Estado: **Ainda não publicado em produção**; **recurso desligado**. O recurso só entra quando houver cobrança. Não inicia cobrança nem emite notas por si só.
+
+O registro fiscal é separado da conta e contém número, valor, data de emissão, nome e documento do pagador e referência do pedido. É guardado por obrigação legal por **5 anos após a emissão**, mesmo após a exclusão da conta, e depois apagado pela limpeza diária. A pessoa vê os registros dela na [exportação autenticada](referencia-api.md#t5-exportação-de-registros-fiscais).
+
+A exclusão da conta apaga os demais dados, inclusive o aceite completo. Mantém somente o registro fiscal pelo prazo acima e o registro do pedido de exclusão, com apenas identificador, datas e estado, sem dados pessoais, por até 90 dias desde a criação do pedido, sujeito à limpeza diária. O telefone é removido dos pedidos de exclusão ao apagar a conta.
+
+Esses prazos descrevem os registros na base ativa. A eliminação lógica não garante remoção física imediata nem apagamento de backups, que seguem rotação própria. O tratamento das cópias residuais e os textos legais continuam sujeitos à validação jurídica; esta descrição não anuncia um novo aceite.
 
 ## Armazenamento no navegador
 
